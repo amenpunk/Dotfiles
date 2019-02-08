@@ -1,0 +1,5 @@
+Dec 31 06:24 : exception: Failed to access /home/atom/Music: No such file or directory
+Dec 31 06:24 : exception: Failed to open /home/atom/.mpd/state: No such file or directory
+Dec 31 06:24 : exception: inotify_add_watch() has failed: No such file or directory
+Dec 31 06:24 : exception: OutputThread could not get realtime scheduling, continuing anyway: sched_setscheduler failed: Operation not permitted
+Dec 31 06:24 : avahi: Service 'Music Player' successfully established.
