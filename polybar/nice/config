@@ -16,8 +16,8 @@
 ;==========================================================
 
 [colors]
-background = ${xrdb:color0:#222}
-;background =  #212121
+;background = ${xrdb:color0:#222}
+background =  #212121
 ;background =  #ffffff
 ;background = #00000000
 background-alt = #3d3d3d
@@ -29,13 +29,12 @@ secondary = #ffffff
 alert = #bd2c40
 
 [bar/example]
-#monitor = ${env:MONITOR:XWAYLAND0}
 monitor = ${env:MONITOR:eDP1}
 width = 100%
-height = 25
-offset-x = 1%
+height = 27
+;offset-x = 2%
 offset-y = 0.5%
-radius = 3.0
+;radius = 3.0
 fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -47,8 +46,8 @@ line-color = #f00
 ;border-size = 4
 ;border-color = #00000000
 
-padding-left= 1
-padding-right = 1
+padding-left= 2
+padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 1
@@ -62,11 +61,12 @@ font-5 = FontAwesome5 Free:pixelsize=10;0
 font-6 = WenQuanYiMicroHeiMono:pixelsize=9;3
 font-7 = "Noto Sans CJK JP:size=8:antialias=false;1"
 
-modules-left =  previous spotify next
+
+modules-left = mpd spotify
 ;modules-center = mpd previous spotify next
 modules-center = i3
 ;modules-center = mpd
-modules-right =  alsa pulseaudio memory cpu eth battery wlan date powermenu  
+modules-right =  memory cpu eth battery temperature wlan date my-text-label powermenu
 ;pulseaudio
 tray-position = right
 tray-padding = 2
@@ -85,7 +85,7 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-;cursor-scroll = ns-resize
+cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
@@ -155,7 +155,7 @@ label-mode-background = ${colors.primary}
 
 
 
-focused = Active workspace on focused monitor
+; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
@@ -176,8 +176,8 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-;Separator in between workspaces
-;label-separator = |
+; Separator in between workspaces
+; label-separator = |
 
 
 [module/mpd]
@@ -210,7 +210,7 @@ icon-single = 
 icon-consume = 
 content-background = ##ffffff
 
-bar-progress-width = 10
+bar-progress-width = 25
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = ─
@@ -245,7 +245,7 @@ interval = 1
 format = <label>
 format-prefix =  
 format-prefix-foreground = #067c02
-exec = python ~/.config/polybar/spotify_status.py -f '{song} - {artist}' -t 12
+exec = python ~/.config/polybar/spotify_status.py -f '{song} - {artist}' -t 30
 format-underline = #1db954
 label-focused = #6ef442
 label-foreground = #ffffff
@@ -269,7 +269,7 @@ label =  %percentage:2%%
 
 [module/my-text-label]
 type = custom/text
-content =  Arch
+content =  Arch Linux
 ;content =  Ubuntu
 ;content =  Ｃｙｂｅｒｎｅｔｉｃ 日本
 ;content = ｐｕｎＫ私は死ぬ
@@ -307,7 +307,6 @@ interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #a80d22
 label-connected = %essid%
-label-foreground = #ffffff
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
@@ -320,7 +319,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = #ffffff
+ramp-signal-foreground = ${colors.foreground-alt}
 content-background = #fff
 
 [module/eth]
@@ -363,7 +362,6 @@ type = internal/pulseaudio
 format-volume = <label-volume> 
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
-label-volume-underline = #bd2c40
 
 label-muted =  muted
 label-muted-foreground = #ff0000
@@ -391,15 +389,12 @@ type = internal/alsa
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL
 label-volume-foreground = ${root.foreground}
-label-format-underline = #1db954
-lable-volume-underline = #1db954
 
 ;format-muted-prefix = 
 format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
-
-bar-volume-width = 7
+bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
