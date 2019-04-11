@@ -1,0 +1,2 @@
+rofi -modi combi -show combi -combi-modi drun, ejecutar 
+-no-levenshtein-sort

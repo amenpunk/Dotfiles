@@ -1,0 +1,5 @@
+set linenumbers
+include /usr/share/nano/sh.nanorc
+include /usr/share/nano/c.nanorc
+include /usr/share/nano/java.nanorc
+include /usr/share/nano/html.nanorc
