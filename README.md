@@ -1,4 +1,5 @@
-#             btw i use arch
+# btw i use arch
+<h1 align="center"> My archlinux config </h1>
 
 ``` bash
  ____   ___ _____ _____ ___ _     _____ ____  
