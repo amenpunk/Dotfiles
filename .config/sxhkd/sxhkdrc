@@ -1,0 +1,16 @@
+super + d
+	rofi -show run
+super + n
+	mocp -f
+super + b
+	mocp -r
+super + p
+	mocp -G
+super + m
+	flatpak run com.discordapp.Discord
+super + u
+	~/fehrand.sh
+Ctrl + alt + t
+	i3-sensible-terminal
+mod4 + Escape
+	GLITCHICON=~/glitchlock/stop.png ~/glitchlock/glitchlock
