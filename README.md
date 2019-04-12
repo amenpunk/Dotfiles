@@ -1,7 +1,6 @@
-# btw i use arch
-<h1 align="center"> My archlinux config </h1>
+<h1 align="center"> btw i use arch </h1>
 
-``` bash
+``` text
  ____   ___ _____ _____ ___ _     _____ ____  
 |  _ \ / _ \_   _|  ___|_ _| |   | ____/ ___| 
 | | | | | | || | | |_   | || |   |  _| \___ \ 
