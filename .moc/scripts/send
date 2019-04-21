@@ -1,0 +1,2 @@
+#!/bin/bash
+notify-send -i 1000 "Now Playing 🎧" "$1 - $2" -i "/home/cyberpunk/.moc/scripts/miku.png"
