@@ -1,0 +1,4 @@
+#!/bin/bash
+exec soundscrape $1
+exec mv ~/*mp3 ~/Downloads/Cloud/
+

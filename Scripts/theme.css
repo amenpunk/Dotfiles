@@ -1,0 +1,39 @@
+@import url('file:///home/cyberpunk/.cache/wal/colors.css')
+
+
+*{
+   background-image: --wallpaper !important;
+}
+
+
+html{
+  background-color: var(--color3) !important;
+  color: var(--color7) !important;
+}
+
+body {
+  /* Location of the image */
+  background-image: --wallpaper;
+  
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+  
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+  
+  /* Background image is fixed in the viewport so that it doesn't move when 
+  background-attachment: fixed;
+  
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+  
+  /* Set a background color that will be displayed
+     while the background image is loading */
+background-color: var(--color3) !important;
+}
+
+#imagen{
+  background-color: var(--color0) !important;
+}
+
