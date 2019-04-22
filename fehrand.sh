@@ -10,8 +10,7 @@ IMGFAV=/home/cyberpunk/Documents/wall/apex.jpg
   #feh --randomize --bg-fill $IMGDIR/$CURRENT 
   #feh --bg-fill $IMGDIR/$CURRENT
   #feh -F $IMGDIR/$CURRENT
-  wal -i $IMGDIR/$CURRENT 
-  
+  wal -i $IMGDIR/$CURRENT -o ~/Scripts/reload_dunst.sh 
   #wal -i $CURRENT/$IMGFAV
   #kill $pid 
  # sleep 120
