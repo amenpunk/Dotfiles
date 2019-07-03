@@ -9,7 +9,7 @@ super + p
 super + m
 	flatpak run com.discordapp.Discord
 super + u
-	~/fehrand.sh
+	~/fehrand.sh 
 Ctrl + alt + t
 	i3-sensible-terminal
 mod4 + Escape

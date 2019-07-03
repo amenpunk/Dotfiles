@@ -1,4 +1,4 @@
-;==========================================================
+==========================================================
 ;
 ;
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
@@ -16,7 +16,8 @@
 ;==========================================================
 
 [colors]
-background = ${xrdb:color0:#222}
+#background = ${xrdb:color0:#222}
+background = #00000000
 foreground = ${xrdb:color7:#222}
 foreground-alt = ${xrdb:color7:#222}
 primary = ${xrdb:color1:#222}
@@ -26,28 +27,31 @@ background-alt = ${xrdb:color4:#222}
 
 
 [bar/example]
-#monitor = ${env:MONITOR:XWAYLAND0}
+
+bottom = true
+;monitor = ${env:MONITOR:XWAYLAND0}
 monitor = ${env:MONITOR:eDP1}
 width = 100%
-height = 24
-offset-x = 1%
+height = 22
+offset-x = 0%
 offset-y = 0%
 
-;radius = 1
+;radius = 7
 fixed-center = true
-background = ${colors.background}
+background = #1e1e1e
+;background = ${colors.background}
 foreground = ${colors.foreground}
-enable-ipc = true
+;enable-ipc = true
 
 
-line-size = 3
+line-size = 2
 line-color = #f00
 
-;border-size = 4
-;border-color = #00000000
+border-size = 0
+border-color = #00000000
 
-padding-left= 1
-padding-right = 1
+padding-left= 0
+padding-right = 0
 
 module-margin-left = 1
 module-margin-right = 1
@@ -62,15 +66,16 @@ font-6 = WenQuanYiMicroHeiMono:pixelsize=9;3
 font-7 = "Noto Sans CJK JP:size=8:antialias=false;1"
 font-8 = font-logos:pixelsiz=8;1 
 
-modules-left =  my-text-label i3 
+modules-left = i3 xwindow 
+;mpd
 ;modules-left = powermenu date player-moc 
 ;modules-center = previous pĺayer-moc  spotify next
 ;modules-center = spotify player-moc
 modules-center = player-moc spotify
-modules-right = pulseaudio temperature memory cpu eth battery wlan powermenu
+modules-right = pulseaudio memory cpu eth battery wlan date
 ;pulseaudio
-;tray-position = center
-;tray-padding = 20
+tray-position = right
+tray-padding = 2
 ;tray-transparent = true
 ;tray-background = #0063ff
 
@@ -88,17 +93,31 @@ scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
 
 cursor-click = pointer
-;cursor-scroll = ns-resize
+cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
+;label-background = #fff
+;label-foreground = #000
+;label-padding = 4
+
 
 [module/info-hackspeed]
 type = custom/script
 exec = ~/polybar-scripts/info-hackspeed/info-hackspeed.sh
 tail = true
 
+
+[module/arch]
+type = custom/text
+content = ARCH
+;alt-icon =%{u#hex}
+content-padding = 6
+click-left = exec rofi -modi drun -show drun -show-icons
+click-middle = rfull
+click-right = rmenu_wi_g
+font = 8
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -147,6 +166,7 @@ label-empty-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
@@ -160,8 +180,9 @@ fuzzy-match = false
 label-mode-padding = 2
 label-mode-foreground = #222
 label-mode-background = ${colors.primary}
-;     
-ws-icon-0 = 1;
+;     
+
+ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
@@ -173,36 +194,39 @@ ws-icon-default =
 
 
 focused = Active workspace on focused monitor
-label-focused = %icon%
+;label-focused = %icon%
+label-focused = %index%
 label-focused-background = ${module/bspwm.label-focused-background}
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
-label-focused-underline = ${colors.primary}
+;label-focused-underline = ${colors.primary}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 label-focused-foreground = #e0fffe
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused =  %icon%
+;label-unfocused =  %icon%
+label-unfocused =  %index%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-label-unfocused-underline = ${module/bspwm.label-focused-underline}
+;label-unfocused-underline = ${module/bspwm.label-focused-underline}
 
 ; visible = Active workspace on unfocused monitor
+;label-visible = %icon%
 label-visible = %index%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+;label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%
+label-urgent = %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ;Separator in between workspaces
-;label-separator = |
+;label-separator = <
 
 
 [module/mpd]
 
-type = internal/mpdi
+type = internal/mpd
 format-online =  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next> <bar-progress> <label-time> <label-song>
 
 host = 127.0.0.1
@@ -383,15 +407,15 @@ interval = 5
 date =
 date-alt = "%Y/%m/%d"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %R
+;time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = #ffffff
 format-underline = #0a6cf5
 
-label = %date% %time%
-
+;label = %date% %time%
+label = %{A1:gsimplecal & disown:} %{A3:gsimplecal & disown:} %time%%{A} %{A}
 
 [module/pulseaudio]
 
@@ -399,7 +423,7 @@ type = internal/pulseaudio
 format-volume = <label-volume>
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
-label-volume-underline = #135dd6
+label-volume-underline = #2713c1
 
 label-muted =  muted
 label-muted-foreground = #af1dad
@@ -523,7 +547,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-size = 5
 label-open-foreground = ${colors.secondary}
 label-close =  Cancel
@@ -554,8 +578,8 @@ screenchange-reload = true
 ;compositing-border = over
 
 [global/wm]
-margin-top = 50
-margin-bottom = 50
+margin-top = 1
+margin-bottom = 5
 
 ; vim:ft=dosini
 
@@ -650,6 +674,7 @@ font-4 = FontAwesome5 Brands:pixelsize=10;0
 font-5 = FontAwesome5 Free:pixelsize=10;0
 font-6 = WenQuanYiMicroHeiMono:pixelsize=9;3
 font-7 = "Noto Sans CJK JP:size=8:antialias=false;1"
+font-8 = font-logos:pixelsize=8;1 
 
 modules-left = nm-applet
 modules-center =
@@ -678,3 +703,4 @@ cursor-click = pointer
 type = custom/text
 content = YOUR ICON HERE
 glick-left = nm-applet
+

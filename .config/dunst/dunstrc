@@ -29,7 +29,7 @@
     # the top and down respectively.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "550x4-20+20"
+    geometry = "500x6-30+30"
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = yes
@@ -88,7 +88,7 @@
 
     #font = Iosevka Bold 10
     
-    font = undefined-medium 10
+    font = Droid Sans Mono 10
 
 
     # The spacing between lines.  If the height is smaller than the
@@ -277,7 +277,7 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = -bf
+    background = "#1e1e1e"
     foreground = "#ffffff"
     frame_color = "#1e1e1e"
     timeout =3 
@@ -285,7 +285,7 @@
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = -cb
+    background = "#1e1e1e"
     foreground = "#ffffff"
     frame_color = "#1e1e1e"
     timeout = 3
@@ -293,7 +293,7 @@
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = -nf
+    background = "#1e1e1e"
     foreground = "#ffffff"
     frame_color ="#1e1e1e"
     timeout =3
@@ -368,11 +368,11 @@
 #    msg_urgency = critical
 #    fullscreen = show
 
-[telegram]
-    appname = telegram
-    urgency = normal
-    background = "#a0363f"
-    foreground = "#ff22ff"
+#[telegram]
+#    appname = telegram
+#    urgency = normal
+#    background = "#a0363f"
+#    foreground = "#ff22ff"
 
 
 #[espeak]

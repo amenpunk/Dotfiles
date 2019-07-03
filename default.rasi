@@ -25,11 +25,13 @@
   spacing: 0;
   background-color: transparent;
 
-  font: "Knack Nerd Font 14";
+  font: "Droid Sans Mono 9";
   text-color: @text;
 }
 
 window {
+  fullscreen: true;
+  location: west;
   transparency: "real";
   fullscreen: true;
   background-color: #262626dd;

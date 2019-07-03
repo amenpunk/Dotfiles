@@ -1,15 +1,52 @@
-# Path to your oh-my-bash installation.
+#Path to your oh-my-bash installation.
 export OSH=/home/cyberpunk/.oh-my-bash
+#powerline
 
+## --------- Config for powerline-bash
+alias muxt="powerline-config tmux setup"
+alias music='tmux new-session "tmux source-file ~/.ncmpcpp/tmux_session"'
+
+function _update_ps1() {
+    PS1=$(powerline-shell $?)
+}
+
+if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
+## -- end of powerline-bash
+
+
+# powerline-daemon -q
+# POWERLINE_BASH_CONTINUATION=1
+# POWERLINE_BASH_SELECT=1
+# . /usr/lib/python3.7/site-packages/powerline/bindings/bash/powerline.sh
+# 
+#source "$HOME/.cache/wal/colors.sh"
+#cat /home/cyberpunk/.cache/wal/sequences
+
+#function _update_ps1() {
+#    PS1=$(powerline-shell $?)
+#}
+#
+#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
+
+
+#(wal -r &)
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
 #OSH_THEME="demula"
 #OSH_THEME="zork"
 #OSH_THEME="brunton"
 #OSH_THEME="mairan"
-#OSH_THEME="powerline"
-OSH_THEME="powerline-multiline"
+OSH_THEME="powerline"
+#OSH_THEME="powerline-naked"
+#OSH_THEME="powerline-plain"
+#OSH_THEME="powerline-multiline"
 #OSH_THEME="random"
+#OSH_THEME="binaryanomaly"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -58,23 +95,23 @@ completions=(
   composer
   ssh
 )
-
+#
 # Which aliases would you like to load? (aliases can be found in ~/.oh-my-bash/aliases/*)
 # Custom aliases may be added to ~/.oh-my-bash/custom/aliases/
 # Example format: aliases=(vagrant composer git-avh)
 # Add wisely, as too many aliases slow down shell startup.
-aliases=(
-  general
-)
+#aliases=(
+#  general
+#)
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-bash/plugins/*)
 # Custom plugins may be added to ~/.oh-my-bash/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  bashmarks
-)
+#plugins=(
+#  git
+#  bashmarks
+#)
 
 source $OSH/oh-my-bash.sh
 
@@ -105,3 +142,5 @@ source $OSH/oh-my-bash.sh
 # Example aliases
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
+#POWER LINE TMUX
+#(powerline-config tmux setup &)
