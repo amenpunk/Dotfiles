@@ -4,26 +4,27 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #exec_always killall dunst
-exec --no-startup-id i3-battery-popup
+#exec --no-startup-id i3-battery-popup
 exec_always "setxkbmap -layout latam"
 exec_always --no-startup-id "dunst"
 #exec_always "xrdb -remove *"
 exec_always "xrdb -merge ./.Xresources"
-exec_always feh --bg-fill /home/cyberpunk/Documents/wall/favo.png
-#exec_always feh --bg-scale --no-xinerama /home/cyberpunk/Downloads/altas/rojo.jpg
+#exec_always feh --bg-fill /home/cyberpunk/Documents/wall/favo.png
+exec_always feh --bg-scale --no-xinerama /home/cyberpunk/Downloads/gun.jpg
 exec_always --no-startup-id compton &
 #exec_always systemctl --user start sxhkd
 exec_always synclient TapButton1=1
 exec_always blueman-applet
 exec_always nm-applet 
-exec_always indicator-stickynotes
+#exec_always volumeicon
+#exec_always indicator-stickynotes
 #focus_follows_mouse
 #exec_always  "sass /home/cyberpunk/Scripts/sass/per.scss:/home/cyberpunk/Scripts/css/my-css.css"
 #exec_always --no-startup-id "~/batstatus.sh"
 exec_always --no-startup-id flashfocus
 #exec_always --no-startup-id  "~/fehrand.sh" 
 #CONFIG FOR THE COLOR
-exec_always xrandr --output eDP1 --primary --mode 1366x768 --pos 0x720 --rotate normal --output HDMI1 --mode 1280x720 --pos 86x0 --rotate normal --output VIRTUAL1 --off
+#exec_always xrandr --output eDP1 --primary --mode 1366x768 --pos 0x720 --rotate normal --output HDMI1 --mode 1280x720 --pos 86x0 --rotate normal --output VIRTUAL1 --off
 
 
 set_from_resource $ag i3wm.color0 #f0f0f0
@@ -109,8 +110,8 @@ bindsym $mod+Shift+q kill
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-#bindsym $mod+h focus left
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+#bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -122,7 +123,8 @@ bindsym $mod+Right focus right
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+#bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -131,7 +133,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+b split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -233,27 +235,28 @@ bindsym $mod+r mode "resize"
 
 #bar {
 ##position top
-#tray_output primary
+##tray_output primary
 #
 ### CONFIGURATION FOR TRANSPARENT APPLETS
 #
 #i3bar_command i3bar -t
 #
 #
-#font pango: Droid Sans Mono, FontAwesome 8
-#tray_output none
+#font pango: Droid Sans Mono, FontAwesome 9
+##tray_output none
 ##status_command bumblebee-status -m spotify mocp cpu memory battery brightness pasink date time -t greyish-powerline
 #
-#status_command bumblebee-status -m  spotify mocp cpu memory battery brightness pasink date time -t greyish-powerline -p time.format="%H:%M"
-##status_command i3blocks -c /etc/i3blocks.conf
+##status_command bumblebee-status -m  spotify mocp cpu memory battery brightness pasink date time -t greyish-powerline -p time.format="%H:%M"
+##status_command bumblebee-status -m traffic  indicator spotify mocp cpu memory battery bluetooth brightness pasink date time -t greyish-powerline -p time.format="%H:%M"
+#status_command i3blocks -c /etc/i3blocks.conf
 ##status_command i3blocks
-#mode dock
+##mode dock
 ##workspace_buttons no
-#font pango:Droid Sans Mono 8
+#font pango:Droid Sans Mono 9
 #
 #colors {
-#                #background #1e1e1e
-#                background #ffffff01
+#                background #1e1e1e
+#                #background #ffffff01
 #                statusline $bg
 #                separator  $ag
 #

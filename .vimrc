@@ -7,8 +7,8 @@ colorscheme wal
 
 
 "colorscheme monokai_pro 
-
-
+set ignorecase
+set winwidth=110
 set number
 set tabstop=2
 set shiftwidth=2
@@ -58,6 +58,7 @@ filetype plugin indent on    " required
 Plugin 'scrooloose/nerdtree'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'Yggdroot/indentLine'
+"""
 "Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ryanoasis/vim-webdevicons'
@@ -122,6 +123,6 @@ endif
 "command! What echo synIDattr(synID(line('.'), col('.'), 1), 'name')
 "let g:airline_theme='monokai_tasty'                   " airline theme
 "let g:lightline = { 'colorscheme': 'monokai_tasty' }
-let g:airline_theme="qwq"
+let g:airline_theme="badwolf"
 
 

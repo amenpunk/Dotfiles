@@ -1,7 +1,13 @@
+#content.headers.user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.230 Safari/537.36'
 #config.source('qutewal.py')
+c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
+#c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99999.0.3578.98 Safari/537.36" 
+
+
 config.source('monokai.py')
-c.url.searchengines = {"DEFAULT": "https://www.google.fi/search?q={}", "y" : "https://youtube.com/results?search_query={}"}
-c.window.title_format = "{private}{perc}{title}{title_sep}qutebrowser"
+#c.url.searchengines = {"DEFAULT": "https://www.google.fi/search?q={}", "y" : "https://youtube.com/results?search_query={}"}
+c.url.searchengines = {"DEFAULT": "https://www.ecosia.org/search?q={}", "y" : "https://youtube.com/results?search_query={}"}
+#c.window.title_format = "{private}{perc}{title}{title_sep}qutebrowser"
 c.confirm_quit = ["downloads"]
 
 
@@ -11,13 +17,18 @@ c.aliases = {
     "mpv": "spawn -d mpv --force-window=immediate {url}",
     "nicehash": "spawn --userscript nicehash",
     "pass": "spawn -d pass -c",
-    "cloud" : "spawn --userscript cloud"
+    "cloud" : "spawn --userscript cloud",
+    "trad" : "spawn --userscript trad"
 }
 
 
-#c.content.user_stylesheets = "/home/cyberpunk/Scripts/css/my-css.css"
+#c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
 
-monospace = "10px 'Droid Sans Mono'"
+#monospace = "10px 'Droid Sans Mono'"
+## ---este es el pro
+
+#monospace = "9px 'FiraCode'"
+monospace = "9px 'Hack'"
 # Font used in the completion categories.
 c.fonts.completion.category = f"bold {monospace}"
 
@@ -74,7 +85,13 @@ c.url.start_pages = "/home/cyberpunk/Scripts/index.html"
 #c.hints.mode = 'word'
 
 #c.tabs.show = 'switching'
-#c.tabs.show = 'multiple'
+c.tabs.show = 'multiple'
+
+#c.tabs.title.alignment = 'right'
+
+c.downloads.remove_finished = 1
+c.content.autoplay = False
+
 #c.tabs.indicator.width = 0
 
 #c.tabs.show_switching_delay = 1000
@@ -82,18 +99,20 @@ c.url.start_pages = "/home/cyberpunk/Scripts/index.html"
 c.statusbar.hide = True
 c.zoom.default = '90%'
 c.backend = 'webengine'
+#c.backend = "webkit"
 c.content.geolocation = False
 c.tabs.wrap = True
 #c.tabs.padding = {'bottom': 1, 'left': 1, 'right': 1, 'top': 1}
 #c.tabs.pinned.shrink = True
 #c.tabs.position = 'bottom'
 #c.tabs.min_width = 5
-#c.tabs.max_width = 50
+c.tabs.max_width = 150
 
 
 # TOR CONFIG
 
-#c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.can_open_tabs_automatically = False
 #c.content.javascript.enabled = False
 #c.content.javascript.can_access_clipboard = False
 #c.content.javascript.alert = False
+

@@ -1,10 +1,14 @@
 #Path to your oh-my-bash installation.
 export OSH=/home/cyberpunk/.oh-my-bash
+export GOROOT=/usr/lib/go/src/
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_ROOT=/opt/dotnet/
 #powerline
 
 ## --------- Config for powerline-bash
 alias muxt="powerline-config tmux setup"
-alias music='tmux new-session "tmux source-file ~/.ncmpcpp/tmux_session"'
+alias music="ncmpcpp"
+alias m="mocp"
 
 function _update_ps1() {
     PS1=$(powerline-shell $?)
@@ -144,3 +148,12 @@ source $OSH/oh-my-bash.sh
 # alias ohmybash="mate ~/.oh-my-bash"
 #POWER LINE TMUX
 #(powerline-config tmux setup &)
+
+#PATH="/home/cyberpunk/perl5/bin${PATH:+:${PATH}}"; export PATH;
+#PERL5LIB="/home/cyberpunk/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+#PERL_LOCAL_LIB_ROOT="/home/cyberpunk/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+#PERL_MB_OPT="--install_base \"/home/cyberpunk/perl5\""; export PERL_MB_OPT;
+#PERL_MM_OPT="INSTALL_BASE=/home/cyberpunk/perl5"; export PERL_MM_OPT;
+
+PATH="$PATH:/home/cyberpunk/.dotnet/tools";
+
