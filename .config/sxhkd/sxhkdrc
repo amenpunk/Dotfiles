@@ -1,5 +1,5 @@
 super + d
-  rofi -modi drun -show drun	
+  rofi -show drun
 super + n
 	mocp -f
 super + b
@@ -7,11 +7,11 @@ super + b
 super + p
 	mocp -G
 super + m
-	bash ~/rofi.sh
+	bash ~/Scripts/rofi.sh
 super + u
-	~/fehrand.sh 
+	~/Scripts/fehrand.sh 
 mod4 + Escape
 	GLITCHICON=~/glitchlock/stop.png ~/glitchlock/glitchlock
 super + x
-	bash ~/option
+	bash ~/Scripts/option
 

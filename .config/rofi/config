@@ -1,5 +1,6 @@
-!rofi.theme:default
-rofi.theme: /usr/share/rofi/themes/sidebar.rasi
+rofi.theme:default
+!rofi.theme: /usr/share/rofi/themes/sidebar.rasi
 !rofi.theme: ~/.cache/wal/colors-rofi-dark.rasi
 !rofi.show-icons: true
-rofi.font: DroidSansMono 8
+!rofi.font: DroidSansMono 8
+rofi.font: Hack 8

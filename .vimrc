@@ -1,9 +1,9 @@
 set encoding=UTF-8
 syntax on
 "colorscheme molokai
-colorscheme wal
+"colorscheme wal
 "colorscheme monokai
-"colorscheme vim-monokai-tasty  
+colorscheme vim-monokai-tasty  
 
 
 "colorscheme monokai_pro 
@@ -123,6 +123,7 @@ endif
 "command! What echo synIDattr(synID(line('.'), col('.'), 1), 'name')
 "let g:airline_theme='monokai_tasty'                   " airline theme
 "let g:lightline = { 'colorscheme': 'monokai_tasty' }
-let g:airline_theme="badwolf"
+"let g:airline_theme="badwolf"
+let g:airline_theme="dark"
 
 

@@ -1,24 +1,28 @@
+#eval "$(starship init bash)"
+
 #Path to your oh-my-bash installation.
 export OSH=/home/cyberpunk/.oh-my-bash
 export GOROOT=/usr/lib/go/src/
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_ROOT=/opt/dotnet/
+#"~/.cache/wal/colors.sh"
+#(cat ~/.cache/wal/sequences &)
 #powerline
 
-## --------- Config for powerline-bash
+### --------- Config for powerline-bash
 alias muxt="powerline-config tmux setup"
 alias music="ncmpcpp"
 alias m="mocp"
-
-function _update_ps1() {
-    PS1=$(powerline-shell $?)
-}
-
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
-
-## -- end of powerline-bash
+#
+#function _update_ps1() {
+#    PS1=$(powerline-shell $?)
+#}
+#
+#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+#    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+#fi
+#
+### -- end of powerline-bash
 
 
 # powerline-daemon -q
@@ -123,7 +127,7 @@ source $OSH/oh-my-bash.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then

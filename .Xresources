@@ -12,8 +12,10 @@
 *color9:       #f92672
 
 !green
-*color2:       #a6e22e
-*color10:      #a6e22e
+!*color2:       #a6e22e
+*color2:       #2e2e2e
+*color10:      #2e2e2e
+!*color10:      #a6e22e
 
 !yellow
 *color3:       #f4bf75
