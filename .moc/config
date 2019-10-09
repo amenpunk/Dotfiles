@@ -1,0 +1,5 @@
+Theme = transparent-background
+#Theme = wal
+XTermTheme = transparent-background
+#XTermTheme = wal
+OnSongChange = "/home/cyberpunk/.moc/scripts/img.sh %a %t"

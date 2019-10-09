@@ -21,7 +21,8 @@ base0C = "#a1efe4"
 base0D = "#66d9ef"
 base0E = "#ae81ff"
 base0F = "#cc6633"
-
+base0G = "#ffffff"
+#base0G = "#1e1e1e"
 # set qutebrowser colors
 
 # Text color of the completion widget. May be a single color to use for
@@ -90,7 +91,9 @@ c.colors.hints.fg = base00
 
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
-c.colors.hints.bg = base0A
+#c.colors.hints.bg = base0A
+#letras
+c.colors.hints.bg = base0G
 
 # Font color for the matched part of hints.
 c.colors.hints.match.fg = base05

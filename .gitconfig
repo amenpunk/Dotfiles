@@ -1,0 +1,7 @@
+[user]
+	name = amenpunk
+	email = ondasycircuitos@gmail.com
+[credential]
+	helper = store
+[alias]
+  lista = log --oneline --decorate --graph --all 

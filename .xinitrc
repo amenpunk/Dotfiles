@@ -1,0 +1,2 @@
+DEFAULT_SESSION=i3
+exec $1

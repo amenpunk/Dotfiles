@@ -6,7 +6,7 @@
 #exec_always killall dunst
 #exec --no-startup-id i3-battery-popup
 exec_always "setxkbmap -layout latam"
-#exec_always --no-startup-id "dunst"
+exec_always --no-startup-id "dunst"
 #exec_always "xrdb -remove *"
 #exec_always "xrdb -merge ./.Xresources"
 #exec_always feh --bg-fill /home/cyberpunk/Documents/wall/favo.png
@@ -14,6 +14,16 @@ exec_always "setxkbmap -layout latam"
 exec_always --no-startup-id compton &
 #exec_always systemctl --user start sxhkd
 exec_always synclient TapButton1=1
+exec_always syndaemon -i 0.5 -t -K -R
+#exec_always syndaemon -d -i 0.9 -K 
+#exec_always synclient PalmDetect=1
+##exec_always synclient PalmMinWidth=1
+##exec_always synclient PalmMinZ=1000 
+exec sxhkd
+
+
+
+
 exec_always blueman-applet
 exec_always nm-applet 
 #exec_always --no-startup-id volumeicon

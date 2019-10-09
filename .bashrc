@@ -1,4 +1,8 @@
+VISUAL="vim"
+set -o vi
 #eval "$(starship init bash)"
+#PATH="$PATH:$(ruby -e '/home/cyberpunk/.gem/ruby/2.6.0')/bin"
+export PATH="/home/cyberpunk/.gem/ruby/2.6.0/bin:$PATH"
 
 #Path to your oh-my-bash installation.
 export OSH=/home/cyberpunk/.oh-my-bash
@@ -13,6 +17,7 @@ export DOTNET_ROOT=/opt/dotnet/
 alias muxt="powerline-config tmux setup"
 alias music="ncmpcpp"
 alias m="mocp"
+alias p="python3"
 #
 #function _update_ps1() {
 #    PS1=$(powerline-shell $?)
@@ -54,6 +59,7 @@ OSH_THEME="powerline"
 #OSH_THEME="powerline-plain"
 #OSH_THEME="powerline-multiline"
 #OSH_THEME="random"
+#OSH_THEME="iterate"
 #OSH_THEME="binaryanomaly"
 
 # Uncomment the following line to use case-sensitive completion.
