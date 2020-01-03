@@ -1,11 +1,19 @@
 VISUAL="vim"
+
+#setxkbmap -option 'grp:alt_shift_toggle'
+#setxkbmap -option 'grp:alt_shift_toggle'
+#exec --no-startup-id setxkbmap us,latam -option 'grp:alt_shift_toggle'
+#setxkbmap -option grp:alt_shift_toggle us,latam
 set -o vi
 #eval "$(starship init bash)"
 #PATH="$PATH:$(ruby -e '/home/cyberpunk/.gem/ruby/2.6.0')/bin"
 export PATH="/home/cyberpunk/.gem/ruby/2.6.0/bin:$PATH"
 
 #Path to your oh-my-bash installation.
+#export FZF_DEFAULT_COMMAND="ag --nocolor --ignore node_modules -g"
+export FZF_DEFAULT_COMMAND=""
 export OSH=/home/cyberpunk/.oh-my-bash
+export GOOGLE_APPLICATION_CREDENTIALS=~/KeyTest.json
 export GOROOT=/usr/lib/go/src/
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_ROOT=/opt/dotnet/
@@ -14,10 +22,14 @@ export DOTNET_ROOT=/opt/dotnet/
 #powerline
 
 ### --------- Config for powerline-bash
+alias teclado="setxkbmap -layout us,latam"
+alias musiclib="updatedb -l 0 -U $HOME/Music -o music.db"
+alias mipc="ssh -i ~/key amenpunk@"
 alias muxt="powerline-config tmux setup"
 alias music="ncmpcpp"
 alias m="mocp"
 alias p="python3"
+alias emular="firebase emulators:start --only functions"
 #
 #function _update_ps1() {
 #    PS1=$(powerline-shell $?)
@@ -167,3 +179,5 @@ export LANG=en_US.UTF-8
 
 PATH="$PATH:/home/cyberpunk/.dotnet/tools";
 
+
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,2 +1,2 @@
 DEFAULT_SESSION=i3
-exec $1
+exec i3
