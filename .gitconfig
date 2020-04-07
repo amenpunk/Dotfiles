@@ -1,7 +1,11 @@
 [user]
 	name = amenpunk
-	email = ondasycircuitos@gmail.com
+    email = ondasycircuitos@gmail.com
 [credential]
 	helper = store
 [alias]
-  lista = log --oneline --decorate --graph --all 
+    lista = log --oneline --decorate --graph --all 
+    sinramas = log --oneline --decorate --graph
+    deshacer = restore --staged
+[core]
+	editor = vim

@@ -1,4 +1,6 @@
-VISUAL="vim"
+VISUA="vim"
+LD_LIBRARY_PATH=~/oldlib/pango/usr/lib 
+#/usr/share/Dagcoin-wallet/DagWallet
 
 #setxkbmap -option 'grp:alt_shift_toggle'
 #setxkbmap -option 'grp:alt_shift_toggle'
@@ -11,9 +13,12 @@ export PATH="/home/cyberpunk/.gem/ruby/2.6.0/bin:$PATH"
 
 #Path to your oh-my-bash installation.
 #export FZF_DEFAULT_COMMAND="ag --nocolor --ignore node_modules -g"
-export FZF_DEFAULT_COMMAND=""
+export BROWSER=/usr/bin/qutebrowser
+# export FZF_DEFAULT_COMMAND=""
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export OSH=/home/cyberpunk/.oh-my-bash
-export GOOGLE_APPLICATION_CREDENTIALS=~/KeyTest.json
+export PATH=~/.npm-global/bin:$PATH
+export GOOGLE_APPLICATION_CREDENTIALS=~/PROKEY.json
 export GOROOT=/usr/lib/go/src/
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_ROOT=/opt/dotnet/
@@ -22,14 +27,20 @@ export DOTNET_ROOT=/opt/dotnet/
 #powerline
 
 ### --------- Config for powerline-bash
+alias fuck="sudo !!"
+alias powermux="powerline-config tmux setup &"
+alias newmux="tmux new -s"
+alias openmux="tmux attach -t"
+alias listmux="tmux list-sessions"
 alias teclado="setxkbmap -layout us,latam"
+alias code="code-insiders"
 alias musiclib="updatedb -l 0 -U $HOME/Music -o music.db"
-alias mipc="ssh -i ~/key amenpunk@"
 alias muxt="powerline-config tmux setup"
 alias music="ncmpcpp"
 alias m="mocp"
 alias p="python3"
 alias emular="firebase emulators:start --only functions"
+alias deployapp="firebase deploy --only functions:APP"
 #
 #function _update_ps1() {
 #    PS1=$(powerline-shell $?)
@@ -62,17 +73,19 @@ alias emular="firebase emulators:start --only functions"
 #(wal -r &)
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-bash is loaded.
-#OSH_THEME="demula"
-#OSH_THEME="zork"
-#OSH_THEME="brunton"
-#OSH_THEME="mairan"
+# OSH_THEME="demula"
+# OSH_THEME="zork"
+# OSH_THEME="brunton"
+# OSH_THEME="mairan"
+
 OSH_THEME="powerline"
-#OSH_THEME="powerline-naked"
-#OSH_THEME="powerline-plain"
-#OSH_THEME="powerline-multiline"
-#OSH_THEME="random"
+
+# OSH_THEME="powerline-naked"
+# OSH_THEME="powerline-plain"
+# OSH_THEME="powerline-multiline"
+# OSH_THEME="random"
 #OSH_THEME="iterate"
-#OSH_THEME="binaryanomaly"
+# OSH_THEME="binaryanomaly"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -169,15 +182,23 @@ export LANG=en_US.UTF-8
 # alias bashconfig="mate ~/.bashrc"
 # alias ohmybash="mate ~/.oh-my-bash"
 #POWER LINE TMUX
-#(powerline-config tmux setup &)
+#powerline-config tmux setup &
 
 #PATH="/home/cyberpunk/perl5/bin${PATH:+:${PATH}}"; export PATH;
-#PERL5LIB="/home/cyberpunk/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL5LIB="/home/cyberpunk/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 #PERL_LOCAL_LIB_ROOT="/home/cyberpunk/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 #PERL_MB_OPT="--install_base \"/home/cyberpunk/perl5\""; export PERL_MB_OPT;
 #PERL_MM_OPT="INSTALL_BASE=/home/cyberpunk/perl5"; export PERL_MM_OPT;
 
 PATH="$PATH:/home/cyberpunk/.dotnet/tools";
-
-
-#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+codi() {
+  local syntax="${1:-python}"
+  shift
+  vim -c \
+    "let g:startify_disable_at_vimenter = 1 |\
+    set bt=nofile ls=0 noru nonu nornu |\
+    hi ColorColumn ctermbg=NONE |\
+    hi VertSplit ctermbg=NONE |\
+    hi NonText ctermfg=0 |\
+    Codi $syntax" "$@"
+}

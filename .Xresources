@@ -1,50 +1,46 @@
-! special
-*foreground:   #f8f8f2
-*background:   #1e1e1e
-*cursorColor:  #f8f8f2
-
-!black
-*color0:       #272822
-*color8:       #75715e
-
-!red
-*color1:       #f92672
-*color9:       #f92672
-
-!green
-!*color2:       #a6e22e
-*color2:       #2e2e2e
-*color10:      #2e2e2e
-!*color10:      #a6e22e
-
-!yellow
-*color3:       #f4bf75
-*color11:      #f4bf75
-
-!blue
-!*color4:       #66d9ef
-*color4:       #54a003
-*color12:      #66d9ef
-
-! magenta
-*color5:       #ae81ff
-*color13:      #ae81ff
-
-! cyan
-*color6:       #a1efe4
-*color14:      #a1efe4
-
-! white
-*color7:       #f8f8f2
-*color15:      #f9f8f5
-
-
-Xft*dpi: 82
-Xft*antialias:  true
-Xft*hinting:    true
-Xft*rgba:       rgb
-Xft*autohint:   false
-Xft*hintstyle:  hintfull
-Xft*lcdfilter:  lcddefault
-URxvt.font: xft:Droid Sans Mono:style=Regular:size=11
-URxvt.boldFont: xft:Droid Sans Mono:style=Regular:size=11
+!j! special
+!j*foreground:   #f8f8f2
+!j*background:   #1e1e1e
+!j*cursorColor:  #f8f8f2
+!j
+!j!black
+!j*color0:       #272822
+!j*color8:       #75715e
+!j
+!j!red
+!j*color1:       #f92672
+!j*color9:       #f92672
+!j
+!j!green
+!j!*color2:       #a6e22e
+!j*color2:       #2e2e2e
+!j*color10:      #2e2e2e
+!j!*color10:      #a6e22e
+!j
+!j!yellow
+!j*color3:       #f4bf75
+!j*color11:      #f4bf75
+!j
+!j!blue
+!j!*color4:       #66d9ef
+!j*color4:       #54a003
+!j*color12:      #66d9ef
+!j
+!j! magenta
+!j*color5:       #ae81ff
+!j*color13:      #ae81ff
+!j
+!j! cyan
+!j*color6:       #a1efe4
+!j*color14:      #a1efe4
+!j
+!j! white
+!j*color7:       #f8f8f2
+!j*color15:      #f9f8f5
+!j
+!jURxvt.foreground: grey
+!j
+!jURxvt*font: xft:Fira Code Retina:pixelsize=19;hinting=True;antialias=True
+!jURxvt*boldFont: xft:Fira Code Retina:pixelsize=19;hinting=True;antialias=True
+URxvt.font: xft:Hack:pixelsize=16
+!j!URxvt*font: xft:Fira Code Retina:pixelsize=27;hinting=True;antialias=True

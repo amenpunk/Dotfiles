@@ -1,38 +1,53 @@
+let mapleader = "\<Space>"
+let g:codi#width = 50.0
+
+map <leader>h :wincmd h<CR>
+map <leader>j :wincmd j<CR>
+map <leader>k :wincmd k<CR>
+map <leader>l :wincmd l<CR>
+
 autocmd FileType apache set commentstring=#\ %s
 
 let g:prettier#quickfix_enabled = 0
 let g:prettier#config#bracket_spacing = 'false'
 let g:prettier#config#use_tabs = 'true'
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+""""auto prettier""""""""""""""""
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+""""auto prettier""""""""""""""""
+
+
 let g:prettier#exec_cmd_async = 0
 let g:prettier#config#tab_width = 4
 
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 nmap <F1> :w<CR>
 noremap <silent> <F1>          :update<CR>
 vnoremap <silent> <F1>         <C-C>:update<CR>
 inoremap <silent> <F1>         <C-O>:update<CR>
-"let g:airline_theme=""
+
+""""""""colorconfig""""""""""""""""""""""""""""""""""""""""""
+" if has('gui_running') || has('nvim')
+" hi Normal 		guifg=#f6f3e8 guibg=#1e1e1e
+" else
+" hi Normal guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
+" let &t_ti = &t_ti . "\033]10;#f6f3e8\007\033]11;#242424\007"
+" let &t_te = &t_te . "\033]110\007\033]111\007"
+" endif
+colorscheme wal
+"colorscheme tender
+"
+"base color cool for everything :D
 let g:airline_theme="base16color"
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" If you have vim >=8.0 or Neovim >= 0.1.5
-if (has("termguicolors"))
- set termguicolors
-endif
+"
+" if (has("termguicolors"))
+" set termguicolors
+" endif
+""""""""colorconfig""""""""""""""""""""""""""""""""""""""""""
 
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-" Theme
-syntax enable
-"colorscheme dragon-energy
-"colorscheme tender
-colorscheme molokai
-"colorscheme gruvbox
-"set term=screen-256color
-"set t_Co=256
-"let g:molokai_original = 1
-"let g:rehash256 = 1
 
 set splitbelow
 "set splitbelow
@@ -48,6 +63,15 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 "let g:airline_statusline_ontop=1 
 "--------------------------------------------------themas
 "let g:gruvbox_contrast_dark = 'hard'
+" Theme
+"syntax enable
+"colorscheme dragon-energy
+"colorscheme molokai
+"colorscheme gruvbox
+"set term=screen-256color
+"set t_Co=256
+"let g:molokai_original = 1
+"let g:rehash256 = 1
 "colorscheme molokai
 "colorscheme wal
 "colorscheme monokai
@@ -137,13 +161,13 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
   \ 'ctrl-s': 'vsplit' }
 
-let g:fzf_layout = { 'down': '~15%' }
-
+let g:fzf_layout = { 'down': '~45%' }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Multicurosr
 
@@ -162,6 +186,8 @@ Plugin 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 "Plugin 'preservim/nerdcommenter'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'metakirby5/codi.vim'
 Plugin 'chrisbra/vim-commentary'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'jacoborus/tender.vim'
@@ -175,11 +201,12 @@ Plugin 'junegunn/fzf.vim'
 
 Plugin 'Yggdroot/indentLine'
 """
+Plugin 'junegunn/goyo.vim'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'alvan/vim-closetag'
-Plugin 'francoiscabrol/ranger.vim'
+" Plugin 'francoiscabrol/ranger.vim'
 "Plugin 'patstockwell/vim-monokai-tasty'
 "BASIC POWERLINE
 Plugin 'vim-airline/vim-airline'
@@ -187,7 +214,8 @@ Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " let Vundle manage Vundle, required
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'tpope/vim-surround'
 Plugin 'morhetz/gruvbox'
 Plugin 'prabirshrestha/asyncomplete.vim'
@@ -213,15 +241,6 @@ let g:airline_right_sep = "\ue0ba"
 "set the CN (column number) symbol:
 let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 
-if has('gui_running') || has('nvim') 
-    hi Normal 		guifg=#f6f3e8 guibg=#1e1e1e 
-else
-    " Set the terminal default background and foreground colors, thereby
-    " improving performance by not needing to set these colors on empty cells.
-    hi Normal guifg=NONE guibg=NONE ctermfg=NONE ctermbg=NONE
-    let &t_ti = &t_ti . "\033]10;#f6f3e8\007\033]11;#242424\007"
-    let &t_te = &t_te . "\033]110\007\033]111\007"
-endif
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:webdevicons_enable = 1
@@ -273,7 +292,7 @@ vmap <S-ScrollWheelRight> <nop>
 vmap <C-ScrollWheelRight> <nop>
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
-
+noremap <leader>f :Ag<CR>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -284,6 +303,7 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+map <silent> <leader>w <Plug>(easymotion-bd-w)
 
 "let g:rainbow_load_separately = [
 "    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
@@ -294,5 +314,8 @@ noremap <leader>0 :tablast<cr>
 "
 "let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
 "let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
-
+command! -bang -nargs=* GGrep
+  \ call fzf#vim#grep(
+  \   'git grep --line-number '.shellescape(<q-args>), 0,
+  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
