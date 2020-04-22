@@ -1,13 +1,15 @@
 #config.source('qutewal.py')
-#----------------------------------------------------------------------------------------------------
+#------------el que siempre uso----------------------------------------------------------------------------------------
 c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
 #----------------------------------------------------------------------------------------------------
-#c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99999.0.3578.98 Safari/537.36"
+# c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99999.0.3578.98 Safari/537.36"
 
 
 config.source('monokai.py')
 #c.url.searchengines = {"DEFAULT": "https://www.google.fi/search?q={}", "y" : "https://youtube.com/results?search_query={}", "tra": "https://www.spanishdict.com/traductor/{}"}
-c.url.searchengines = {"DEFAULT": "https://www.google.fi/search?q={}",
+c.url.searchengines = {
+        "DEFAULT": "https://www.google.fi/search?q={}",
+# "DEFAULT" : "https://duckduckgo.com/?q={}",
         "s": "https://soundcloud.com/search?q={}"  ,
         "g": "https://www.google.fi/search?q={}" ,
         "y" : "https://youtube.com/results?search_query={}",
@@ -36,10 +38,10 @@ c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
 ## ---este es el pro
 
 #monospace = "9px 'FiraCode'"
-c.fonts.monospace = "9px 'Hack'"
+#c.fonts.monospace = "9px 'Hack'"
 monospace = "9px 'Hack'"
-c.fonts.web.size.default = 12
-c.fonts.web.size.default_fixed  = 12
+c.fonts.web.size.default = 10
+c.fonts.web.size.default_fixed  = 10
 # Font used in the completion categories.
 c.fonts.completion.category = f"bold {monospace}"
 
@@ -89,10 +91,10 @@ c.downloads.location.directory = "~/Downloads/"
 #}
 
 c.tabs.padding = {
-    "left": 5,
-    "right": 5,
-    "top": 5,
-    "bottom": 5,
+    "left": 1,
+    "right": 1,
+    "top": 7,
+    "bottom": 7,
 }
 
 c.url.default_page = "/home/cyberpunk/Scripts/index.html"
@@ -102,7 +104,7 @@ c.url.default_page = "/home/cyberpunk/Scripts/index.html"
 c.url.start_pages = "/home/cyberpunk/Scripts/index.html"
 #c.hints.mode = 'word'
 
-#c.tabs.show = 'switching'
+# c.tabs.show = 'switching'
 c.tabs.show = 'multiple'
 
 #c.tabs.title.alignment = 'right'
@@ -113,19 +115,23 @@ c.content.autoplay = True
 
 #c.tabs.indicator.width = 0
 
-c.tabs.show_switching_delay = 9000
+c.tabs.show_switching_delay = 10000
 c.statusbar.position = 'bottom'
 #c.statusbar.position = 'top'
 #c.statusbar.hide = False
 c.statusbar.hide = True
-#c.zoom.default = '85%'
+# c.statusbar.hide = False
+# c.zoom.default = '75%'
+c.zoom.default = '100%'
 c.backend = 'webengine'
 #c.backend = "webkit"
 c.content.geolocation = False
 c.tabs.wrap = True
 #c.tabs.padding = {'bottom': 1, 'left': 1, 'right': 1, 'top': 1}
 #c.tabs.pinned.shrink = True
-#c.tabs.position = 'bottom'
+# c.tabs.position = 'bottom'
+c.tabs.position = 'top'
+c.tabs.width = '2%'
 #c.tabs.max_width = 160
 
 ## max min normal with
@@ -150,7 +156,29 @@ c.input.insert_mode.auto_load = False
 c.scrolling.bar = 'always'
 c.completion.open_categories = ['history']
 #c.tabs.favicons.scale = 1
-c.tabs.favicons.scale = 1.2
+c.tabs.favicons.scale = 1.5
 c.content.pdfjs = True
 #c.completion.scrollbar.width = 5
 c.completion.height = '20%'
+c.colors.tabs.pinned.even.bg = '#1e1e1e'
+c.colors.tabs.pinned.odd.bg = '#1e1e1e'
+
+#config for searh in with F
+c.colors.hints.bg = '#1e1e1e'
+c.colors.hints.fg = '#ffffff'
+c.hints.border = '1px solid #1e1e1e'
+
+c.colors.messages.info.bg  = '#1e1e1e'
+c.colors.messages.info.fg  = '#ffffff'
+
+#click dercho config
+c.fonts.contextmenu  = monospace
+c.colors.contextmenu.menu.bg = '#1e1e1e'
+c.colors.contextmenu.menu.fg = '#ffffff'
+c.colors.contextmenu.selected.bg ='#ffffff'
+
+c.colors.contextmenu.selected.bg = '#ffffff'
+c.colors.contextmenu.selected.fg = '#1e1e1e'
+
+c.colors.webpage.prefers_color_scheme_dark = True
+

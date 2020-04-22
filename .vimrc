@@ -1,16 +1,29 @@
 let mapleader = "\<Space>"
 let g:codi#width = 50.0
+noremap <S-l> gt
+noremap <S-h> gT
+noremap <leader>q :q<cr>
+" nnoremap <leader>s :w<cr>
+" inoremap <leader>s <C-c>:w<cr>
+fun! GoYCM()
+nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
+endfun
+autocmd FileType javascript :call GoYCM()
 
 map <leader>h :wincmd h<CR>
 map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
+nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+nnoremap <silent> <Leader>- :vertical resize -5<CR>
+
 
 autocmd FileType apache set commentstring=#\ %s
-
 let g:prettier#quickfix_enabled = 0
-let g:prettier#config#bracket_spacing = 'false'
-let g:prettier#config#use_tabs = 'true'
+" let g:prettier#config#bracket_spacing = 'false'
+" let g:prettier#config#use_tabs = 'true'
 """"auto prettier""""""""""""""""
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
@@ -20,6 +33,7 @@ let g:prettier#config#use_tabs = 'true'
 let g:prettier#exec_cmd_async = 0
 let g:prettier#config#tab_width = 4
 
+let g:vim_jsx_pretty_highlight_close_tag = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 nmap <F1> :w<CR>
 noremap <silent> <F1>          :update<CR>
@@ -34,11 +48,15 @@ inoremap <silent> <F1>         <C-O>:update<CR>
 " let &t_ti = &t_ti . "\033]10;#f6f3e8\007\033]11;#242424\007"
 " let &t_te = &t_te . "\033]110\007\033]111\007"
 " endif
-colorscheme wal
-"colorscheme tender
+"colorscheme wal
+" colorscheme tender
 "
 "base color cool for everything :D
-let g:airline_theme="base16color"
+" let g:airline_theme="badwolf"
+let g:airline_theme="badcat"
+" let g:airline_theme="ouo"
+" let g:airline_theme="base16color"
+
 "
 " if (has("termguicolors"))
 " set termguicolors
@@ -55,16 +73,17 @@ set modifiable
 syntax enable
 set encoding=UTF-8
 syntax on
+set nowrap
 "let g:rainbow_active = 1
 let g:WebDevIconsOS = 'Darwin'
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
-"let g:airline_statusline_ontop=1 
+" let g:airline_statusline_ontop=1
 "--------------------------------------------------themas
 "let g:gruvbox_contrast_dark = 'hard'
 " Theme
-"syntax enable
+syntax enable
 "colorscheme dragon-energy
 "colorscheme molokai
 "colorscheme gruvbox
@@ -73,16 +92,19 @@ let g:DevIconsEnableFolderExtensionPatternMatching = 1
 "let g:molokai_original = 1
 "let g:rehash256 = 1
 "colorscheme molokai
-"colorscheme wal
+colorscheme wal
 "colorscheme monokai
-"colorscheme vim-monokai-tasty  
-"colorscheme monokai_pro 
+" colorscheme vim-monokai-tasty
+" colorscheme monokai_pro
 "colorscheme monokai_pro 
 "colorscheme gruvbox
 "colorscheme tequila-sunrise
 "colorscheme Blaaark 
 "colorscheme srcery
 "-------------------------------------------------.
+" set incsearch
+set incsearch
+set smartcase
 set autoindent
 set background=dark
 set relativenumber
@@ -132,6 +154,13 @@ let g:NERDTreeWinSize = 31
 let g:NERDTreeDirArrowExpandable = ''
 let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeMinimalUI = 1
+let NERDTreeShowHidden=0
+let NERDTreeIgnore=['\.git$', '\.idea$', '\node_modules',  '\.vscode$', '\.history$']
+set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,node_modules
+let NERDTreeRespectWildIgnore=1
+
+
+
 "let NERDTreeDirArrows = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char = '|'
@@ -144,7 +173,7 @@ filetype on                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 0
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -180,47 +209,60 @@ filetype plugin indent on    " required
 "let g:srcery_bold = 1
 "Plugin 'srcery-colors/srcery-vim'
 
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+" augroup javascript_folding
+" au!
+" au FileType javascript setlocal foldmethod=syntax
+" augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""PLUGIN
 Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-"Plugin 'preservim/nerdcommenter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'preservim/nerdcommenter'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'metakirby5/codi.vim'
 Plugin 'chrisbra/vim-commentary'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'jacoborus/tender.vim'
-Plugin 'oblitum/rainbow'
-Plugin 'jwalton512/vim-blade'
+" Plugin 'oblitum/rainbow'
+" Plugin 'jwalton512/vim-blade'
 "Plugin 'evidens/vim-twig'
 "Plugin 'ObserverOfTime/coloresque.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'junegunn/fzf.vim'
 
+
 Plugin 'Yggdroot/indentLine'
 """
 Plugin 'junegunn/goyo.vim'
-"Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ryanoasis/vim-webdevicons'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'alvan/vim-closetag'
 " Plugin 'francoiscabrol/ranger.vim'
-"Plugin 'patstockwell/vim-monokai-tasty'
+Plugin 'patstockwell/vim-monokai-tasty'
 "BASIC POWERLINE
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " let Vundle manage Vundle, required
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'tpope/vim-surround'
 Plugin 'morhetz/gruvbox'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'OmniSharp/omnisharp-vim'
+" Plugin 'OmniSharp/omnisharp-vim'
 "let g:OmniSharp_server_stdio = 1
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'terryma/vim-multiple-cursors'
@@ -232,24 +274,20 @@ let g:blade_custom_directives_pairs = {
              \   'cache': 'endcache',
                    \ }
 
-"let g:lightline = { \ 
-"    'colorscheme': 'tender', 
-"                \ } 
-let g:airline_left_sep = "\ue0b8"
-let g:airline_right_sep = "\ue0ba"
 
-"set the CN (column number) symbol:
-let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
+let g:airline_left_sep = "\ue0c6"
+let g:airline_right_sep = "\ue0c7"
 
+" set the CN (column number) symbol:
+" let g:airline_section_z = airline#section#create(["\uE0A1" . '%{line(".")}' . "\uE0A3" . '%{col(".")}'])
 
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
-highlight NERDTreeCWD ctermfg=white
-"
-"
-"
+" highlight NERDTreeCWD ctermfg=red
+
+
 set mouse=
 
 nmap <ScrollWheelUp> <nop>
@@ -319,3 +357,16 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
+let g:lightline = {
+      \ 'colorscheme': 'deus',
+      \ }
+
+set guitablabel=%t
+"/new config
+" let g:NERDTreeShowLineNumbers = 0
+" let g:NERDTreeCascadeSingleChildDir = 0
+" let g:NERDTreeDirArrowExpandable = "•"
+" let g:NERDTreeDirArrowCollapsible = "•"
+" let g:NERDTreeWinSize = 31
+" set nocursorline
+" set nocursorcolumn

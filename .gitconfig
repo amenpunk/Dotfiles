@@ -1,11 +1,15 @@
 [user]
 	name = amenpunk
     email = ondasycircuitos@gmail.com
+	signingkey = 5B1874BAAF3BDB60
 [credential]
 	helper = store
 [alias]
     lista = log --oneline --decorate --graph --all 
     sinramas = log --oneline --decorate --graph
     deshacer = restore --staged
+    firmar = commit -a -S -m
 [core]
 	editor = vim
+[color]
+	ui = auto
