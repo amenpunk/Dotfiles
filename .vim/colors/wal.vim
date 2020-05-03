@@ -81,7 +81,7 @@ hi CursorLineNr guifg=#73cef4 ctermfg=81 guibg=NONE ctermbg=NONE gui=NONE cterm=
 hi Directory guifg=#b3deef ctermfg=153 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 
 
-hi NERDTreeCWD ctermbg=0 ctermfg=0
+hi NERDTreeCWD ctermbg=11 ctermfg=11
 hi Normal ctermbg=NONE ctermfg=7
 hi NonText ctermbg=NONE ctermfg=0
 hi Comment ctermbg=NONE ctermfg=8
@@ -108,8 +108,8 @@ hi TabLineSel ctermbg=0 ctermfg=5
 hi TermCursorNC ctermbg=3 ctermfg=0
 hi VertSplit ctermbg=8 ctermfg=0
 hi Title ctermbg=NONE ctermfg=0
-hi CursorLine ctermbg=0 ctermfg=8
-hi LineNr ctermbg=NONE ctermfg=10
+hi CursorLine ctermbg=0 ctermfg=NONE
+hi LineNr ctermbg=NONE ctermfg=8
 hi CursorLineNr ctermbg=NONE ctermfg=0
 hi helpLeadBlank ctermbg=NONE ctermfg=0
 hi helpNormal ctermbg=NONE ctermfg=0
@@ -127,7 +127,7 @@ hi DiffAdd ctermbg=NONE ctermfg=2
 hi DiffChange ctermbg=NONE ctermfg=8
 hi DiffDelete ctermbg=NONE ctermfg=1
 hi DiffText ctermbg=NONE ctermfg=4
-hi IncSearch ctermbg=3 ctermfg=0
+hi IncSearch ctermbg=0 ctermfg=2
 hi Search ctermbg=3 ctermfg=0
 hi Directory ctermbg=NONE ctermfg=8
 hi MatchParen ctermbg=1 ctermfg=8
@@ -248,13 +248,14 @@ hi cPreCondit ctermbg=NONE ctermfg=5
 hi SignifySignAdd ctermbg=NONE ctermfg=2
 hi SignifySignChange ctermbg=NONE ctermfg=4
 hi SignifySignDelete ctermbg=NONE ctermfg=1
-hi NERDTreeDirSlash ctermbg=NONE ctermfg=8
-hi NERDTreeExecFile ctermbg=NONE ctermfg=8
+hi NERDTreeDirSlash ctermbg=NONE ctermfg=11
+hi NERDTreeExecFile ctermbg=NONE ctermfg=NONE
 hi ALEErrorSign ctermbg=NONE ctermfg=1
 hi ALEWarningSign ctermbg=NONE ctermfg=3
 hi ALEError ctermbg=NONE ctermfg=1
 hi ALEWarning ctermbg=NONE ctermfg=3
 
+hi Directory guifg=NONE ctermfg=white
 " }}}
 
 " Plugin options {{{

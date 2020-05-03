@@ -66,7 +66,6 @@ let g:airline_theme="badcat"
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-
 set splitbelow
 "set splitbelow
 set modifiable
@@ -196,7 +195,7 @@ let g:fzf_action = {
   \ 'ctrl-i': 'split',
   \ 'ctrl-s': 'vsplit' }
 
-let g:fzf_layout = { 'down': '~45%' }
+let g:fzf_layout = { 'down': '~20%' }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Multicurosr
 
@@ -221,7 +220,8 @@ let g:javascript_plugin_flow = 1
 Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'mhinz/vim-startify'
 Plugin 'pangloss/vim-javascript'
 Plugin 'preservim/nerdcommenter'
 Plugin 'leafgarland/typescript-vim'
@@ -257,7 +257,7 @@ Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " let Vundle manage Vundle, required
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+" Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'tpope/vim-surround'
 Plugin 'morhetz/gruvbox'
 Plugin 'prabirshrestha/asyncomplete.vim'
@@ -363,10 +363,12 @@ let g:lightline = {
 
 set guitablabel=%t
 "/new config
-" let g:NERDTreeShowLineNumbers = 0
-" let g:NERDTreeCascadeSingleChildDir = 0
+let g:NERDTreeShowLineNumbers = 0
+let g:NERDTreeCascadeSingleChildDir = 0
 " let g:NERDTreeDirArrowExpandable = "•"
+ let g:NERDTreeDirArrowExpandable = " "
 " let g:NERDTreeDirArrowCollapsible = "•"
+ let g:NERDTreeDirArrowCollapsible = " "
 " let g:NERDTreeWinSize = 31
 " set nocursorline
 " set nocursorcolumn
