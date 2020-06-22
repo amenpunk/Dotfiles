@@ -1,0 +1,7 @@
+general{
+        output_format = "dzen2"
+        colors = true
+        interval = 10
+}
+
+order += "ipv6"

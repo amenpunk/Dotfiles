@@ -3,6 +3,7 @@
 # # Should you change your keyboard layout some time, delete # this file and re-run i3-config-wizard(1).
 #exec_always killall dunst
 #exec --no-startup-id i3-battery-popup
+exec --no-startup-id $HOME/.screenlayout/final.sh
 
 ##########################################################################################
 #configure first this comands in terminal:
@@ -76,7 +77,7 @@ client.focused          $bg     $bg     $fg  $bg       $bg
 set $mod Mod4
 
 # for_window [class="^.*"] border pixel 0 $ag
-for_window [title="^.*"] border pixel 1 $fg
+for_window [title="^.*"] border pixel 0 $fg
 gaps inner 3
 gaps outer 3
 # smart_gaps on
@@ -359,10 +360,14 @@ bindsym $mod+Shift+s		gaps inner current minus 5
 #################ASSING WORKSPACE####################
 assign [class="code"] 1
 assign [class="qutebrowser"] 2
-assign [class="Postman"] 3
+assign [class="Postman"] 4
 assign [class="discord"] 9
 assign [class="skype-for-linux"] 8
 assign [class="skype"] 8
 assign [class="spotify"] 3
+assign [class="firefox"] 10
+assign [class="skypeforlinux"] 8
+assign [class="steam"] 10
+assign [class="LibreOffice"] 10
 
 

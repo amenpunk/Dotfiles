@@ -1,10 +1,20 @@
 let mapleader = "\<Space>"
 let g:codi#width = 50.0
+nnoremap <C-e> 7<C-e>
+nnoremap <C-y> 7<C-y>
 noremap <S-l> gt
 noremap <S-h> gT
 noremap <leader>q :q<cr>
+noremap <leader>m :Marks<cr>
+noremap <leader><Enter> :term<cr>
+
+
+nmap <leader>ga :diffget //3<CR>
+nmap <leader>gd :diffget //2<CR>
+nmap <leader>gs :G <CR>
 " nnoremap <leader>s :w<cr>
 " inoremap <leader>s <C-c>:w<cr>
+let g:ycm_goto_buffer_command = 'new-tab'
 fun! GoYCM()
 nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
@@ -22,6 +32,8 @@ nnoremap <silent> <Leader>- :vertical resize -5<CR>
 
 autocmd FileType apache set commentstring=#\ %s
 let g:prettier#quickfix_enabled = 0
+" let g:prettier#config#use_tabs = 'true'
+let g:prettier#config#tab_width = '4'
 " let g:prettier#config#bracket_spacing = 'false'
 " let g:prettier#config#use_tabs = 'true'
 """"auto prettier""""""""""""""""
@@ -53,7 +65,7 @@ inoremap <silent> <F1>         <C-O>:update<CR>
 "
 "base color cool for everything :D
 " let g:airline_theme="badwolf"
-let g:airline_theme="badcat"
+" let g:airline_theme="badcat"
 " let g:airline_theme="ouo"
 " let g:airline_theme="base16color"
 
@@ -66,7 +78,10 @@ let g:airline_theme="badcat"
 " For Neovim 0.1.3 and 0.1.4
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
+set ma
 set splitbelow
+" set ignorecase
+set showmatch
 "set splitbelow
 set modifiable
 syntax enable
@@ -80,16 +95,16 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
 " let g:airline_statusline_ontop=1
 "--------------------------------------------------themas
-"let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'hard'
 " Theme
 syntax enable
 "colorscheme dragon-energy
 "colorscheme molokai
-"colorscheme gruvbox
-"set term=screen-256color
-"set t_Co=256
+" colorscheme gruvbox
+set term=screen-256color
+set t_Co=256
 "let g:molokai_original = 1
-"let g:rehash256 = 1
+let g:rehash256 = 1
 "colorscheme molokai
 colorscheme wal
 "colorscheme monokai
@@ -103,7 +118,7 @@ colorscheme wal
 "-------------------------------------------------.
 " set incsearch
 set incsearch
-set smartcase
+" set smartcase
 set autoindent
 set background=dark
 set relativenumber
@@ -127,7 +142,7 @@ set noswapfile
 "set nocompatible              " required
 "set incsearch
 "set hlsearch
-"set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 20
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 20
 "set encoding=utf-8
 set guifont=DroidSansMono\ Nerd\ Font\ 15
 let g:NERDTreeWinSize=5
@@ -190,6 +205,7 @@ let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let g:fzf_preview_window = 'right:60%'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-i': 'split',
@@ -209,14 +225,15 @@ filetype plugin indent on    " required
 "Plugin 'srcery-colors/srcery-vim'
 
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
+" let g:javascript_plugin_jsdoc = 1
+" let g:javascript_plugin_ngdoc = 1
+" let g:javascript_plugin_flow = 1
 " augroup javascript_folding
 " au!
 " au FileType javascript setlocal foldmethod=syntax
 " augroup END
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""PLUGIN
+Plugin 'hugolgst/vimsence'
 Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -234,7 +251,7 @@ Plugin 'jacoborus/tender.vim'
 " Plugin 'oblitum/rainbow'
 " Plugin 'jwalton512/vim-blade'
 "Plugin 'evidens/vim-twig'
-"Plugin 'ObserverOfTime/coloresque.vim'
+Plugin 'ObserverOfTime/coloresque.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'junegunn/fzf.vim'
@@ -259,6 +276,7 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'gmarik/Vundle.vim'
@@ -330,7 +348,7 @@ vmap <S-ScrollWheelRight> <nop>
 vmap <C-ScrollWheelRight> <nop>
 autocmd BufNewFile,BufRead *.blade.php set ft=html | set ft=phtml | set ft=blade " Fix blade auto-indent
 
-noremap <leader>f :Ag<CR>
+noremap <leader>f :Rg<CR>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
 noremap <leader>3 3gt
@@ -341,7 +359,9 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
+
 map <silent> <leader>w <Plug>(easymotion-bd-w)
+" map <silent> <leader><leader>e <Plug>(easymotion-bd-e)
 
 "let g:rainbow_load_separately = [
 "    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
@@ -357,18 +377,76 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
+" let g:lightline = {
+" \ 'colorscheme': 'deus',
+" \ }
+
 let g:lightline = {
       \ 'colorscheme': 'deus',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
       \ }
 
+let g:startify_bookmarks = [{'y' : '~/YOKO/Firebase-BE/functions/endpoints.js'}, {'a': '~/YOKO/API_TEST/endpoints.js'}]   
 set guitablabel=%t
-"/new config
-let g:NERDTreeShowLineNumbers = 0
-let g:NERDTreeCascadeSingleChildDir = 0
-" let g:NERDTreeDirArrowExpandable = "•"
- let g:NERDTreeDirArrowExpandable = " "
-" let g:NERDTreeDirArrowCollapsible = "•"
- let g:NERDTreeDirArrowCollapsible = " "
-" let g:NERDTreeWinSize = 31
-" set nocursorline
-" set nocursorcolumn
+hi StartifyHeader  ctermfg=1
+
+"let g:startify_custom_header = [
+"     \ '                                        ',
+"     \ '    ##############..... ##############  ',
+"     \ '    ##############......##############  ',
+"     \ '      ##########..........##########    ',
+"     \ '      ##########........##########      ',
+"     \ '      ##########.......##########       ',
+"     \ '      ##########.....##########..       ',
+"     \ '      ##########....##########.....     ',
+"     \ '    ..##########..##########.........   ',
+"     \ '  ....##########.#########............. ',
+"     \ '    ..################JJJ............   ',
+"     \ '      ################.............     ',
+"     \ '      ##############.JJJ.JJJJJJJJJJ     ',
+"     \ '      ############...JJ...JJ..JJ  JJ    ',
+"     \ '      ##########....JJ...JJ..JJ  JJ     ',
+"     \ '      ########......JJJ..JJJ JJJ JJJ    ',
+"     \ '      ######    .........               ',
+"     \ '                  .....                 ',
+"     \ '                    .                   ',
+"     \ ]
+
+let g:header_ascii = [
+            \ ' =================     ===============     ===============   ========  ======== ',
+            \ ' \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . // ',
+            \ ' ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .|| ',
+            \ ' || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . || ',
+            \ ' ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .|| ',
+            \ ' || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . || ',
+            \ ' ||. . ||   ||-''  || ||  `-||   || . .|| ||. . ||   ||-''  || ||  `|\_ . .|. .|| ',
+            \ ' || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . || ',
+            \ ' ||_-'' ||  .|/    || ||    \|.  || `-_|| ||_-'' ||  .|/    || ||   | \  / |-_.|| ',
+            \ ' ||    ||_-''      || ||      `-_||    || ||    ||_-''      || ||   | \  / |  `|| ',
+            \ ' ||    `''         || ||         `''    || ||    `''         || ||   | \  / |   || ',
+            \ ' ||            .==='' `===.         .===''.`===.         .==='' /==. |  \/  |   || ',
+            \ ' ||         .==''   \_|-_ `===. .===''   _|_   `===. .==='' _-|/   `==  \/  |   || ',
+            \ ' ||      .==''    _-''    `-_  `=''    _-''   `-_    `=''  _-''   `-_  /|  \/  |   || ',
+            \ ' ||   .==''    _-''          `-__\._-''         `-_./__-''         `'' |. /|  |   || ',
+            \ ' ||.==''    _-''                                                     `'' |  /==.|| ',
+            \ ' ==''    _-''                                                            \/   `== ',
+            \ ' \   _-''                                                                `-_   / ',
+            \ '  `''                                                                      ``''  ',      
+            \ ]
+" let g:startify_custom_header = startify#center(g:header_ascii)
+let g:startify_custom_header = (g:header_ascii)
+
+" hi StartifyBracket ctermfg=4
+" hi StartifyFile    ctermfg=3
+" hi StartifyFooter  ctermfg=4
+hi StartifyHeader  ctermfg=4
+" hi StartifyNumber  ctermfg=3
+" hi StartifyPath    ctermfg=4
+" hi StartifySlash   ctermfg=3
+" hi StartifySpecial ctermfg=3

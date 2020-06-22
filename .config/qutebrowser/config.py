@@ -91,11 +91,20 @@ c.downloads.location.directory = "~/Downloads/"
 #}
 
 c.tabs.padding = {
-    "left": 1,
-    "right": 1,
-    "top": 7,
-    "bottom": 7,
+    "left": 10,
+    "right": 15,
+    "top": 8,
+    "bottom": 8,
 }
+
+c.tabs.indicator.padding = {
+    "left": 0,
+    "right": 0,
+    "top": 0,
+    "bottom": 0,
+}
+
+c.tabs.indicator.width = 0
 
 c.url.default_page = "/home/cyberpunk/Scripts/index.html"
 #c.url.default_page = "https://www.google.com"
@@ -129,13 +138,13 @@ c.content.geolocation = False
 c.tabs.wrap = True
 #c.tabs.padding = {'bottom': 1, 'left': 1, 'right': 1, 'top': 1}
 #c.tabs.pinned.shrink = True
-# c.tabs.position = 'bottom'
 c.tabs.position = 'top'
-c.tabs.width = '2%'
+# c.tabs.position = 'top'
+c.tabs.width = 29
 #c.tabs.max_width = 160
 
 ## max min normal with
-c.tabs.max_width = 140
+c.tabs.max_width = 150
 c.tabs.min_width = 5
 
 
@@ -155,13 +164,14 @@ c.input.insert_mode.auto_load = False
 #c.spellcheck.languages = ['es-ES']
 c.scrolling.bar = 'always'
 c.completion.open_categories = ['history']
-#c.tabs.favicons.scale = 1
-c.tabs.favicons.scale = 1.5
+# c.tabs.favicons.scale = 1
+c.tabs.favicons.scale = 1.8
 c.content.pdfjs = True
 #c.completion.scrollbar.width = 5
 c.completion.height = '20%'
 c.colors.tabs.pinned.even.bg = '#1e1e1e'
 c.colors.tabs.pinned.odd.bg = '#1e1e1e'
+c.colors.tabs.selected.even.bg = '#171717'
 
 #config for searh in with F
 c.colors.hints.bg = '#1e1e1e'
