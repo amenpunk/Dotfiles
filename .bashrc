@@ -1,4 +1,3 @@
-zsh
 VISUA="vim"
 LD_LIBRARY_PATH=~/oldlib/pango/usr/lib 
 #/usr/share/Dagcoin-wallet/DagWallet
