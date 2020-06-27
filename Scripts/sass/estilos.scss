@@ -1,0 +1,64 @@
+@import '/home/cyberpunk/.cache/wal/colors.scss';
+
+body, html {
+  height: 100%;
+}
+
+body {
+    background-image: url($wallpaper);
+    /*background-color: #1e1e1e;*/
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color7;
+
+  }
+
+  .fa-facebook {
+  background: $color0;
+  color: white;
+  }
+
+  .fa-twitter {
+  background: $color1;
+  color: white;
+  }
+
+  .fa-youtube{
+  background: $color2;
+  color: white;
+  }
+  
+  .fa-reddit{
+  background: $color3;
+  color: white;
+  }
+
+  .fa-soundcloud{
+  background: $color4;
+  color: white;
+  } 
+  
+  .fa-github{
+  background: $color5;
+  color: white;
+  }
+
+  .fa-twitch{
+  background: $color6;
+  color: white;
+  }
+  
+  .fa-play{
+  background: $color7;
+  color: white;
+  }
+
+  ul,li{
+      padding-top: 10px; 
+      font-size: 30px;
+      text-decoration: none;
+  }

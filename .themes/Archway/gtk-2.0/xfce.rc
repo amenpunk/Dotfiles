@@ -1,0 +1,39 @@
+# XFCE Styles
+
+style "gtk-theme-config-panel" {
+	bg[NORMAL] = @bg_color
+	bg[PRELIGHT] = shade(1.1,@bg_color)
+	bg[ACTIVE] = shade(0.4,@selected_bg_color)
+	bg[SELECTED] = shade(0.97,@selected_bg_color)
+	fg[NORMAL] = @fg_color
+	fg[PRELIGHT] = shade(1.1,@active_fg)
+	fg[SELECTED] = @selected_fg_color
+	fg[ACTIVE] = @active_fg
+}
+
+style "workspace-switcher" = "murrine-panel" {
+        bg[ACTIVE] = @selected_bg_color
+        bg[SELECTED] = @selected_bg_color
+        fg[ACTIVE] = @active_fg
+}
+
+widget "*Pager*" style "workspace-switcher"
+
+widget "*PanelWidget*" style "gtk-theme-config-panel"
+widget "*PanelApplet*" style "gtk-theme-config-panel"
+widget "*fast-user-switch*" style "gtk-theme-config-panel"
+widget "*CPUFreq*Applet*" style "gtk-theme-config-panel"
+widget "*indicator-applet*" style "gtk-theme-config-panel"
+class "PanelApp*" style "gtk-theme-config-panel"
+class "PanelToplevel*" style "gtk-theme-config-panel"
+widget_class "*PanelToplevel*" style "gtk-theme-config-panel"
+widget_class "*notif*" style "gtk-theme-config-panel"
+widget_class "*Notif*" style "gtk-theme-config-panel"
+widget_class "*Tray*" style "gtk-theme-config-panel" 
+widget_class "*tray*" style "gtk-theme-config-panel"
+widget_class "*computertemp*" style "gtk-theme-config-panel"
+widget_class "*Applet*Tomboy*" style "gtk-theme-config-panel"
+widget_class "*Applet*Netstatus*" style "gtk-theme-config-panel"
+widget "*gdm-user-switch-menubar*" style "gtk-theme-config-panel"
+widget "*Xfce*Panel*" style "gtk-theme-config-panel"
+class "*Xfce*Panel*" style "gtk-theme-config-panel"

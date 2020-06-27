@@ -1,0 +1,10 @@
+[X-GNOME-Metatheme]
+Comment=There used to be only one
+Name=Archway
+Type=X-GNOME-Metatheme
+Encoding=UTF-8
+GtkTheme=Archway
+MetacityTheme=Archway
+IconTheme=Sardi-Ghost-Flexible-Savile Row
+CursorTheme=Adwaita
+CursorSize=24

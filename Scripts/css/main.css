@@ -1,0 +1,100 @@
+body, html {
+  height: 100%;
+  background-image: url("../pack.jpg");
+}
+
+
+.ml6 {
+  position: relative;
+  font-weight: 900;
+  font-size: 3.3em;
+}
+
+.ml6 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.2em;
+  padding-right: 0.05em;
+  padding-bottom: 0.1em;
+  overflow: hidden;
+}
+
+.ml6 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+
+body {
+  height: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #cbcaca;
+}
+
+pre{
+  color: #26de0d;
+  text-shadow: 2px 2px 8px white;
+  font-weight: bold;
+  text-decoration:
+}
+
+
+.fa-facebook {
+  color: "#1e1e1e";
+}
+
+.fa-facebook:hover {
+  font-size: 40px;
+  color:black;
+}
+
+.fa-twitter {
+  color: "#1e1e1e";
+}
+
+.fa-video {
+  color: "#1e1e1e";
+}
+.fa-youtube {
+  color: "#1e1e1e";
+}
+
+.fa-reddit {
+  color: "#1e1e1e";
+}
+
+.fa-soundcloud {
+  color: "#1e1e1e";
+}
+
+.fa-github {
+  color: "#1e1e1e";
+}
+
+.fa-twitch {
+  color: "#1e1e1e";
+}
+
+.fa-play {
+  color: "#1e1e1e";
+}
+
+ul, li {
+  padding-top: 10px;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: "#1e1e1e";
+}
+
+.banner{
+background-color:"#1e1e1e";
+color:red;
+}
+
+.lista{
+background-color:#1e1e1e;
+  color:#fff;
+}
