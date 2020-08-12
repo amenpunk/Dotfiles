@@ -26,6 +26,15 @@
 " |_| \_\\___||_| |_| |_| \__,_|| .__/ |___/
 "                               |_|         
 "Remamps""""""""""""""""""""""""""""""""""""""""""""""""""""
+"nnoremap x "_x
+"nnoremap d "_d
+"nnoremap D "_D
+"vnoremap d "_d
+
+nnoremap <leader>d "_d
+"nnoremap <leader>D "D
+"vnoremap <leader>d ""d
+
 let mapleader = "\<Space>"
 map <C-c> "+y
 map <leader>h :wincmd h<CR>
@@ -38,8 +47,10 @@ map <silent> <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>ga :diffget //3<CR>
 nmap <leader>gd :diffget //2<CR>
 nmap <leader>gs :G <CR>
+
 nmap <F2> :NERDTreeFind<CR>
 nmap <F1> :w<CR>
+"nmap <leader>w :w<CR>
 noremap <leader>f :Rg<CR>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -80,6 +91,7 @@ nmap <leader>gs :G <CR>
 "                              __/ |
 "                             |___/ 
 "config"""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype plugin on
 hi StartifyHeader  ctermfg=1
 set guitablabel=%t
 set ma
@@ -130,9 +142,12 @@ hi StartifyHeader  ctermfg=4
 "   \_/  \__,_||_|   |___/
 "
 "vars"""""""""""""""""""""""""""""""""""
-colorscheme wal
+"colorscheme molokai
+colorscheme monokai2
 let g:airline_powerline_fonts=1
+let g:airline_theme='minimalist'
 let g:blade_custom_directives = ['datetime', 'javascript']
+highlight! link NERDTreeFlags NERDTreeDir
 let g:blade_custom_directives_pairs = {
        \   'markdown': 'endmarkdown',
              \   'cache': 'endcache',
@@ -178,7 +193,7 @@ let NERDTreeShowHidden=0
 let NERDTreeIgnore=['\.git$', '\.idea$', '\node_modules',  '\.vscode$', '\.history$']
 let NERDTreeRespectWildIgnore=1
 let g:indentLine_char = '|'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_word_key      = '<C-u>'
@@ -189,6 +204,9 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_preview_window = 'right:60%'
 let g:fzf_action = {
@@ -219,7 +237,6 @@ let g:header_ascii = [
             \ ]
 let g:fzf_layout = { 'down': '~20%' }
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 hi StartifyHeader  ctermfg=1
 let g:javascript_plugin_flow = 1
@@ -257,12 +274,14 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'chrisbra/vim-commentary'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'airblade/vim-gitgutter'
+"Plugin 'airblade/vim-gitgutter'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-webdevicons'
-"Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'terryma/vim-multiple-cursors'
@@ -285,8 +304,8 @@ Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call vundle#end()            " required
-filetype plugin indent on    " required
-filetype on                  " required
+"filetype plugin indent on    " required
+"filetype on                  " required
 
 """""""""""""""""""""""""""""""""""""""""
 "  ______        _               
@@ -303,14 +322,10 @@ function! ToggleNERDTree()
     silent NERDTreeMirror
 endfunction
 
-command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-
 fun! GoYCM()
 nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
 endfun
 autocmd FileType javascript :call GoYCM()
+

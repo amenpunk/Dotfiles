@@ -1,3 +1,4 @@
+# status.bar.hide
 #config.source('qutewal.py')
 #------------el que siempre uso----------------------------------------------------------------------------------------
 c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
@@ -34,12 +35,12 @@ c.aliases = {
 c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
 #c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/main.css"
 
-#monospace = "10px 'Droid Sans Mono'"
+monospace = "8px 'Droid Sans Mono'"
 ## ---este es el pro
 
-#monospace = "9px 'FiraCode'"
+#monospace = "9px 'Fira Code Retina'"
 #c.fonts.monospace = "9px 'Hack'"
-monospace = "9px 'Hack'"
+#monospace = "10px 'Fira Code '"
 c.fonts.web.size.default = 10
 c.fonts.web.size.default_fixed  = 10
 # Font used in the completion categories.
@@ -73,7 +74,9 @@ c.fonts.prompts = monospace
 c.fonts.statusbar = monospace
 
 # Font used in the tab bar.
-c.fonts.tabs = monospace
+#c.fonts.sele.tabs = monospace
+c.fonts.tabs.selected = monospace
+c.fonts.tabs.unselected = monospace
 
 # Font used for the hints.
 c.fonts.hints = "bold 10px 'Hack'"
@@ -92,7 +95,7 @@ c.downloads.location.directory = "~/Downloads/"
 
 c.tabs.padding = {
     "left": 10,
-    "right": 15,
+    "right": 10,
     "top": 8,
     "bottom": 8,
 }
@@ -114,6 +117,7 @@ c.url.start_pages = "/home/cyberpunk/Scripts/index.html"
 #c.hints.mode = 'word'
 
 # c.tabs.show = 'switching'
+c.statusbar.show = 'never'
 c.tabs.show = 'multiple'
 
 #c.tabs.title.alignment = 'right'
@@ -128,10 +132,9 @@ c.tabs.show_switching_delay = 10000
 c.statusbar.position = 'bottom'
 #c.statusbar.position = 'top'
 #c.statusbar.hide = False
-c.statusbar.hide = True
 # c.statusbar.hide = False
 # c.zoom.default = '75%'
-c.zoom.default = '100%'
+#c.zoom.default = '125%'
 c.backend = 'webengine'
 #c.backend = "webkit"
 c.content.geolocation = False
@@ -144,7 +147,7 @@ c.tabs.width = 29
 #c.tabs.max_width = 160
 
 ## max min normal with
-c.tabs.max_width = 150
+c.tabs.max_width = 180
 c.tabs.min_width = 5
 
 
@@ -165,7 +168,7 @@ c.input.insert_mode.auto_load = False
 c.scrolling.bar = 'always'
 c.completion.open_categories = ['history']
 # c.tabs.favicons.scale = 1
-c.tabs.favicons.scale = 1.8
+c.tabs.favicons.scale = 1.5
 c.content.pdfjs = True
 #c.completion.scrollbar.width = 5
 c.completion.height = '20%'
