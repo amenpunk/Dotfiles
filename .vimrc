@@ -1,4 +1,3 @@
-"                                        
 "    ##############..... ##############  
 "    ##############......##############  
 "      ##########..........##########    
@@ -26,7 +25,7 @@
 " |_| \_\\___||_| |_| |_| \__,_|| .__/ |___/
 "                               |_|         
 "Remamps""""""""""""""""""""""""""""""""""""""""""""""""""""
-"nnoremap x "_x
+nnoremap x "_x
 "nnoremap d "_d
 "nnoremap D "_D
 "vnoremap d "_d
@@ -42,7 +41,7 @@ map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 map <C-n> :call ToggleNERDTree()<CR>
-map <C-p> :GitFiles<CR>
+"map <C-p> :GitFiles<CR>
 map <silent> <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>ga :diffget //3<CR>
 nmap <leader>gd :diffget //2<CR>
@@ -134,6 +133,20 @@ hi StartifyHeader  ctermfg=4
 " hi StartifyPath    ctermfg=4
 " hi StartifySlash   ctermfg=3
 " hi StartifySpecial ctermfg=3
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 """"""""""""""""""""""""""""""""""""""""
 " __   __ __ _  _ __  ___ 
@@ -142,11 +155,28 @@ hi StartifyHeader  ctermfg=4
 "   \_/  \__,_||_|   |___/
 "
 "vars"""""""""""""""""""""""""""""""""""
-"colorscheme molokai
-colorscheme monokai2
+colorscheme molokai
+"colorscheme monokai2
+"colorscheme PaperColor
+"colors PaperColor
+let g:rehash256 = 1 
+let g:NERDTreeGitStatusUpdateOnCursorHold = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1 
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
 let g:airline_powerline_fonts=1
 let g:airline_theme='minimalist'
-let g:blade_custom_directives = ['datetime', 'javascript']
+"let g:blade_custom_directives = ['datetime', 'javascript']
 highlight! link NERDTreeFlags NERDTreeDir
 let g:blade_custom_directives_pairs = {
        \   'markdown': 'endmarkdown',
@@ -204,8 +234,8 @@ let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
-let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 let g:javascript_plugin_flow = 1
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 let g:fzf_preview_window = 'right:60%'
@@ -235,6 +265,26 @@ let g:header_ascii = [
             \ ' \   _-''                                                                `-_   / ',
             \ '  `''                                                                      ``''  ',      
             \ ]
+
+"let g:header_ascii = [
+"            \ '    g@@@@@@@@@@@@@@@@@@@@@@@@b_             ',
+"            \ '   0@@@@@@@@@@@@@@@@@@@@@@@@@@@k            ',
+"            \ '   0@@@@@@@@@@@@@^^#@@@@@@@@@@@@L           ',
+"            \ '    #@@@@@@@@@@"   J@@@@@@@@@@@@@           ',
+"            \ '                  J@@@@@@@@@@@@@@b          ',
+"            \ '                 d@@@@@##@@@@@@@@@L         ',
+"            \ '                d@@@@#   ^@@@@@@@@Q         ',
+"            \ '               d@@@@@@r    #@@@@@@@[        ',
+"            \ '              d@@@@@@@[     #@@@@@@@r       ',
+"            \ '             0@@@@@@@P       0@@@@@@%       ',
+"            \ '            0@@@@P            0@@@@@@L      ',
+"            \ '           0@@@@^              0@@@@@@      ',
+"            \ '          #@@@F                 0@@@@@b     ',
+"            \ '         1@@@^                   `@@@@@L    ',
+"            \ '                                  ^@@@@@    ',
+"            \ '                                   ^@@@@[   ',
+"            \ '                                     ##P    ',
+"            \ ]
 let g:fzf_layout = { 'down': '~20%' }
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:javascript_plugin_ngdoc = 1
@@ -274,12 +324,15 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'chrisbra/vim-commentary'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'vim-scripts/indentpython.vim'
+
+Plugin 'aurieh/discord.nvim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
-"Plugin 'airblade/vim-gitgutter'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-surround'
@@ -289,7 +342,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'alvan/vim-closetag'
 Plugin 'Yggdroot/indentLine'
 Plugin 'maxmellon/vim-jsx-pretty'
@@ -329,3 +382,7 @@ nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
 endfun
 autocmd FileType javascript :call GoYCM()
 
+let $TERM="xterm-256color"
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
