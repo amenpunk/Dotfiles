@@ -1,29 +1,29 @@
-"    ##############..... ##############  
-"    ##############......##############  
-"      ##########..........##########    
-"      ##########........##########      
-"      ##########.......##########       
-"      ##########.....##########..       
-"      ##########....##########.....     
-"    ..##########..##########.........   
-"  ....##########.#########............. 
-"    ..################JJJ............   
-"      ################.............     
-"      ##############.JJJ.JJJJJJJJJJ     
-"      ############...JJ...JJ..JJ  JJ    
-"      ##########....JJ...JJ..JJ  JJ     
-"      ########......JJJ..JJJ JJJ JJJ    
-"      ######    .........               
-"                  .....                 
-"                    .                   
-"      
+"    ##############..... ##############
+"    ##############......##############
+"      ##########..........##########
+"      ##########........##########
+"      ##########.......##########
+"      ##########.....##########..
+"      ##########....##########.....
+"    ..##########..##########.........
+"  ....##########.#########.............
+"    ..################JJJ............
+"      ################.............
+"      ##############.JJJ.JJJJJJJJJJ
+"      ############...JJ...JJ..JJ  JJ
+"      ##########....JJ...JJ..JJ  JJ
+"      ########......JJJ..JJJ JJJ JJJ
+"      ######    .........
+"                  .....
+"                    .
+"
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" |  _ \  ___  _ __ ___    __ _  _ __   ___ 
+" |  _ \  ___  _ __ ___    __ _  _ __   ___
 " | |_) |/ _ \| '_ ` _ \  / _` || '_ \ / __|
 " |  _ <|  __/| | | | | || (_| || |_) |\__ \
 " |_| \_\\___||_| |_| |_| \__,_|| .__/ |___/
-"                               |_|         
+"                               |_|
 "Remamps""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap x "_x
 "nnoremap d "_d
@@ -36,16 +36,18 @@ nnoremap <leader>d "_d
 
 let mapleader = "\<Space>"
 map <C-c> "+y
-map <leader>h :wincmd h<CR>
-map <leader>j :wincmd j<CR>
-map <leader>k :wincmd k<CR>
-map <leader>l :wincmd l<CR>
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-L> <C-W>l
+nnoremap <C-H> <C-W>h
 map <C-n> :call ToggleNERDTree()<CR>
 "map <C-p> :GitFiles<CR>
 map <silent> <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>ga :diffget //3<CR>
 nmap <leader>gd :diffget //2<CR>
 nmap <leader>gs :G <CR>
+nmap <leader>t :tabnew<CR>
+nmap <leader>b :DBUI<CR>
 
 nmap <F2> :NERDTreeFind<CR>
 nmap <F1> :w<CR>
@@ -65,7 +67,7 @@ noremap <S-l> gt
 noremap <S-h> gT
 noremap <leader>q :q<cr>
 noremap <leader>m :Marks<cr>
-"noremap <leader>l :Lines<cr>
+noremap <leader>l :Lines<cr>
 noremap <leader><Enter> :term<cr>
 nnoremap <silent> <Leader>+ :vertical resize +5<CR>
 nnoremap <silent> <Leader>- :vertical resize -5<CR>
@@ -81,14 +83,14 @@ nmap <leader>gd :diffget //2<CR>
 nmap <leader>gs :G <CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                      __  _        
-"                     / _|(_)       
-"   ___  ___   _ __  | |_  _   __ _ 
+"                      __  _
+"                     / _|(_)
+"   ___  ___   _ __  | |_  _   __ _
 "  / __|/ _ \ | '_ \ |  _|| | / _` |
 " | (__| (_) || | | || |  | || (_| |
 "  \___|\___/ |_| |_||_|  |_| \__, |
 "                              __/ |
-"                             |___/ 
+"                             |___/
 "config"""""""""""""""""""""""""""""""""""""""""""""""""""""
 filetype plugin on
 hi StartifyHeader  ctermfg=1
@@ -107,7 +109,7 @@ set autoindent
 set background=dark
 set relativenumber
 set ts=4
-set smartindent   
+set smartindent
 set autoindent
 set expandtab
 set shiftwidth=4
@@ -137,31 +139,21 @@ hi StartifyHeader  ctermfg=4
 set foldmethod=indent
 set foldlevel=99
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
 """"""""""""""""""""""""""""""""""""""""
-" __   __ __ _  _ __  ___ 
+" __   __ __ _  _ __  ___
 " \ \ / // _` || '__|/ __|
 "  \ V /| (_| || |   \__ \
 "   \_/  \__,_||_|   |___/
 "
 "vars"""""""""""""""""""""""""""""""""""
-colorscheme molokai
+"colorscheme molokai
 "colorscheme monokai2
 "colorscheme PaperColor
 "colors PaperColor
-let g:rehash256 = 1 
+let g:db_ui_use_nerd_fonts = 1
+let g:rehash256 = 1
 let g:NERDTreeGitStatusUpdateOnCursorHold = 1
-let g:NERDTreeGitStatusUseNerdFonts = 1 
+let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Modified'  :'✹',
                 \ 'Staged'    :'✚',
@@ -263,8 +255,22 @@ let g:header_ascii = [
             \ ' ||.==''    _-''                                                     `'' |  /==.|| ',
             \ ' ==''    _-''                                                            \/   `== ',
             \ ' \   _-''                                                                `-_   / ',
-            \ '  `''                                                                      ``''  ',      
+            \ '  `''                                                                      ``''  ',
             \ ]
+
+
+let g:header_ascii = [
+            \ ' ⣿⣿⠏⣠⣾⣦⡐⢌⢿⣷⣦⣅⡑⠕⠡⠐⢿⠿⣛⠟⠛⠛⠛⠛⠡⢷⡈⢂⢕⢂ ',
+            \ ' ⠟⣡⣾⣿⣿⣿⣿⣦⣑⠝⢿⣿⣿⣿⣿⣿⡵⢁⣤⣶⣶⣿⢿⢿⢿⡟⢻⣤⢑⢂ ',
+            \ ' ⣾⣿⣿⡿⢟⣛⣻⣿⣿⣿⣦⣬⣙⣻⣿⣿⣷⣿⣿⢟⢝⢕⢕⢕⢕⢽⣿⣿⣷⣔ ',
+            \ ' ⣿⣿⠵⠚⠉⢀⣀⣀⣈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣗⢕⢕⢕⢕⢕⢕⣽⣿⣿⣿⣿ ',
+            \ ' ⢷⣂⣠⣴⣾⡿⡿⡻⡻⣿⣿⣴⣿⣿⣿⣿⣿⣿⣷⣵⣵⣵⣷⣿⣿⣿⣿⣿⣿⡿ ',
+            \ ' ⢌⠻⣿⡿⡫⡪⡪⡪⡪⣺⣿⣿⣿⣿⣿⠿⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃ ',
+            \ ' ⠣⡁⠹⡪⡪⡪⡪⣪⣾⣿⣿⣿⣿⠋⠐⢉⢍⢄⢌⠻⣿⣿⣿⣿⣿⣿⣿⣿⠏⠈ ',
+            \ ' ⡣⡘⢄⠙⣾⣾⣾⣿⣿⣿⣿⣿⣿⡀⢐⢕⢕⢕⢕⢕⡘⣿⣿⣿⣿⣿⣿⠏⠠⠈ ',
+            \ ' ⠌⢊⢂⢣⠹⣿⣿⣿⣿⣿⣿⣿⣿⣧⢐⢕⢕⢕⢕⢕⢅⣿⣿⣿⣿⡿⢋⢜⠠⠈ ',
+            \ ' ⠄⠁⠕⢝⡢⠈⠻⣿⣿⣿⣿⣿⣿⣿⣷⣕⣑⣑⣑⣵⣿⣿⣿⡿⢋⢔⢕⣿⠠⠈ ',
+            \]
 
 "let g:header_ascii = [
 "            \ '    g@@@@@@@@@@@@@@@@@@@@@@@@b_             ',
@@ -301,7 +307,7 @@ let g:lightline = {
       \ },
       \ }
 
-let g:startify_bookmarks = [{'y' : '~/YOKO/Firebase-BE/functions/endpoints.js'}, {'a': '~/YOKO/API_TEST/endpoints.js'}]   
+let g:startify_bookmarks = [{'h' : '~/HAPPHE/api.happhe.com/index.js'}, {'m': '~/HAPPHE/api.md.happhe.com/index.js'},{'v': '~/.vimrc'}]
 let g:startify_custom_header = (g:header_ascii)
 "let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
@@ -311,19 +317,40 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 
+let g:dbs = {
+\  'mssql': 'jdbc:sqlserver://127.0.0.1;databaseName=landing;user=sa;password=<password>',
+\  'carrito_pay': 'mysql://<host>:<password>@db-tigo.c1idhdia5o3m.us-east-1.rds.amazonaws.com/<database>',
+\  'mongo_happhe': '',
+\  'mongo_local': 'mongodb://localhost:27017/landing',
+\ }
+let g:db_ui_winwidth = 30
+let g:db_ui_icons = {
+    \ 'expanded': '▾',
+    \ 'collapsed': '▸',
+    \ 'saved_query': '*',
+    \ 'new_query': '+',
+    \ 'tables': '~',
+    \ 'buffers': '»',
+    \ 'connection_ok': '✓',
+    \ 'connection_error': '✕',
+    \ }
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-"  _____   _                _             
-" |  __ \ | |              (_)            
-" | |__) || | _   _   __ _  _  _ __   ___ 
+"  _____   _                _
+" |  __ \ | |              (_)
+" | |__) || | _   _   __ _  _  _ __   ___
 " |  ___/ | || | | | / _` || || '_ \ / __|
 " | |     | || |_| || (_| || || | | |\__ \
 " |_|     |_| \__,_| \__, ||_||_| |_||___/
-"                     __/ |               
-"                    |___/                
+"                     __/ |
+"                    |___/
 "
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
+Plugin 'tpope/vim-dadbod'
+Plugin 'kristijanhusak/vim-dadbod-ui'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/indentpython.vim'
@@ -361,13 +388,13 @@ call vundle#end()            " required
 "filetype on                  " required
 
 """""""""""""""""""""""""""""""""""""""""
-"  ______        _               
-" |  ____|      | |              
-" | |__   __  __| |_  _ __  __ _ 
+"  ______        _
+" |  ____|      | |
+" | |__   __  __| |_  _ __  __ _
 " |  __|  \ \/ /| __|| '__|/ _` |
 " | |____  >  < | |_ | |  | (_| |
 " |______|/_/\_\ \__||_|   \__,_|
-"                                
+"
 "
 "Extras""""""""""""""""""""""""""""""""""
 function! ToggleNERDTree()
@@ -385,4 +412,7 @@ autocmd FileType javascript :call GoYCM()
 let $TERM="xterm-256color"
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+let g:vim_monokai_tasty_italic=1
+colorscheme PaperColor
