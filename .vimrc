@@ -30,9 +30,10 @@
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v> <C-\><C-n>
   tnoremap <M-[> <Esc>
-  tnoremap <C-v><Esc> <Esc>
+  tnoremap <Esc> <Esc>
+  "tnoremap <C-v><Esc> <Esc>
 endif
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
@@ -155,8 +156,8 @@ nnoremap <silent> <C-s> :BufferPick<CR>
 nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
 " Move to previous/next
-nnoremap <silent>    <A-,> :BufferPrevious<CR>
-nnoremap <silent>    <A-.> :BufferNext<CR>
+nnoremap <silent>    <S-h> :BufferPrevious<CR>
+nnoremap <silent>    <S-l> :BufferNext<CR>
 " Re-order to previous/next
 nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
 nnoremap <silent>    <A->> :BufferMoveNext<CR>
@@ -189,7 +190,6 @@ nnoremap <leader>d "_d
 "vnoremap <leader>d ""d
 
 let mapleader = "\<Space>"
-"let g:jsx_ext_required = 1
 
 map <C-c> "+y
 nnoremap <C-J> <C-W>j
@@ -219,8 +219,9 @@ noremap <leader>7 7gt
 noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
-noremap <S-l> gt
-noremap <S-h> gT
+"tab next config
+"noremap <S-l> gt
+"noremap <S-h> gT
 noremap <leader>q :q<cr>
 noremap <leader>m :Marks<cr>
 noremap <leader>l :Lines<cr>
@@ -302,11 +303,14 @@ set foldlevel=99
 "   \_/  \__,_||_|   |___/
 "
 "vars"""""""""""""""""""""""""""""""""""
+let g:startify_relative_path = 1
 let bufferline = {}
-
+"let g:vim_jsx_pretty_colorful_config = 1 " default 0
+let g:jsx_ext_required = 0
+"let g:xml_syntax_folding = 1
+let g:javascript_plugin_jsdoc = 1
 " Show a shadow over the editor in buffer-pick mode
-let bufferline.shadow = v:true
-
+let bufferline.shadow = v:false
 " Enable/disable animations
 let bufferline.animation = v:true
 
@@ -314,18 +318,18 @@ let bufferline.animation = v:true
 let bufferline.icons = v:true
 
 " Enable/disable close button
-let bufferline.closable = v:true
+let bufferline.closable = v:false
 
 " Enables/disable clickable tabs
 "  - left-click: go to buffer
 "  - middle-click: delete buffer
-let bufferline.clickable = v:true
+let bufferline.clickable = v:false
 
 " If set, the letters for each buffer in buffer-pick mode will be
 " assigned based on their name. Otherwise or in case all letters are
 " already assigned, the behavior is to assign letters in order of
 " usability (see order below)
-let bufferline.semantic_letters = v:true
+let bufferline.semantic_letters = v:false
 
 " New buffer letters are assigned in this order. This order is
 " optimal for the qwerty keyboard layout but might need adjustement
@@ -382,7 +386,6 @@ let g:prettier#quickfix_enabled = 0
 let g:prettier#config#tab_width = '4'
 let g:prettier#exec_cmd_async = 0
 let g:prettier#config#tab_width = 4
-let g:vim_jsx_pretty_highlight_close_tag = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:webdevicons_enable_nerdtree = 1
@@ -399,11 +402,11 @@ let g:NERDTreeMinimalUI = 1
 "let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 let g:NERDTreeCascadeSingleChildDir = 0
-"let g:NERDTreeDirArrowExpandable = "•"
-"let g:NERDTreeDirArrowCollapsible = "•"
+let g:NERDTreeDirArrowExpandable = "•"
+let g:NERDTreeDirArrowCollapsible = "•"
 let g:NERDTreeWinSize = 31
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+"let g:NERDTreeDirArrowExpandable = ''
+"let g:NERDTreeDirArrowCollapsible = ''
 let NERDTreeMinimalUI = 1
 let NERDTreeShowHidden=0
 let NERDTreeIgnore=['\.git$', '\.idea$', '\node_modules',  '\.vscode$', '\.history$', '\lib$']
@@ -488,7 +491,6 @@ let g:header_ascii = [
 "            \ ]
 
 let g:fzf_layout = { 'left': '~50%' }
-let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:javascript_plugin_ngdoc = 1
 hi StartifyHeader  ctermfg=1
 let g:javascript_plugin_flow = 1
@@ -503,7 +505,21 @@ let g:lightline = {
       \ },
       \ }
 
-let g:startify_bookmarks = [{'a' : '/home/cyberpunk/gt_out_native/'}, {'v': '~/.vimrc'}]   
+
+let g:startify_lists = [
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ { 'type': 'commands',  'header': ['   Commands']       },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ ]
+
+
+let g:startify_bookmarks = [
+            \ {'1' : '/home/cyberpunk/gt_out_native/App.js'}, 
+            \ {'2' : '/home/cyberpunk/gt-out-api/functions/index.js'}, 
+            \ {'3' : '/home/cyberpunk/admin-panel/src/app/App.js'}, 
+            \ {'v': '~/.vimrc'},
+            \]   
+
 let g:startify_custom_header = (g:header_ascii)
 "let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
@@ -544,23 +560,18 @@ let g:db_ui_icons = {
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'mxw/vim-jsx'
 Plugin 'romgrk/barbar.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
-"Plugin 'wfxr/minimap.vim'
 Plugin 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
-"https://github.com/mxw/vim-jsx.git
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-dadbod'
 Plugin 'kristijanhusak/vim-dadbod-ui'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/indentpython.vim'
-
-"Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'NLKNguyen/papercolor-theme'
@@ -570,19 +581,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 
 Plugin 'alvan/vim-closetag'
 Plugin 'Yggdroot/indentLine'
-Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'preservim/nerdcommenter'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mhinz/vim-startify'
 Plugin 'prettier/vim-prettier', {
@@ -614,11 +620,11 @@ endfunction
 "endfun
 "autocmd FileType javascript :call GoYCM()
 
-"let $TERM="xterm-256color"
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"set termguicolors
-"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-"set t_Co=256   " This is may or may not needed.
+let $TERM="xterm-256color"
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set t_Co=256   " This is may or may not needed.
 
 let g:vim_monokai_tasty_italic=1
 let g:molokai_original = 1
@@ -627,6 +633,9 @@ let g:rehash256 = 1
 set termguicolors
 "colorscheme PaperColor
 colorscheme vim-monokai-tasty
+"colorscheme monokai2
+
+
 hi MinimapCurrentLine ctermfg=Green guifg=#d6004f
 let g:minimap_highlight = 'MinimapCurrentLine'
 
@@ -654,4 +663,5 @@ if has('nvim')
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
 
