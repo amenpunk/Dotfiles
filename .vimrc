@@ -125,7 +125,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" NOTE: Please see `:h coc-status` for integrations with external that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
@@ -176,9 +176,6 @@ nnoremap <silent>    <A-0> :BufferClose<CR>
 "nnoremap <silent>    <A-c> :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
-" Other:
-" :BarbarEnable - enables barbar (enabled by default)
-" :BarbarDisable - very bad command, should never be used
 
 nnoremap x "_x
 "nnoremap d "_d
@@ -249,6 +246,7 @@ nmap <leader>gs :G <CR>
 "                              __/ |
 "                             |___/ 
 "config"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set hidden
 set updatetime=300
 set shortmess+=c
@@ -280,7 +278,7 @@ set winwidth=110
 set number
 set nobackup
 set noswapfile
-set guifont=DroidSansMono\ Nerd\ Font\ 15
+"set guifont=DroidSansMono\ Nerd\ Font\ 15
 "set guifont=Font\ Name:h12
 "set guifont=FiraCode\ Nerd\ Font:h11
 
@@ -303,51 +301,41 @@ set foldlevel=99
 "   \_/  \__,_||_|   |___/
 "
 "vars"""""""""""""""""""""""""""""""""""
-let g:startify_relative_path = 1
+
+
 let bufferline = {}
-"let g:vim_jsx_pretty_colorful_config = 1 " default 0
-let g:jsx_ext_required = 0
-"let g:xml_syntax_folding = 1
-let g:javascript_plugin_jsdoc = 1
-" Show a shadow over the editor in buffer-pick mode
-let bufferline.shadow = v:false
-" Enable/disable animations
+let bufferline.closable = v:true
 let bufferline.animation = v:true
-
-" Enable/disable icons
-let bufferline.icons = v:true
-
-" Enable/disable close button
-let bufferline.closable = v:false
-
-" Enables/disable clickable tabs
-"  - left-click: go to buffer
-"  - middle-click: delete buffer
-let bufferline.clickable = v:false
-
-" If set, the letters for each buffer in buffer-pick mode will be
-" assigned based on their name. Otherwise or in case all letters are
-" already assigned, the behavior is to assign letters in order of
-" usability (see order below)
-let bufferline.semantic_letters = v:false
+let bufferline.semantic_letters = v:true
 
 " New buffer letters are assigned in this order. This order is
 " optimal for the qwerty keyboard layout but might need adjustement
 " for other layouts.
-let bufferline.letters = 
-  \ 'asdfjkl;ghnmxcbziowerutyqpASDFJKLGHNMXCBZIOWERUTYQP'
-
+let bufferline.letters =
+  \ 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
 " Sets the maximum padding width with which to surround each tab
+let bufferline.icons = v:true
 let bufferline.maximum_padding = 4
-"colorscheme molokai
-"colorscheme monokai2
-"colorscheme PaperColor
-"colors PaperColor
+let bufferline.icon_separator_active = '▎'
+let bufferline.icon_separator_inactive = '▎'
+let bufferline.icon_close_tab = ''
+let bufferline.icon_close_tab_modified = '●'
+let bufferline.auto_hide = v:true
+
+
+let g:spaceline_seperate_style = 'arrow'
+let g:spaceline_colorscheme = 'space'
+
+let g:startify_relative_path = 1
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+let g:jsx_ext_required = 0
+"let g:xml_syntax_folding = 1
+let g:javascript_plugin_jsdoc = 1
 let g:db_ui_save_location = '~/querys'
 "let g:minimap_left = 1
 let g:minimap_highlight = 'Title'
 let g:minimap_width = 20
-let g:minimap_auto_start = 1
+let g:minimap_auto_start = 0
 let g:db_ui_use_nerd_fonts = 1
 let g:rehash256 = 1 
 let g:NERDTreeGitStatusUpdateOnCursorHold = 1
@@ -402,8 +390,8 @@ let g:NERDTreeMinimalUI = 1
 "let g:NERDTreeShowHidden = 1
 let g:NERDTreeShowLineNumbers = 0
 let g:NERDTreeCascadeSingleChildDir = 0
-let g:NERDTreeDirArrowExpandable = "•"
-let g:NERDTreeDirArrowCollapsible = "•"
+"let g:NERDTreeDirArrowExpandable = "•"
+"let g:NERDTreeDirArrowCollapsible = "•"
 let g:NERDTreeWinSize = 31
 "let g:NERDTreeDirArrowExpandable = ''
 "let g:NERDTreeDirArrowCollapsible = ''
@@ -507,6 +495,8 @@ let g:lightline = {
 
 
 let g:startify_lists = [
+        "\ { 'type': 'files',     'header': ['   Files']            },
+        "\ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
         \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ { 'type': 'sessions',  'header': ['   Sessions']       },
@@ -514,9 +504,7 @@ let g:startify_lists = [
 
 
 let g:startify_bookmarks = [
-            \ {'1' : '/home/cyberpunk/gt_out_native/App.js'}, 
-            \ {'2' : '/home/cyberpunk/gt-out-api/functions/index.js'}, 
-            \ {'3' : '/home/cyberpunk/admin-panel/src/app/App.js'}, 
+            \ {'a' : '/var/www/ClienteMaster'}, 
             \ {'v': '~/.vimrc'},
             \]   
 
@@ -531,8 +519,9 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 let g:dbs = {
 \  'mssql': 'jdbc:sqlserver://127.0.0.1;databaseName=landing;user=sa;password=l@andinG_10',
-\  'carrito_pay': '',
 \  'mongo_local': 'mongodb://localhost:27017/landing',
+\  'alpha_mysql_pre': 'mysql://<user>:<pass>@<host>/<db>',
+\  'alpha_mysql_local': 'mysql://root:ben10987@127.0.0.1/TestDB',
 \ }
 let g:db_ui_winwidth = 30
 let g:db_ui_icons = {
@@ -560,6 +549,9 @@ let g:db_ui_icons = {
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
+
+"Plugin 'glepnir/spaceline.vim'
+Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'mxw/vim-jsx'
 Plugin 'romgrk/barbar.nvim'
@@ -570,8 +562,8 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-dadbod'
 Plugin 'kristijanhusak/vim-dadbod-ui'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/indentpython.vim'
+"Plugin 'nvie/vim-flake8'
+"Plugin 'vim-scripts/indentpython.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'NLKNguyen/papercolor-theme'
@@ -629,11 +621,8 @@ set t_Co=256   " This is may or may not needed.
 let g:vim_monokai_tasty_italic=1
 let g:molokai_original = 1
 let g:rehash256 = 1
-"colorscheme PaperColor
 set termguicolors
 "colorscheme PaperColor
-colorscheme vim-monokai-tasty
-"colorscheme monokai2
 
 
 hi MinimapCurrentLine ctermfg=Green guifg=#d6004f
@@ -664,4 +653,19 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+""" custom config for nerd tree 
+hi NERDTreeCWD                        ctermfg=233     ctermbg=233     cterm=NONE          guifg=#252525     guibg=#252525    gui=NONE
+hi NERDTreeDirSlash                   ctermfg=233     ctermbg=233     cterm=NONE          guifg=#252525     guibg=#252525    gui=NONE
+"hi TabLine                            ctermfg=238     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
+"hi TabLineFill                        ctermfg=233     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
+"hi TabLineSel                         ctermfg=208     ctermbg=234     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
+"hi TermCursorNC                       ctermfg=233     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
 
+autocmd FileType php setlocal makeprg=zca\ %<.php                               
+autocmd FileType php setlocal errorformat=%f(line\ %l):\ %m
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+"command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+"colorscheme PaperColor
+colorscheme vim-monokai-tasty
+"colorscheme vim-framer-syntax
