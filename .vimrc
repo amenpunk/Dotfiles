@@ -517,12 +517,7 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 
-let g:dbs = {
-\  'mssql': 'jdbc:sqlserver://127.0.0.1;databaseName=landing;user=sa;password=l@andinG_10',
-\  'mongo_local': 'mongodb://localhost:27017/landing',
-\  'alpha_mysql_pre': 'mysql://<user>:<pass>@<host>/<db>',
-\  'alpha_mysql_local': 'mysql://root:ben10987@127.0.0.1/TestDB',
-\ }
+let g:dbs = { }
 let g:db_ui_winwidth = 30
 let g:db_ui_icons = {
     \ 'expanded': '▾',
@@ -549,8 +544,9 @@ let g:db_ui_icons = {
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
-
+Plugin 'jcherven/jummidark.vim'
 "Plugin 'glepnir/spaceline.vim'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'mxw/vim-jsx'
@@ -621,7 +617,7 @@ set t_Co=256   " This is may or may not needed.
 let g:vim_monokai_tasty_italic=1
 let g:molokai_original = 1
 let g:rehash256 = 1
-set termguicolors
+"set termguicolors
 "colorscheme PaperColor
 
 
@@ -667,5 +663,7 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 "command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 "colorscheme PaperColor
-colorscheme vim-monokai-tasty
+"colorscheme vim-monokai-tasty
 "colorscheme vim-framer-syntax
+colorscheme jummidark
+
