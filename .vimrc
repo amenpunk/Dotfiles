@@ -193,7 +193,7 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
-map <C-n> :call ToggleNERDTree()<CR>
+map <C-n> :CHADopen<CR>
 map <C-p> :GitFiles<CR>
 map <silent> <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>ga :diffget //3<CR>
@@ -253,7 +253,7 @@ set shortmess+=c
 set cmdheight=2
 filetype plugin on
 hi StartifyHeader  ctermfg=1
-set guitablabel=\[%N\]\ %t\ %M
+"set guitablabel=\[%N\]\ %t\ %M
 "set guitablabel=%N/\ %t\ %M
 set ma
 set splitbelow
@@ -278,7 +278,7 @@ set winwidth=110
 set number
 set nobackup
 set noswapfile
-"set guifont=DroidSansMono\ Nerd\ Font\ 15
+set guifont=DroidSansMono\ Nerd\ Font\ 15
 "set guifont=Font\ Name:h12
 "set guifont=FiraCode\ Nerd\ Font:h11
 
@@ -517,7 +517,10 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 
-let g:dbs = { }
+let g:dbs = { 
+\ 'quieroaplicar': 'mysql://user:pass@host/dbname'
+\}
+
 let g:db_ui_winwidth = 30
 let g:db_ui_icons = {
     \ 'expanded': '▾',
@@ -544,11 +547,12 @@ let g:db_ui_icons = {
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
+Plugin 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
+Plugin 'tpope/vim-commentary'
 Plugin 'jcherven/jummidark.vim'
-"Plugin 'glepnir/spaceline.vim'
+Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
-Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'mxw/vim-jsx'
 Plugin 'romgrk/barbar.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
@@ -557,34 +561,30 @@ Plugin 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-dadbod'
 Plugin 'kristijanhusak/vim-dadbod-ui'
-Plugin 'vim-syntastic/syntastic'
-"Plugin 'nvie/vim-flake8'
-"Plugin 'vim-scripts/indentpython.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-
 Plugin 'alvan/vim-closetag'
 Plugin 'Yggdroot/indentLine'
 Plugin 'junegunn/fzf.vim'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mhinz/vim-startify'
-Plugin 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+"Plugin 'glepnir/spaceline.vim'
+"Plugin 'maxmellon/vim-jsx-pretty'
+"Plugin 'vim-syntastic/syntastic'
+"Plugin 'nvie/vim-flake8'
+"Plugin 'vim-scripts/indentpython.vim'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()            " required
-"filetype plugin indent on    " required
-"filetype on                  " required
 
 """""""""""""""""""""""""""""""""""""""""
 "  ______        _               
@@ -601,15 +601,7 @@ function! ToggleNERDTree()
     silent NERDTreeMirror
 endfunction
 
-"fun! GoYCM()
-"nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
-"nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
-"nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
-"endfun
-"autocmd FileType javascript :call GoYCM()
-
 let $TERM="xterm-256color"
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256   " This is may or may not needed.
@@ -617,19 +609,9 @@ set t_Co=256   " This is may or may not needed.
 let g:vim_monokai_tasty_italic=1
 let g:molokai_original = 1
 let g:rehash256 = 1
-"set termguicolors
-"colorscheme PaperColor
-
 
 hi MinimapCurrentLine ctermfg=Green guifg=#d6004f
 let g:minimap_highlight = 'MinimapCurrentLine'
-
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -650,20 +632,15 @@ else
 endif
 
 """ custom config for nerd tree 
-hi NERDTreeCWD                        ctermfg=233     ctermbg=233     cterm=NONE          guifg=#252525     guibg=#252525    gui=NONE
-hi NERDTreeDirSlash                   ctermfg=233     ctermbg=233     cterm=NONE          guifg=#252525     guibg=#252525    gui=NONE
-"hi TabLine                            ctermfg=238     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
-"hi TabLineFill                        ctermfg=233     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
-"hi TabLineSel                         ctermfg=208     ctermbg=234     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
-"hi TermCursorNC                       ctermfg=233     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525    gui=NONE
+hi NERDTreeCWD                        ctermfg=233     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525     gui=NONE
+hi NERDTreeDirSlash                   ctermfg=233     ctermbg=233     cterm=NONE          guifg=#f8f8f2     guibg=#252525     gui=NONE
+
 
 autocmd FileType php setlocal makeprg=zca\ %<.php                               
 autocmd FileType php setlocal errorformat=%f(line\ %l):\ %m
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 "command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
-"colorscheme PaperColor
 "colorscheme vim-monokai-tasty
-"colorscheme vim-framer-syntax
 colorscheme jummidark
 

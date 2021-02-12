@@ -16,3 +16,5 @@
 [filesystem "Oracle Corporation|1.8.0_262|/dev/sda3"]
 	timestampResolution = 1001 microseconds
 	minRacyThreshold = 0 nanoseconds
+[pull]
+	rebase = true
