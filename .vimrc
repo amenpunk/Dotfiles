@@ -161,6 +161,7 @@ nnoremap <silent>    <S-l> :BufferNext<CR>
 " Re-order to previous/next
 nnoremap <silent>    <A-<> :BufferMovePrevious<CR>
 nnoremap <silent>    <A->> :BufferMoveNext<CR>
+
 " Goto buffer in position...
 nnoremap <silent>    <A-1> :BufferGoto 1<CR>
 nnoremap <silent>    <A-2> :BufferGoto 2<CR>
@@ -198,8 +199,9 @@ map <C-p> :GitFiles<CR>
 map <silent> <leader>w <Plug>(easymotion-bd-w)
 nmap <leader>ga :diffget //3<CR>
 nmap <leader>gd :diffget //2<CR>
+nmap <leader>gn :GitGutterNextHunk<CR>
 nmap <leader>gs :G <CR>
-nmap <leader>t :tabnew<CR>
+nmap <leader>t :Buffers<CR>
 nmap <leader>b :DBUI<CR>
 map <F3> gg=G<C-o><C-o>
 nmap <F2> :NERDTreeFind<CR>
@@ -302,6 +304,28 @@ set foldlevel=99
 "
 "vars"""""""""""""""""""""""""""""""""""
 
+let g:indent_blankline_char = '|'
+let g:indent_blankline_char_list = ['|', '|','|','|',]
+let g:indent_blankline_space_char = ' '
+let g:indentLine_char_list = ['|', '|','|','|',]
+" Vim
+let g:indentLine_color_term = 239
+
+" GVim
+"let g:indentLine_color_gui = '#A4E57E'
+
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
+
+" Background (Vim, GVim)
+"let g:indentLine_bgcolor_term = 202
+"let g:indentLine_bgcolor_gui = '#FF5F00'
+let g:indentLine_concealcursor = 'inc'
+let g:indentLine_conceallevel = 2
+
+
+
 
 let bufferline = {}
 let bufferline.closable = v:true
@@ -336,6 +360,14 @@ let g:db_ui_save_location = '~/querys'
 let g:minimap_highlight = 'Title'
 let g:minimap_width = 20
 let g:minimap_auto_start = 0
+let g:minimap_base_highlight = 'Normal'
+let g:minimap_highlight = 'Title'
+let g:minimap_close_filetypes = ['startify', 'netrw', 'vim-plug'] 
+let g:minimap_block_buftypes = ['nofile', 'nowrite', 'quickfix', 'terminal', 'prompt']
+"hi MinimapCurrentLine ctermfg=Green guifg=#d6004f 
+"""hi MinimapCurrentLine ctermfg=Green guifg=#50FA7B guibg=#32302f
+"let g:minimap_highlight = 'MinimapCurrentLine'
+
 let g:db_ui_use_nerd_fonts = 1
 let g:rehash256 = 1 
 let g:NERDTreeGitStatusUpdateOnCursorHold = 1
@@ -496,7 +528,7 @@ let g:lightline = {
 
 let g:startify_lists = [
         "\ { 'type': 'files',     'header': ['   Files']            },
-        "\ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
+        \ { 'type': 'dir',       'header': ['   Current Directory '. getcwd()] },
         \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
         \ { 'type': 'commands',  'header': ['   Commands']       },
         \ { 'type': 'sessions',  'header': ['   Sessions']       },
@@ -518,7 +550,6 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 
 let g:dbs = { 
-\ 'quieroaplicar': 'mysql://user:pass@host/dbname'
 \}
 
 let g:db_ui_winwidth = 30
@@ -547,6 +578,10 @@ let g:db_ui_icons = {
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'dylanaraps/wal.vim'
+Plugin 'fxn/vim-monochrome'
+Plugin 'srcery-colors/srcery-vim'
 Plugin 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plugin 'tpope/vim-commentary'
 Plugin 'jcherven/jummidark.vim'
@@ -562,7 +597,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-dadbod'
 Plugin 'kristijanhusak/vim-dadbod-ui'
 Plugin 'easymotion/vim-easymotion'
-"Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-surround'
@@ -571,19 +605,19 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'alvan/vim-closetag'
 Plugin 'Yggdroot/indentLine'
+Plugin 'lukas-reineke/indent-blankline.nvim'
 Plugin 'junegunn/fzf.vim'
-"Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mhinz/vim-startify'
-"Plugin 'glepnir/spaceline.vim'
+Plugin 'kshenoy/vim-signature'
 "Plugin 'maxmellon/vim-jsx-pretty'
+"Plugin 'sjl/badwolf'
 "Plugin 'vim-syntastic/syntastic'
 "Plugin 'nvie/vim-flake8'
 "Plugin 'vim-scripts/indentpython.vim'
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'NLKNguyen/papercolor-theme'
 "Plugin 'terryma/vim-multiple-cursors'
+
 call vundle#end()            " required
 
 """""""""""""""""""""""""""""""""""""""""
@@ -596,10 +630,6 @@ call vundle#end()            " required
 "                                
 "
 "Extras""""""""""""""""""""""""""""""""""
-function! ToggleNERDTree()
-    NERDTreeToggle
-    silent NERDTreeMirror
-endfunction
 
 let $TERM="xterm-256color"
 set termguicolors
@@ -610,8 +640,6 @@ let g:vim_monokai_tasty_italic=1
 let g:molokai_original = 1
 let g:rehash256 = 1
 
-hi MinimapCurrentLine ctermfg=Green guifg=#d6004f
-let g:minimap_highlight = 'MinimapCurrentLine'
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -641,6 +669,13 @@ autocmd FileType php setlocal errorformat=%f(line\ %l):\ %m
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 "command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+set t_Co=256   " This is may or may not needed.
+set background=dark
 "colorscheme vim-monokai-tasty
-colorscheme jummidark
+"colorscheme jummidark
+colorscheme srcery
+"colorscheme monochrome
+"colorscheme wal
+
+
 
