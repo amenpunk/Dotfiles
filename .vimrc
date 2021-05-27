@@ -238,6 +238,11 @@ nmap <leader>ga :diffget //3<CR>
 nmap <leader>gd :diffget //2<CR>
 nmap <leader>gs :G <CR>
 
+map <M-h>:vertical resize -10<CR>
+map <M-l>:vertical resize +10<CR>
+map <M-k>:resize +10<CR>
+map <M-j>:resize -10<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      __  _        
 "                     / _|(_)       
@@ -262,7 +267,8 @@ set splitbelow
 set showmatch
 set modifiable
 set encoding=UTF-8
-set nowrap
+"set nowrap
+set wrap linebreak nolist
 set t_Co=256
 syntax enable
 set incsearch
@@ -549,8 +555,7 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 
-let g:dbs = { 
-\}
+let g:dbs = { }
 
 let g:db_ui_winwidth = 30
 let g:db_ui_icons = {
@@ -673,9 +678,11 @@ set t_Co=256   " This is may or may not needed.
 set background=dark
 "colorscheme vim-monokai-tasty
 "colorscheme jummidark
-colorscheme srcery
-"colorscheme monochrome
+"colorscheme srcery
+"colorscheme PaperColor
+colorscheme monochrome
 "colorscheme wal
+"colorscheme monokai2
 
 
 
