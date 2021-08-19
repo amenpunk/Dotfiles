@@ -225,8 +225,8 @@ noremap <leader>q :q<cr>
 noremap <leader>m :Marks<cr>
 noremap <leader>l :Lines<cr>
 noremap <leader><Enter> :term<cr>
-nnoremap <silent> <Leader>+ :vertical resize +5<CR>
-nnoremap <silent> <Leader>- :vertical resize -5<CR>
+"nnoremap <silent> <Leader>+ :vertical resize +5<CR>
+"nnoremap <silent> <Leader>- :vertical resize -5<CR>
 vnoremap <silent> <F1> <C-C>:update<CR>
 inoremap <silent> <F1> <C-O>:update<CR>
 noremap <silent> <F2>  :NERDTreeFind<CR>
@@ -238,10 +238,15 @@ nmap <leader>ga :diffget //3<CR>
 nmap <leader>gd :diffget //2<CR>
 nmap <leader>gs :G <CR>
 
-map <M-h>:vertical resize -10<CR>
-map <M-l>:vertical resize +10<CR>
-map <M-k>:resize +10<CR>
-map <M-j>:resize -10<CR>
+map <M-h> :vertical resize +5<CR>
+map <M-l> :vertical resize -5<CR>
+map <M-k> :resize -5<CR>
+map <M-j> :resize +5<CR>
+
+imap <C-l> <Plug>(coc-snippets-expand)
+xmap <leader>x  <Plug>(coc-convert-snippet)
+
+noremap gV `[v`]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      __  _        
@@ -301,6 +306,7 @@ syntax on
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
+set scrollback=20
 
 """"""""""""""""""""""""""""""""""""""""
 " __   __ __ _  _ __  ___ 
@@ -310,6 +316,8 @@ set foldlevel=99
 "
 "vars"""""""""""""""""""""""""""""""""""
 
+let g:terminal_scrollback_buffer_size = 20
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:indent_blankline_char = '|'
 let g:indent_blankline_char_list = ['|', '|','|','|',]
 let g:indent_blankline_space_char = ' '
@@ -583,6 +591,11 @@ let g:db_ui_icons = {
 "Plugins""""""""""""""""""""""""""""""""""""""""""""""""
 
 call vundle#begin()
+
+Plugin 'maxmellon/vim-jsx-pretty'
+Plugin 'nvim-lua/plenary.nvim'
+Plugin 'lewis6991/gitsigns.nvim'
+Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'fxn/vim-monochrome'
@@ -678,11 +691,22 @@ set t_Co=256   " This is may or may not needed.
 set background=dark
 "colorscheme vim-monokai-tasty
 "colorscheme jummidark
-"colorscheme srcery
+" colorscheme srcery
 "colorscheme PaperColor
-colorscheme monochrome
+"colorscheme monochrome
 "colorscheme wal
 "colorscheme monokai2
 
+if (has('nvim'))
+  let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+endif
 
+if (has('termguicolors'))
+  set termguicolors
+endif
 
+"let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'darker'
+
+colorscheme material
