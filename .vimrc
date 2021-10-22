@@ -27,7 +27,9 @@
 "Remamps""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 "
-" Make <CR> auto-select the first completion item and notify coc.nvim to
+""""" GIT COMANDS """""
+"
+"" Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 if has('nvim')
   tnoremap <C-v> <C-\><C-n>
@@ -65,8 +67,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>F  <Plug>(coc-format-selected)
+nmap <leader>F  <Plug>(coc-format-selected)
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -197,10 +199,10 @@ nnoremap <C-H> <C-W>h
 map <C-n> :CHADopen<CR>
 map <C-p> :GitFiles<CR>
 map <silent> <leader>w <Plug>(easymotion-bd-w)
-nmap <leader>ga :diffget //3<CR>
-nmap <leader>gd :diffget //2<CR>
-nmap <leader>gn :GitGutterNextHunk<CR>
-nmap <leader>gs :G <CR>
+"nmap <leader>ga :diffget //3<CR>
+"nmap <leader>gd :diffget //2<CR>
+"nmap <leader>gn :GitGutterNextHunk<CR>
+"nmap <leader>gs :G <CR>
 nmap <leader>t :Buffers<CR>
 nmap <leader>b :DBUI<CR>
 map <F3> gg=G<C-o><C-o>
@@ -245,8 +247,10 @@ map <M-j> :resize +5<CR>
 
 imap <C-l> <Plug>(coc-snippets-expand)
 xmap <leader>x  <Plug>(coc-convert-snippet)
+xmap <leader>v  <Plug>(coc-convert-snippet)
+noremap <leader>v gv<CR>
 
-noremap gV `[v`]
+" noremap gV `[v`]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      __  _        
@@ -291,9 +295,9 @@ set winwidth=110
 set number
 set nobackup
 set noswapfile
-set guifont=DroidSansMono\ Nerd\ Font\ 15
+"set guifont=DroidSansMono\ Nerd\ Font\ 15
 "set guifont=Font\ Name:h12
-"set guifont=FiraCode\ Nerd\ Font:h11
+set guifont=Fira\ Code:h12
 
 set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,node_modules
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -316,6 +320,10 @@ set scrollback=20
 "
 "vars"""""""""""""""""""""""""""""""""""
 
+let g:spaceline_seperate_style = 'arrow'
+let g:spaceline_colorscheme = 'space'
+
+let g:context_enabled = 0
 let g:terminal_scrollback_buffer_size = 20
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:indent_blankline_char = '|'
@@ -333,7 +341,7 @@ let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 
 " Background (Vim, GVim)
-"let g:indentLine_bgcolor_term = 202
+let g:indentLine_bgcolor_term = 202
 "let g:indentLine_bgcolor_gui = '#FF5F00'
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
@@ -446,7 +454,7 @@ let NERDTreeShowHidden=0
 let NERDTreeIgnore=['\.git$', '\.idea$', '\node_modules',  '\.vscode$', '\.history$', '\lib$']
 let NERDTreeRespectWildIgnore=1
 let g:indentLine_char = '|'
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#buffer_nr_show = 0
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_start_word_key      = '<C-u>'
@@ -563,7 +571,7 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 
-let g:dbs = { }
+let g:dbs = {}
 
 let g:db_ui_winwidth = 30
 let g:db_ui_icons = {
@@ -592,25 +600,29 @@ let g:db_ui_icons = {
 
 call vundle#begin()
 
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'wellle/context.vim'
+Plugin 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'lewis6991/gitsigns.nvim'
 Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
-Plugin 'NLKNguyen/papercolor-theme'
-Plugin 'dylanaraps/wal.vim'
-Plugin 'fxn/vim-monochrome'
-Plugin 'srcery-colors/srcery-vim'
+"Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'dylanaraps/wal.vim'
+"Plugin 'fxn/vim-monochrome'
+"Plugin 'srcery-colors/srcery-vim'
 Plugin 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plugin 'tpope/vim-commentary'
-Plugin 'jcherven/jummidark.vim'
-Plugin 'patstockwell/vim-monokai-tasty'
+"Plugin 'jcherven/jummidark.vim'
+"Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'mxw/vim-jsx'
 Plugin 'romgrk/barbar.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
+"Plugin 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-dadbod'
 Plugin 'kristijanhusak/vim-dadbod-ui'
@@ -620,7 +632,7 @@ Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 Plugin 'alvan/vim-closetag'
 Plugin 'Yggdroot/indentLine'
 Plugin 'lukas-reineke/indent-blankline.nvim'
@@ -649,7 +661,7 @@ call vundle#end()            " required
 "
 "Extras""""""""""""""""""""""""""""""""""
 
-let $TERM="xterm-256color"
+let $TERM="xst-256color"
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256   " This is may or may not needed.
@@ -691,7 +703,7 @@ set t_Co=256   " This is may or may not needed.
 set background=dark
 "colorscheme vim-monokai-tasty
 "colorscheme jummidark
-" colorscheme srcery
+"colorscheme srcery
 "colorscheme PaperColor
 "colorscheme monochrome
 "colorscheme wal
@@ -708,5 +720,4 @@ endif
 "let g:material_theme_style = 'default' | 'palenight' | 'ocean' | 'lighter' | 'darker' | 'default-community' | 'palenight-community' | 'ocean-community' | 'lighter-community' | 'darker-community'
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'darker'
-
 colorscheme material

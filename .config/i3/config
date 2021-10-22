@@ -2,11 +2,13 @@
 # It will not be overwritten, so edit it as you like.
 # # Should you change your keyboard layout some time, delete # this file and re-run i3-config-wizard(1).
 exec_always killall dunst
-exec_always killall flameshot
-workspace 2 output primary
-workspace 1 output secondary
-workspace 2 output eDP1
-workspace 1 output HDMI1
+exec_always xrdb $HOME/.Xresources
+#exec_always killall flameshot
+exec --no-startup-id i3-battery-popup
+#workspace 2 output primary
+#workspace 1 output secondary
+#workspace 2 output eDP1
+#workspace 1 output HDMI1
 
 #exec --no-startup-id $HOME/.screenlayout/home.sh
 #exec --no-startup-id $HOME/.screenlayout/final.sh
@@ -16,8 +18,8 @@ workspace 1 output HDMI1
 #and then just run ALT+TAB
 #setxkbmap -layout us,de
 #setxkbmap -option 'grp:alt_shift_toggle'
-exec_always setxkbmap -layout us,latam
-exec_always setxkbmap -option 'grp:alt_shift_toggle'
+# exec setxkbmap -layout us,latam
+# exec setxkbmap -option 'grp:alt_shift_toggle'
 ##########################################################################################
 
 #########configuracion del teclado##################################################################
@@ -29,7 +31,6 @@ exec_always setxkbmap -option 'grp:alt_shift_toggle'
 #exec_always feh --bg-fill /home/cyberpunk/Documents/wall/favo.png
 #exec_always feh --bg-scale --no-xinerama /home/cyberpunk/Downloads/gun.jpg
 exec_always --no-startup-id compton &
-exec_always --no-startup-id flameshot &
 #exec_always systemctl --user start sxhkd
 #exec_always synclient TapButton1=1
 #exec_always  --no-startup-id syndaemon -i 0.8 -K -k
@@ -39,10 +40,12 @@ exec_always --no-startup-id flameshot &
 #exec_always synclient PalmMinWidth=1
 #exec_always synclient PalmMinZ=1000
 #exec sxhkd
-exec --no-startup-id nitrogen --restore
+exec nitrogen --restore
 
 #exec_always blueman-applet
 exec_always nm-applet
+exec_always blueman-applet
+exec_always dunst
 # exec_always --no-startup-id volumeicon
 #exec_always --no-startup-id indicator-stickynotes
 #focus_follows_mouse
@@ -52,7 +55,6 @@ exec_always nm-applet
 #setxkbmap -option grp:alt_shift_toggle us,latam
 
 exec_always --no-startup-id flashfocus
-exec_always --no-startup-id  "~/Scripts/fehrand.sh"
 #CONFIG FOR THE COLOR
 #exec_always xrandr --output eDP1 --primary --mode 1366x768 --pos 0x720 --rotate normal --output HDMI1 --mode 1280x720 --pos 86x0 --rotate normal --output VIRTUAL1 --off
 
@@ -101,9 +103,12 @@ gaps outer 1
 #gaps horizontal 2
 
 ################# i3-radius #######################
-smart_borders on
-smart_borders no_gaps
-border_radius 2
+#
+
+
+#smart_borders on
+#border_radius 2
+
 #for_window [class="^.*"] border pixel 0 $ag
 #for_window [title="^.*"] border pixel 0 $bg-color
 #gaps inner 3
@@ -133,15 +138,16 @@ bindsym $mod+shift+x exec "scrot -s -e xclip -selection clipboard -t image/png <
 #bindsym $mod+shift+x exec betterlockscreen -l dim
 #bindsym $mod+shift+i exec scrot
 bindsym $mod+space exec wmfocus --textcolor blue
+bindsym $mod+p exec passmenu
 #bindsym $mod+space exec $HOME/i3-easyfocus/i3-easyfocus --all -k alpha --color-focused-bg 22d6c4 --color-focused-fg 1e1e1e --color-unfocused-bg 1e1e1e --color-unfocused-fg ffffff
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec lxterminal
+bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec xst
-#bindsym $mod+Return exec st
+# bindsym $mod+Return exec st
 
 # kill focused window
 #
@@ -153,10 +159,6 @@ bindsym $mod+Shift+q kill
 
 #bindsym $mod+d exec dmenu_run
 bindsym $mod + d exec rofi -show drun -show-icons
-#bindsym $mod + d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 #bindsym $mod+Shift+w exec surf https://web.whatsapp.com/
@@ -297,6 +299,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #bar {
+#    status_command i3status
+#}
+#bar {
 #    status_command i3blocks -c ~/.config/i3/i3blocks.conf
 #    tray_output primary
 #    position bottom
@@ -352,7 +357,7 @@ bindsym $mod+r mode "resize"
 #                urgent_workspace   #0c0c0c  #0c0c0c  #F7F5E6
 #}
 #}
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh --forest
 #exec_always --no-startup-id xfce4-panel
 
 # Sreen brightness controls
@@ -361,6 +366,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
+#bindsym XF86AudioNext exec playerctl next
+#bindsym XF86AudioPrev exec playerctl previous
+
+# Media player controls
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
@@ -373,25 +382,25 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 #client.focused $rg $rg$ $rg $rg $rg
 
 #GAPS CONFIG
-#bar {
-#    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#    tray_output primary
-#    position bottom
-#    tray_padding 0
-#    
-#	strip_workspace_numbers yes
-#
-#    colors {
-#        separator          #101010
-#        background         #101010
-#        statusline         #101010
-##                          border   background  text
-#        focused_workspace  #0088CC  #0088CC     #ffffff
-#        active_workspace   #333333  #101010     #ffffff
-#        inactive_workspace #1a1a1a  #101010     #888888
-#        urgent_workspace   #2f343a  #101010     #ffffff
-#    }
-#}
+##bar {
+##    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+##    tray_output primary
+##    position bottom
+##    tray_padding 0
+##    
+##	strip_workspace_numbers yes
+##
+##    colors {
+##        separator          #252525
+##        background         #252525
+##        statusline         #252525
+###                          border   background  text
+##        focused_workspace  #0088CC  #0088CC     #ffffff
+##        active_workspace   #333333  #101010     #ffffff
+##        inactive_workspace #1a1a1a  #101010     #888888
+##        urgent_workspace   #2f343a  #101010     #ffffff
+##    }
+##}
 
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5

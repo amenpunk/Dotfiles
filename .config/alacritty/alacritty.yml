@@ -1,23 +1,30 @@
 # Font configuration (changes require restart)
 font:
+  thin_strokes: true
+  antialias: gray # Can have values like lcd, lcdv, gray, and none
+  hinting: true
+  offset:
+    x: 0
+    y: 0
   # The normal (roman) font face to use.
   normal:
-    family: Iosevka Term
+    family: iosevka term ss15
     # Style can be specified to pick a specific face.
-    style: Medium
+    # style: extrabold
 
   # The bold font face
   bold:
-    family: iosevka Term
+    family: iosevka term ss15
     # Style can be specified to pick a specific face.
-    style: Bold
+    style: bold
 
   # The italic font face
   italic:
-    family: iosevka Term
+    family: iosevka term ss15
     # Style can be specified to pick a specific face.
-    style: Italic
-  size: 8.6
+    style: italic
+    #size: 10.5
+  size: 12
 colors:
   # Default colors
   primary:
