@@ -25,7 +25,15 @@
 " |_| \_\\___||_| |_| |_| \__,_|| .__/ |___/
 "                               |_|         
 "Remamps""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
+
+
+nnoremap Y yg$
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 "
 """"" GIT COMANDS """""
 "
@@ -79,7 +87,7 @@ augroup end
 
 " Applying codeAction to the selected region.
 " Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
+"xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
@@ -198,17 +206,17 @@ nnoremap <C-L> <C-W>l
 nnoremap <C-H> <C-W>h
 map <C-n> :CHADopen<CR>
 map <C-p> :GitFiles<CR>
-map <silent> <leader>w <Plug>(easymotion-bd-w)
+map <silent> <leader>a <Plug>(easymotion-bd-w)
 "nmap <leader>ga :diffget //3<CR>
 "nmap <leader>gd :diffget //2<CR>
-"nmap <leader>gn :GitGutterNextHunk<CR>
+nmap <leader>gn :GitGutterNextHunk<CR>
 "nmap <leader>gs :G <CR>
 nmap <leader>t :Buffers<CR>
 nmap <leader>b :DBUI<CR>
 map <F3> gg=G<C-o><C-o>
 nmap <F2> :NERDTreeFind<CR>
 nmap <F1> :w<CR>
-"nmap <leader>w :w<CR>
+nmap <leader>w :w!<CR>
 noremap <leader>f :Rg<CR>
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -223,7 +231,7 @@ noremap <leader>0 :tablast<cr>
 "tab next config
 "noremap <S-l> gt
 "noremap <S-h> gT
-noremap <leader>q :q<cr>
+noremap <leader>q :q!<cr>
 noremap <leader>m :Marks<cr>
 noremap <leader>l :Lines<cr>
 noremap <leader><Enter> :term<cr>
@@ -600,29 +608,19 @@ let g:db_ui_icons = {
 
 call vundle#begin()
 
-"Plugin 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'wellle/context.vim'
 Plugin 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'lewis6991/gitsigns.nvim'
 Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
-"Plugin 'NLKNguyen/papercolor-theme'
-"Plugin 'dylanaraps/wal.vim'
-"Plugin 'fxn/vim-monochrome'
-"Plugin 'srcery-colors/srcery-vim'
 Plugin 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plugin 'tpope/vim-commentary'
-"Plugin 'jcherven/jummidark.vim'
-"Plugin 'patstockwell/vim-monokai-tasty'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'mxw/vim-jsx'
 Plugin 'romgrk/barbar.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-"Plugin 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-dadbod'
 Plugin 'kristijanhusak/vim-dadbod-ui'
@@ -632,7 +630,6 @@ Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'gmarik/Vundle.vim'
-"Plugin 'tpope/vim-fugitive'
 Plugin 'alvan/vim-closetag'
 Plugin 'Yggdroot/indentLine'
 Plugin 'lukas-reineke/indent-blankline.nvim'
@@ -640,6 +637,17 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mhinz/vim-startify'
 Plugin 'kshenoy/vim-signature'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'wellle/context.vim'
+"Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'dylanaraps/wal.vim'
+"Plugin 'fxn/vim-monochrome'
+"Plugin 'jcherven/jummidark.vim'
+"Plugin 'patstockwell/vim-monokai-tasty'
+"Plugin 'srcery-colors/srcery-vim'
+"Plugin 'wfxr/minimap.vim', {'do': ':!cargo install --locked code-minimap'}
 "Plugin 'maxmellon/vim-jsx-pretty'
 "Plugin 'sjl/badwolf'
 "Plugin 'vim-syntastic/syntastic'
@@ -647,7 +655,6 @@ Plugin 'kshenoy/vim-signature'
 "Plugin 'vim-scripts/indentpython.vim'
 "Plugin 'NLKNguyen/papercolor-theme'
 "Plugin 'terryma/vim-multiple-cursors'
-
 call vundle#end()            " required
 
 """""""""""""""""""""""""""""""""""""""""
@@ -721,3 +728,4 @@ endif
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'darker'
 colorscheme material
+set termguicolors
