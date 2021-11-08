@@ -346,16 +346,17 @@ let g:blameLineMessageWhenNotYetCommited = ''
 
 let g:indent_blankline_context_pattern_highlight = {'function': 'Function'}
 let g:indent_blankline_context_char = '┃'
-let g:indent_blankline_context_highlight_list = ['Error', 'Warning']
+let g:indent_blankline_context_highlight_list = []
 let g:indent_blankline_buftype_exclude = ['terminal']
 let g:indent_blankline_filetype = []
 let g:indent_blankline_bufname_exclude = []
 let g:indent_blankline_filetype_exclude = []
-let g:indent_blankline_space_char_highlight_list = ['Error', 'Function']
-let g:indent_blankline_char_highlight_list = ['Error', 'Function']
+let g:indent_blankline_space_char_highlight_list = []
+let g:indent_blankline_char_highlight_list = []
 let g:indent_blankline_context_char_list = ['┃', '║', '╬', '█']
 let g:spaceline_seperate_style = 'arrow'
 let g:spaceline_colorscheme = 'space'
+
 
 let g:context_enabled = 0
 let g:terminal_scrollback_buffer_size = 20
@@ -659,7 +660,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'alvan/vim-closetag'
-Plugin 'Yggdroot/indentLine'
 Plugin 'lukas-reineke/indent-blankline.nvim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'jiangmiao/auto-pairs'
