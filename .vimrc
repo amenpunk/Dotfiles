@@ -328,6 +328,32 @@ set scrollback=20
 "
 "vars"""""""""""""""""""""""""""""""""""
 
+" Show blame info below the statusline instead of using virtual text
+let g:blameLineUseVirtualText = 0
+
+" Specify the highlight group used for the virtual text ('Comment' by default)
+let g:blameLineVirtualTextHighlight = 'Question'
+
+" Change format of virtual text ('%s' by default)
+let g:blameLineVirtualTextFormat = '/* %s */'
+
+" Customize format for git blame (Default format: '%an | %ar | %s')
+let g:blameLineGitFormat = '%an - %s'
+" Refer to 'git-show --format=' man pages for format options)
+
+" Change message when content is not committed
+let g:blameLineMessageWhenNotYetCommited = ''
+
+let g:indent_blankline_context_pattern_highlight = {'function': 'Function'}
+let g:indent_blankline_context_char = '┃'
+let g:indent_blankline_context_highlight_list = ['Error', 'Warning']
+let g:indent_blankline_buftype_exclude = ['terminal']
+let g:indent_blankline_filetype = []
+let g:indent_blankline_bufname_exclude = []
+let g:indent_blankline_filetype_exclude = []
+let g:indent_blankline_space_char_highlight_list = ['Error', 'Function']
+let g:indent_blankline_char_highlight_list = ['Error', 'Function']
+let g:indent_blankline_context_char_list = ['┃', '║', '╬', '█']
 let g:spaceline_seperate_style = 'arrow'
 let g:spaceline_colorscheme = 'space'
 
@@ -579,7 +605,7 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 
-let g:dbs = {}
+let g:dbs = { }
 
 let g:db_ui_winwidth = 30
 let g:db_ui_icons = {
@@ -608,6 +634,8 @@ let g:db_ui_icons = {
 
 call vundle#begin()
 
+Plugin 'tveskag/nvim-blame-line'
+Plugin 'sbdchd/neoformat'
 Plugin 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'nvim-lua/plenary.nvim'
@@ -655,6 +683,7 @@ Plugin 'tpope/vim-fugitive'
 "Plugin 'vim-scripts/indentpython.vim'
 "Plugin 'NLKNguyen/papercolor-theme'
 "Plugin 'terryma/vim-multiple-cursors'
+
 call vundle#end()            " required
 
 """""""""""""""""""""""""""""""""""""""""
@@ -716,6 +745,7 @@ set background=dark
 "colorscheme wal
 "colorscheme monokai2
 
+
 if (has('nvim'))
   let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 endif
@@ -728,4 +758,3 @@ endif
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'darker'
 colorscheme material
-set termguicolors
