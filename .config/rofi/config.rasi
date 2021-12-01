@@ -1,0 +1,5 @@
+configuration {
+     font: "iosevka 7";
+
+}
+@theme "/home/ming/Dotfiles/default.rasi"
