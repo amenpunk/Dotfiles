@@ -15,4 +15,4 @@
 [color]
 	ui = auto
 [pull]
-	rebase = true
+	rebase = false

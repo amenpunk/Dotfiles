@@ -1,11 +1,10 @@
-# status.bar.hide
 #config.source('qutewal.py')
 #------------el que siempre uso----------------------------------------------------------------------------------------
 c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
 #----------------------------------------------------------------------------------------------------
 # c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99999.0.3578.98 Safari/537.36"
 
-
+config.load_autoconfig(False)
 config.source('monokai.py')
 #c.url.searchengines = {"DEFAULT": "https://www.google.fi/search?q={}", "y" : "https://youtube.com/results?search_query={}", "tra": "https://www.spanishdict.com/traductor/{}"}
 c.url.searchengines = {
@@ -32,17 +31,17 @@ c.aliases = {
 }
 
 
-c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
+#c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
 #c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/main.css"
 
-monospace = "8px 'Droid Sans Mono'"
+monospace = "10px 'Droid Sans Mono'"
 ## ---este es el pro
 
 #monospace = "9px 'Fira Code Retina'"
 #c.fonts.monospace = "9px 'Hack'"
 #monospace = "10px 'Fira Code '"
-c.fonts.web.size.default = 10
-c.fonts.web.size.default_fixed  = 10
+c.fonts.web.size.default = 15
+c.fonts.web.size.default_fixed  = 15
 # Font used in the completion categories.
 c.fonts.completion.category = f"bold {monospace}"
 
@@ -109,11 +108,11 @@ c.tabs.indicator.padding = {
 
 c.tabs.indicator.width = 0
 
-c.url.default_page = "/home/cyberpunk/Scripts/index.html"
+c.url.default_page = "https://duckduckgo.com/"
 #c.url.default_page = "https://www.google.com"
 
 #c.url.start_pages = "https://www.google.com"
-c.url.start_pages = "/home/cyberpunk/Scripts/index.html"
+c.url.start_pages = "https://duckduckgo.com/"
 #c.hints.mode = 'word'
 
 # c.tabs.show = 'switching'
@@ -161,7 +160,7 @@ c.tabs.min_width = 5
 #c.content.javascript.alert = False
 #c.completion.show = 'auto'
 c.confirm_quit = ['always']
-c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+#c.content.host_blocking.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 c.input.insert_mode.auto_load = False
 #c.input.spatial_navigation = True
 #c.spellcheck.languages = ['es-ES']
@@ -193,5 +192,7 @@ c.colors.contextmenu.selected.bg ='#ffffff'
 c.colors.contextmenu.selected.bg = '#ffffff'
 c.colors.contextmenu.selected.fg = '#1e1e1e'
 
-c.colors.webpage.prefers_color_scheme_dark = True
+#c.colors.webpage.prefers_color_scheme_dark = True
+# -> c.colors.webpage.darkmode.enabled = True
 
+c.statusbar.show = 'in-mode'

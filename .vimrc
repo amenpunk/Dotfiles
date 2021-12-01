@@ -347,10 +347,10 @@ let g:blameLineMessageWhenNotYetCommited = ''
 let g:indent_blankline_context_pattern_highlight = {'function': 'Function'}
 let g:indent_blankline_context_char = '┃'
 let g:indent_blankline_context_highlight_list = []
-let g:indent_blankline_buftype_exclude = ['terminal']
-let g:indent_blankline_filetype = []
+let g:indent_blankline_buftype_exclude = ['terminal', 'scratch', 'chadtree']
+let g:indent_blankline_filetype = ['javascript', 'php', 'html', 'css','java', 'typescript', 'json', 'python', 'sql' ]
 let g:indent_blankline_bufname_exclude = []
-let g:indent_blankline_filetype_exclude = []
+let g:indent_blankline_filetype_exclude = ['chadtree','scratch']
 let g:indent_blankline_space_char_highlight_list = []
 let g:indent_blankline_char_highlight_list = []
 let g:indent_blankline_context_char_list = ['┃', '║', '╬', '█']
@@ -380,29 +380,6 @@ let g:indentLine_bgcolor_term = 202
 "let g:indentLine_bgcolor_gui = '#FF5F00'
 let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
-
-
-
-
-let bufferline = {}
-let bufferline.closable = v:true
-let bufferline.animation = v:true
-let bufferline.semantic_letters = v:true
-
-" New buffer letters are assigned in this order. This order is
-" optimal for the qwerty keyboard layout but might need adjustement
-" for other layouts.
-let bufferline.letters =
-  \ 'asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP'
-" Sets the maximum padding width with which to surround each tab
-let bufferline.icons = v:true
-let bufferline.maximum_padding = 4
-let bufferline.icon_separator_active = '▎'
-let bufferline.icon_separator_inactive = '▎'
-let bufferline.icon_close_tab = ''
-let bufferline.icon_close_tab_modified = '●'
-let bufferline.auto_hide = v:true
-
 
 let g:spaceline_seperate_style = 'arrow'
 let g:spaceline_colorscheme = 'space'
