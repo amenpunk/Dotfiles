@@ -27,6 +27,12 @@
 "Remamps""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
+nnoremap <leader>fa :FlutterRun<cr>
+nnoremap <leader>fq :FlutterQuit<cr>
+nnoremap <leader>fr :FlutterHotReload<cr>
+nnoremap <leader>fR :FlutterHotRestart<cr>
+nnoremap <leader>fD :FlutterVisualDebug<cr>
+
 nnoremap Y yg$
 nnoremap n nzzzv
 nnoremap N Nzzzv
@@ -258,6 +264,10 @@ xmap <leader>x  <Plug>(coc-convert-snippet)
 xmap <leader>v  <Plug>(coc-convert-snippet)
 noremap <leader>v gv<CR>
 
+" Normal mode: Jump to definition under cursor
+nnoremap <leader>r :AnyJump<CR>
+" Visual mode: jump to selected text in visual mode
+xnoremap <leader>r :AnyJumpVisual<CR>
 " noremap gV `[v`]
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -290,12 +300,12 @@ set t_Co=256
 syntax enable
 set incsearch
 "set smartcase 
-set autoindent
+" set autoindent
 set background=dark
 set relativenumber
 set ts=4
-set smartindent   
-set autoindent
+" set smartindent   
+" set autoindent
 set expandtab
 set shiftwidth=4
 set ignorecase
@@ -303,6 +313,10 @@ set winwidth=110
 set number
 set nobackup
 set noswapfile
+filetype indent on
+set cindent
+set shiftwidth=4
+
 "set guifont=DroidSansMono\ Nerd\ Font\ 15
 "set guifont=Font\ Name:h12
 set guifont=Fira\ Code:h12
@@ -311,7 +325,8 @@ set wildignore+=*.pyc,*.o,*.obj,*.svn,*.swp,*.class,*.hg,*.DS_Store,*.min.*,node
 set rtp+=~/.vim/bundle/Vundle.vim
 set noshowmode
 set ruler
-set laststatus=0
+""" show status bar
+set laststatus=2
 set noshowcmd
 set cmdheight=1
 syntax on
@@ -327,6 +342,10 @@ set scrollback=20
 "   \_/  \__,_||_|   |___/
 "
 "vars"""""""""""""""""""""""""""""""""""
+
+let g:flutter_hot_reload_on_save = 1
+let g:flutter_autoscroll= 1
+let g:flutter_use_last_run_option = 1
 
 " Show blame info below the statusline instead of using virtual text
 let g:blameLineUseVirtualText = 0
@@ -348,7 +367,7 @@ let g:indent_blankline_context_pattern_highlight = {'function': 'Function'}
 let g:indent_blankline_context_char = '┃'
 let g:indent_blankline_context_highlight_list = []
 let g:indent_blankline_buftype_exclude = ['terminal', 'scratch', 'chadtree']
-let g:indent_blankline_filetype = ['javascript', 'php', 'html', 'css','java', 'typescript', 'json', 'python', 'sql' ]
+let g:indent_blankline_filetype = ['javascript', 'php', 'html', 'css','java', 'typescript', 'json', 'python', 'sql', 'dart' ]
 let g:indent_blankline_bufname_exclude = []
 let g:indent_blankline_filetype_exclude = ['chadtree','scratch']
 let g:indent_blankline_space_char_highlight_list = []
@@ -612,17 +631,17 @@ let g:db_ui_icons = {
 
 call vundle#begin()
 
+Plugin 'liuchengxu/eleline.vim'
+Plugin 'tiagofumo/dart-vim-flutter-layout.git'
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
 Plugin 'tveskag/nvim-blame-line'
 Plugin 'sbdchd/neoformat'
-Plugin 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
 Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'nvim-lua/plenary.nvim'
-Plugin 'lewis6991/gitsigns.nvim'
 Plugin 'kaicataldo/material.vim', { 'branch': 'main' }
 Plugin 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plugin 'tpope/vim-commentary'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'captbaritone/better-indent-support-for-php-with-html'
 Plugin 'mxw/vim-jsx'
 Plugin 'romgrk/barbar.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
@@ -634,15 +653,19 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'ryanoasis/vim-webdevicons'
 Plugin 'gko/vim-coloresque'
 Plugin 'tpope/vim-surround'
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'alvan/vim-closetag'
 Plugin 'lukas-reineke/indent-blankline.nvim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'mhinz/vim-startify'
-Plugin 'kshenoy/vim-signature'
 Plugin 'tpope/vim-fugitive'
+"Plugin 'captbaritone/better-indent-support-for-php-with-html'
+"Plugin 'ryanoasis/vim-devicons'
+"Plugin 'kshenoy/vim-signature'
+"Plugin 'romgrk/todoist.nvim', { 'do': ':TodoistInstall' }
+"Plugin 'nvim-lua/plenary.nvim'
+"Plugin 'lewis6991/gitsigns.nvim'
 "Plugin 'vim-airline/vim-airline'
 "Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'wellle/context.vim'
@@ -673,6 +696,8 @@ call vundle#end()            " required
 "                                
 "
 "Extras""""""""""""""""""""""""""""""""""
+
+" call FlutterMenu()
 
 let $TERM="xst-256color"
 set termguicolors
@@ -735,3 +760,6 @@ endif
 let g:material_terminal_italics = 1
 let g:material_theme_style = 'darker'
 colorscheme material
+" colorscheme monokai_pro 
+" 
+
