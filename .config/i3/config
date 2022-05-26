@@ -3,8 +3,9 @@
 # # Should you change your keyboard layout some time, delete # this file and re-run i3-config-wizard(1).
 exec_always killall dunst
 exec_always xrdb $HOME/.Xresources
-#exec_always killall flameshot
+exec_always /home/ming/start.sh
 exec --no-startup-id i3-battery-popup
+exec --no-startup-id nitrogen --restore
 #workspace 2 output primary
 #workspace 1 output secondary
 #workspace 2 output eDP1
@@ -97,6 +98,7 @@ set $mod Mod4
 
 #font pango:Fira Code 8
 font pango:iosevka term ss15 9
+#font pango:Hack 10
 ##### i3-gaps ##############
 for_window [class=".*"] border pixel 0 #*
 gaps inner 10
@@ -147,9 +149,9 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec xst
-# bindsym $mod+Return exec st
+bindsym $mod+Return exec st
 
 # kill focused window
 #
@@ -303,15 +305,15 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
     colors {
-        background #252525
-        statusline #FFFFFF
-        separator  #666666
+	    background #252525
+		    statusline #FFFFFF
+		    separator  #666666
 
-        focused_workspace  #4C7899 #285577 #FFFFFF
-        active_workspace   #333333 #222222 #FFFFFF
-        inactive_workspace #333333 #222222 #888888
-        urgent_workspace   #2F343A #900000 #FFFFFF
-        binding_mode       #2F343A #900000 #FFFFFF
+		    focused_workspace  #319471 #319471 #FFFFFF
+		    active_workspace   #252525 #252525 #FFFFFF
+		    inactive_workspace #252525 #252525 #888888
+		    urgent_workspace   #900000 #252525 #FFFFFF
+		    binding_mode       #900000 #252525 #FFFFFF
     }
 }
 
