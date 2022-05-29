@@ -3,13 +3,16 @@
 # Base16 qutebrowser template by theova
 # Monokai scheme by Wimer Hazenberg (http://www.monokai.nl)
 
-baseqq = "#1e1e1e"
+
+current = "#171717"
+
+baseqq = "#252525"
 #baseqq = "#2e2e2e"
-base00 = "#1e1e1e"
-base01 = "#1e1e1e"
-base02 = "#1e1e1e"
-base03 = "#1e1e1e"
-base04 = "#1e1e1e"
+base00 = "#252525"
+base01 = "#252525"
+base02 = "#252525"
+base03 = "#252525"
+base04 = "#252525"
 base05 = "#f8f8f2"
 base06 = "#f5f4f1"
 base07 = "#f9f8f5"
@@ -22,7 +25,7 @@ base0D = "#66d9ef"
 base0E = "#ae81ff"
 base0F = "#cc6633"
 base0G = "#ffffff"
-#base0G = "#1e1e1e"
+#base0G = "#252525"
 # set qutebrowser colors
 
 # Text color of the completion widget. May be a single color to use for
@@ -241,11 +244,11 @@ c.colors.tabs.even.fg = base05
 # Background color of unselected even tabs.
 c.colors.tabs.even.bg = base00
 
-# Foreground color of selected odd tabs.
+# Foreground color of selected odd tabs -- my config.
 c.colors.tabs.selected.odd.fg = base05
 
 # Background color of selected odd tabs.
-c.colors.tabs.selected.odd.bg = baseqq
+c.colors.tabs.selected.odd.bg = current
 #c.colors.tabs.selected.odd.bg = base05
 
 # Foreground color of selected even tabs.
