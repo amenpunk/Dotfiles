@@ -1,3 +1,5 @@
 hint_activation_key:M-m
 buttons: a s d
 screen:w
+exit:capslock
+cursor_color:#8a20d6
