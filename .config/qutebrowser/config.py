@@ -1,3 +1,6 @@
+font = "Hack"
+# font = "JetBrainsMono Nerd Font"
+
 #config.source('qutewal.py')
 #------------el que siempre uso----------------------------------------------------------------------------------------
 c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
@@ -8,14 +11,14 @@ config.load_autoconfig(False)
 config.source('monokai.py')
 #c.url.searchengines = {"DEFAULT": "https://www.google.fi/search?q={}", "y" : "https://youtube.com/results?search_query={}", "tra": "https://www.spanishdict.com/traductor/{}"}
 c.url.searchengines = {
-        "DEFAULT": "https://www.google.fi/search?q={}",
-# "DEFAULT" : "https://duckduckgo.com/?q={}",
-        "s": "https://soundcloud.com/search?q={}"  ,
-        "g": "https://www.google.fi/search?q={}" ,
-        "y" : "https://youtube.com/results?search_query={}",
-        "d" : "https://duckduckgo.com/?q={}",
-
-        }
+    "DEFAULT": "https://www.google.fi/search?q={}",
+    # "DEFAULT" : "https://duckduckgo.com/?q={}",
+    "s": "https://soundcloud.com/search?q={}"  ,
+    "g": "https://www.google.fi/search?q={}" ,
+    "y" : "https://youtube.com/results?search_query={}",
+    "d" : "https://duckduckgo.com/?q={}",
+    "t" : "https://www.deepl.com/es/translator#es/en/{}",
+}
 #c.window.title_format = "{private}{perc}{title}{title_sep}qutebrowser"
 c.confirm_quit = ["downloads"]
 
@@ -34,14 +37,14 @@ c.aliases = {
 #c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
 #c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/main.css"
 
-monospace = "10px 'Droid Sans Mono'"
+monospace = f"10px '{font}'"
 ## ---este es el pro
 
 #monospace = "9px 'Fira Code Retina'"
 #c.fonts.monospace = "9px 'Hack'"
 #monospace = "10px 'Fira Code '"
-c.fonts.web.size.default = 15
-c.fonts.web.size.default_fixed  = 15
+c.fonts.web.size.default = 17
+c.fonts.web.size.default_fixed  = 17
 # Font used in the completion categories.
 c.fonts.completion.category = f"bold {monospace}"
 
@@ -78,7 +81,7 @@ c.fonts.tabs.selected = monospace
 c.fonts.tabs.unselected = monospace
 
 # Font used for the hints.
-c.fonts.hints = "bold 10px 'Hack'"
+c.fonts.hints = f"bold 10px '{font}'"
 
 # Chars used for hint strings.
 c.hints.chars = "asdfghjklie"
@@ -108,11 +111,11 @@ c.tabs.indicator.padding = {
 
 c.tabs.indicator.width = 0
 
-c.url.default_page = "https://duckduckgo.com/"
+c.url.default_page = "https://migueravila.github.io/Bento/"
 #c.url.default_page = "https://www.google.com"
 
 #c.url.start_pages = "https://www.google.com"
-c.url.start_pages = "https://duckduckgo.com/"
+c.url.start_pages = "https://migueravila.github.io/Bento/"
 #c.hints.mode = 'word'
 
 # c.tabs.show = 'switching'
@@ -196,3 +199,15 @@ c.colors.contextmenu.selected.fg = '#1e1e1e'
 # -> c.colors.webpage.darkmode.enabled = True
 
 c.statusbar.show = 'in-mode'
+
+
+
+## binds 
+config.unbind('<Ctrl-k>', mode='command')
+config.unbind('<Ctrl-k>', mode='prompt')
+
+config.unbind('<Tab>', mode='command')
+config.unbind('<Ctrl-Tab>', mode='command')
+
+config.bind('<Ctrl-j>', 'completion-item-focus next', mode='command')
+config.bind('<Ctrl-k>', 'completion-item-focus prev', mode='command')
