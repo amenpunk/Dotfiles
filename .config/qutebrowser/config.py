@@ -111,11 +111,11 @@ c.tabs.indicator.padding = {
 
 c.tabs.indicator.width = 0
 
-c.url.default_page = "https://migueravila.github.io/Bento/"
+c.url.default_page = "https://amenpunk.github.io/Bento/"
 #c.url.default_page = "https://www.google.com"
 
 #c.url.start_pages = "https://www.google.com"
-c.url.start_pages = "https://migueravila.github.io/Bento/"
+c.url.start_pages = "https://amenpunk.github.io/Bento/"
 #c.hints.mode = 'word'
 
 # c.tabs.show = 'switching'
@@ -199,9 +199,9 @@ c.colors.contextmenu.selected.fg = '#1e1e1e'
 # -> c.colors.webpage.darkmode.enabled = True
 
 c.statusbar.show = 'in-mode'
-
-
-
+c.qt.force_software_rendering = 'chromium'
+c.completion.use_best_match = False
+ 
 ## binds 
 config.unbind('<Ctrl-k>', mode='command')
 config.unbind('<Ctrl-k>', mode='prompt')
