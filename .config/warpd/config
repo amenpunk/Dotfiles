@@ -1,5 +1,12 @@
 hint_activation_key:M-m
+activation_key:M-n
+hint:m
+hint:n
+drag_button:1
+history:h
 buttons: a s d
 screen:w
-exit:capslock
-cursor_color:#8a20d6
+cursor_color:#57f542
+hint_size:30
+scroll_down:A-j
+scroll_up:A-k
