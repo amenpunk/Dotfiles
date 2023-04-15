@@ -1,0 +1,16 @@
+hint_activation_key:M-m
+activation_key:M-n
+hint:m
+hint:n
+drag_button:1
+history:;
+buttons: a s d
+screen:w
+cursor_color:#57f542
+hint_size:33
+hint2_chars:1
+hint2_grid_size:20
+hint2_gap_size:80
+scroll_down:M-j
+scroll_up:M-k
+hint_font:JetBrainsMono-Regular
