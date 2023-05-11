@@ -50,7 +50,7 @@ client.background       $bg
 set $mod Mod4
 
 #font pango:Fira Code 8
-font pango:iosevka term ss15 9
+font pango:JetBrainsMono Bold 8
 #font pango:Hack 10
 ##### i3-gaps ##############
 for_window [class=".*"] border pixel 0 #*
@@ -105,6 +105,11 @@ floating_modifier $mod
 #bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec xst
 bindsym $mod+Return exec st
+bindsym $mod+Left exec playerctl previous
+bindsym $mod+Right exec playerctl next
+bindsym $mod+Up exec playerctl play-pause
+bindsym $mod+Down exec playerctl play-pause
+#bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 #
@@ -130,10 +135,10 @@ bindsym $mod+h focus left
 #bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+j move down
@@ -143,10 +148,10 @@ bindsym $mod+Shift+h move left
 #bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+c split h
@@ -242,10 +247,10 @@ mode "resize" {
 
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        # bindsym Left resize shrink width 10 px or 10 ppt
+        # bindsym Down resize grow height 10 px or 10 ppt
+        # bindsym Up resize shrink height 10 px or 10 ppt
+        # bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -336,10 +341,12 @@ bindsym XF86AudioPlay exec playerctl play-pause
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
 
-# Media player controls
+# Media player controls olds
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# bindsym $mod+_ exec playerctl next
+# bindsym $mod+) exec playerctl previous
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +10% #increase sound volume

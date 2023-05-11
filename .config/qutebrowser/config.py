@@ -1,5 +1,7 @@
-font = "Hack"
+# font = "JetBrainsMono-Regular"
+# font = "JetBrainsMono "
 # font = "JetBrainsMono Nerd Font"
+font = "Hack"
 
 #config.source('qutewal.py')
 #------------el que siempre uso----------------------------------------------------------------------------------------
@@ -37,7 +39,7 @@ c.aliases = {
 #c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
 #c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/main.css"
 
-monospace = f"10px '{font}'"
+monospace = f"12px '{font}'"
 ## ---este es el pro
 
 #monospace = "9px 'Fira Code Retina'"
@@ -195,10 +197,10 @@ c.colors.contextmenu.selected.bg ='#ffffff'
 c.colors.contextmenu.selected.bg = '#ffffff'
 c.colors.contextmenu.selected.fg = '#1e1e1e'
 
-#c.colors.webpage.prefers_color_scheme_dark = True
-# -> c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.enabled = False
 
-c.statusbar.show = 'in-mode'
+# c.statusbar.show = 'in-mode'
+c.statusbar.show = 'always'
 c.qt.force_software_rendering = 'chromium'
 c.completion.use_best_match = False
  
