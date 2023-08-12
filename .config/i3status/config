@@ -6,21 +6,21 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
-        color_good = "#72D5A3"
-        color_degraded = "#F0DFAF"
-        color_bad = "#DCA3A3"
+  colors = true
+    interval = 5
+    color_good = "#72D5A3"
+    color_degraded = "#F0DFAF"
+    color_bad = "#DCA3A3"
 }
-
-
 
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
 order += "disk /"
 order += "memory"
+order += "volume master"
 order += "tztime local"
+
 
 wireless _first_ {
         format_up = "(%quality at %essid, %bitrate / %frequency ) [%ip] "
