@@ -1,46 +1,39 @@
-!j! special
-!j*foreground:   #f8f8f2
-!j*background:   #1e1e1e
-!j*cursorColor:  #f8f8f2
-!j
-!j!black
-!j*color0:       #272822
-!j*color8:       #75715e
-!j
-!j!red
-!j*color1:       #f92672
-!j*color9:       #f92672
-!j
-!j!green
-!j!*color2:       #a6e22e
-!j*color2:       #2e2e2e
-!j*color10:      #2e2e2e
-!j!*color10:      #a6e22e
-!j
-!j!yellow
-!j*color3:       #f4bf75
-!j*color11:      #f4bf75
-!j
-!j!blue
-!j!*color4:       #66d9ef
-!j*color4:       #54a003
-!j*color12:      #66d9ef
-!j
-!j! magenta
-!j*color5:       #ae81ff
-!j*color13:      #ae81ff
-!j
-!j! cyan
-!j*color6:       #a1efe4
-!j*color14:      #a1efe4
-!j
-!j! white
-!j*color7:       #f8f8f2
-!j*color15:      #f9f8f5
-!j
-!jURxvt.foreground: grey
-!j
-!jURxvt*font: xft:Fira Code Retina:pixelsize=19;hinting=True;antialias=True
-!jURxvt*boldFont: xft:Fira Code Retina:pixelsize=19;hinting=True;antialias=True
 URxvt.font: xft:Hack:pixelsize=16
-!j!URxvt*font: xft:Fira Code Retina:pixelsize=27;hinting=True;antialias=True
+!j!URxvt*font: xft:Fira Code Retina:pixelsize=27;hinting=True;antialias=Tru
+! special
+*.foreground:   #ffffff
+*.background:   #1e1e1e
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #5a7260
+*.color8:       #8da691
+
+! red
+*.color1:       #8f423c
+*.color9:       #eeaa88
+
+! green
+*.color2:       #bbbb88
+*.color10:      #ccc68d
+
+! yellow
+*.color3:       #f9d25b
+*.color11:      #eedd99
+
+! blue
+*.color4:       #e0ba69
+*.color12:      #c9b957
+
+! magenta
+*.color5:       #709289
+*.color13:      #ffcbab
+
+! cyan
+*.color6:       #d13516
+*.color14:      #c25431
+
+! white
+*.color7:       #efe2e0
+*.color15:      #f9f1ed
+
