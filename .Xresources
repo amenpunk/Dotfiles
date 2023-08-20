@@ -1,6 +1,20 @@
-URxvt.font: xft:Hack:pixelsize=16
+! urxvt*font: xft:AgaveNerdFont-Regular:size=38
 !j!URxvt*font: xft:Fira Code Retina:pixelsize=27;hinting=True;antialias=Tru
 ! special
+!
+! st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=17
+! st.font:         AgaveNerdFont:style:medium:pixelsize=20
+! Xft.antialias:	1
+Xft.hinting:	1
+Xft.autohint:	0
+Xft.hintstyle:	hintslight
+Xft.rgba:	rgb
+Xft.lcdfilter:	lcddefault
+st.borderpx: 0
+!- 0.1 to 0.9 = transparency
+st.alpha: 0.9
+
+
 *.foreground:   #ffffff
 *.background:   #1e1e1e
 *.cursorColor:  #ffffff
