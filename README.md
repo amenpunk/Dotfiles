@@ -5,9 +5,18 @@
 
 Some configurations  for:
 
+* nix
+* i3
 * warpd
 * qutebrowser
 * dunst
 * rofi
 * flashfocus
 * wmfocus
+
+
+## to automatically the dots to new machine use gnu stow
+```bash
+ $ stow .
+```
+

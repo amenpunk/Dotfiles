@@ -1,20 +1,8 @@
-exec_always killall dunst
-exec_always xrdb $HOME/.Xresources
-exec_always /home/ming/start.sh
-exec --no-startup-id i3-battery-popup
-exec --no-startup-id nitrogen --restore
-
-#workspace 2 output primary
-#workspace 1 output secondary
-#workspace 2 output eDP1
-#workspace 1 output HDMI1
-exec_always --no-startup-id compton &
-exec nitrogen --restore
-
+exec_always xrdb merge $HOME/.Xresources
+exec_always $HOME/start.sh
 exec_always nm-applet
 exec_always blueman-applet
 exec_always dunst
-
 exec_always --no-startup-id flashfocus
 
 focus_follows_mouse no
@@ -49,18 +37,12 @@ client.background       $bg
 
 set $mod Mod4
 
-#font pango:Fira Code 8
-font pango:JetBrainsMono Bold 8
-#font pango:Hack 10
+# font pango:Fira Code 10
+font pango:Hack 9
 ##### i3-gaps ##############
 for_window [class=".*"] border pixel 0 #*
 gaps inner 10
 gaps outer 1
-#gaps horizontal 2
-
-################# i3-radius #######################
-#
-
 
 #smart_borders on
 #border_radius 2
@@ -352,8 +334,6 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
-#client.focused #ffffff #ffffff #ffffff #ffffff #ffffff
-#client.focused $rg $rg$ $rg $rg $rg
 
 #GAPS CONFIG
 ##bar {
@@ -387,10 +367,6 @@ assign [class="code"] 1
 assign [class="qutebrowser"] 2
 assign [class="Postman"] 4
 assign [class="discord"] 9
-assign [class="skype-for-linux"] 8
-assign [class="skype"] 8
-assign [class="spotify"] 3
-assign [class="firefox"] 10
-assign [class="skypeforlinux"] 8
+assign [class="spotify"] 9
+assign [class="firefox"] 2
 assign [class="steam"] 10
-assign [class="LibreOffice"] 10
