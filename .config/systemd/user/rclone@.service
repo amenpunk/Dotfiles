@@ -1,0 +1,16 @@
+# /etc/systemd/system/rclone.service
+[Unit]
+Description=Google Drive (rclone ming)
+AssertPathIsDirectory=/home/ming/Drive
+After=plexdrive.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rclone mount \
+        --config=/home/ming/.config/rclone/rclone.conf Drive:/ /home/ming/Drive/
+ExecStop=/bin/fusermount -u /home/ming/Drive
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
