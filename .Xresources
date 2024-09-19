@@ -2,11 +2,14 @@
 !j!URxvt*font: xft:Fira Code Retina:pixelsize=27;hinting=True;antialias=Tru
 ! special
 !
-! st.font:         JetBrainsMono Nerd Font:style:Regular:pixelsize=18
-st.font:         JetBrainsMono:style:Regular:pixelsize=19
+/*st.font:         JetBrainsMono Nerd Font:style:Regular:pixelsize=18*/
+
+/*st.font:         JetBrainsMono:style:Regular:pixelsize=19*/
+/*st.font:        UbuntuMono:style:Bront:pixelsize=19*/
+st.font:         UbuntuMono:style:Bront:pixelsize=20
+
 ! st.font:         AgaveRegular:style:medium:pixelsize=17
-! st.font:         UbuntuMonoNerdFont :style:regular:pixelsize=18
-! st.font:         Monoid:style:Retina:pixelsize=15
+/*st.font:         Monoid:style:Retina:pixelsize=15*/
 ! st.font:         Agave:style:regular:pixelsize=20
 ! st.font:         Agave Nerd Font:style:regular:pixelsize=20
 ! Xft.antialias:	1

@@ -38,41 +38,19 @@ client.background       $bg
 set $mod Mod4
 
 # font pango:Fira Code 10
-font pango:Hack 9
+font pango:Hack Nerd Font 9
+
 ##### i3-gaps ##############
 for_window [class=".*"] border pixel 0 #*
 gaps inner 10
 gaps outer 1
 
-#smart_borders on
-#border_radius 2
-
-#for_window [class="^.*"] border pixel 0 $ag
-#for_window [title="^.*"] border pixel 0 $bg-color
-#gaps inner 3
-#gaps outer 3
-#smart_gaps on
-#hide_edge_borders smart
-#smart_borders on
-#new_window none
-#gaps inner 20
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:Hack 7
 #font pango:Droid Sans Regular 8
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-
-bindsym $mod+shift+x exec "scrot -s -e xclip -selection clipboard -t image/png < $f"
 #bindsym $mod+shift+x exec betterlockscreen -l dim
 #bindsym $mod+shift+i exec scrot
 bindsym $mod+space exec wmfocus --textcolor blue
@@ -91,7 +69,6 @@ bindsym $mod+Left exec playerctl previous
 bindsym $mod+Right exec playerctl next
 bindsym $mod+Up exec playerctl play-pause
 bindsym $mod+Down exec playerctl play-pause
-#bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 #
@@ -245,7 +222,7 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status
     colors {
-	    background #252525
+        background #1e1e1e
 		    statusline #FFFFFF
 		    separator  #666666
 
@@ -316,7 +293,7 @@ bar {
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # xrandr --listmonitorsdecrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -327,34 +304,11 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# bindsym $mod+_ exec playerctl next
-# bindsym $mod+) exec playerctl previous
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
-
-#GAPS CONFIG
-##bar {
-##    status_command i3blocks -c ~/.config/i3/i3blocks.conf
-##    tray_output primary
-##    position bottom
-##    tray_padding 0
-##    
-##	strip_workspace_numbers yes
-##
-##    colors {
-##        separator          #252525
-##        background         #252525
-##        statusline         #252525
-###                          border   background  text
-##        focused_workspace  #0088CC  #0088CC     #ffffff
-##        active_workspace   #333333  #101010     #ffffff
-##        inactive_workspace #1a1a1a  #101010     #888888
-##        urgent_workspace   #2f343a  #101010     #ffffff
-##    }
-##}
 
 bindsym $mod+z			gaps outer current plus 5
 bindsym $mod+Shift+z		gaps outer current minus 5
@@ -363,10 +317,9 @@ bindsym $mod+s			gaps inner current plus 5
 bindsym $mod+Shift+s		gaps inner current minus 5
 
 #################ASSING WORKSPACE####################
-assign [class="code"] 1
-assign [class="qutebrowser"] 2
-assign [class="Postman"] 4
-assign [class="discord"] 9
-assign [class="spotify"] 9
-assign [class="firefox"] 2
-assign [class="steam"] 10
+assign [class="code"] $ws1
+assign [class="qutebrowser"] $ws2
+assign [class="google-chrome-stable"] $ws2
+assign [class="chrome"] $ws2
+assign [class="firefox"] $ws2
+assign [class="spotify"] $ws9

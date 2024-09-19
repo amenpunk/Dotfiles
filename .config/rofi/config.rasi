@@ -1,5 +1,5 @@
 configuration {
-     font: "JetBrainsMono Bold 8";
+     font: "JetBrainsMono Bold 10";
 
 }
 @theme "/home/ming/Dotfiles/default.rasi"
