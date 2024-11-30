@@ -5,3 +5,4 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 # setxkbmap -layout us,latam
 # setxkbmap -option 'grp:alt_shift_toggle'
 fi
+. "/home/ming/.deno/env"

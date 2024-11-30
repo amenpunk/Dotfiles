@@ -1,6 +1,6 @@
 [user]
 	name = amenpunk
-    email = ondasycircuitos@gmail.com
+	email = ondasycircuitos@gmail.com
 	signingkey = 83C4AD3BB838306E33A7531D9095F9C3539BBF3B
 [credential]
 	helper = store
@@ -16,3 +16,5 @@
 	ui = auto
 [pull]
 	rebase = false
+[fetch]
+	prune = true
