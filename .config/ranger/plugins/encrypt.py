@@ -18,7 +18,7 @@ class encrypt(Command):
 
         returns the name of the tarfile
         """
-        output_path = path + '.tar.gz'
+        output_path = path + ".tar.gz"
 
         with tarfile.open(output_path, "w:gz") as tar_handle:
             for root, dirs, files in os.walk(path):
@@ -28,28 +28,37 @@ class encrypt(Command):
         return output_path
 
     def execute(self):
-        gpg_home = os.path.join(os.path.expanduser('~'), '.gnupg/')
-        default_recpipient = os.environ['DEFAULT_RECIPIENT']
+        gpg_home = os.path.join(os.path.expanduser("~"), ".gnupg/")
+        default_recpipient = os.environ["DEFAULT_RECIPIENT"]
 
         if not default_recpipient:
-            self.fm.notify('DEFAULT_RECIPIENT environment variable must be set')
+            self.fm.notify("DEFAULT_RECIPIENT environment variable must be set")
             return
 
-        gpg = GPG(gpgbinary='/usr/bin/gpg', gnupghome=gpg_home)
+        gpg = GPG(gpgbinary="/usr/bin/gpg", gnupghome=gpg_home)
 
         paths = [os.path.basename(f.path) for f in self.fm.thistab.get_selection()]
 
         for p in paths:
-            if os.path.isdir(p):
-                new_p = self.tardir(p)
-                run(['rm', '-rf', p])
-                p = new_p
+            try:
+                enc = None
+                with open(p, "rb") as f:
+                    enc = gpg.encrypt_file(f, default_recpipient)
 
-            with open(p, 'rb') as f:
-                enc = gpg.encrypt_file(f, default_recpipient)
+                if not enc.ok:
+                    self.fm.notify("GPG Error: " + enc.status)
+                    return
 
-            with open(p + '.gpg', 'wb+') as out:
-                out.write(enc.data)
+                with open(p + ".gpg", "wb+") as out:
+                    out.write(enc.data)
 
-            if os.path.isfile(p):
-                os.remove(p)
+                if os.path.isdir(p):
+                    new_p = self.tardir(p)
+                    run(["rm", "-rf", p])
+                    p = new_p
+
+                if os.path.isfile(p):
+                    os.remove(p)
+            except Exception as e:
+                self.fm.notify("ERROR: " + str(e))
+                print(e)
