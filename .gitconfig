@@ -13,7 +13,7 @@
 [core]
 	editor = nvim
 [color]
-	ui = auto
+	ui = true
 [pull]
 	rebase = false
 [fetch]
