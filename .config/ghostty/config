@@ -1,0 +1,17 @@
+
+# The syntax is "key = value". The whitespace around the
+# equals doesn't matter.
+background = 1e1e1e
+# foreground = ffffff
+
+# Comments start with a `#` and are only valid on their own line.
+# Blank lines are ignored!
+
+keybind = ctrl+z=close_surface
+keybind = ctrl+d=new_split:right
+
+# Empty values reset the configuration to the default value
+theme = xcodedarkhc
+gtk-titlebar = false
+font-family =
+macos-titlebar-style = hidden
