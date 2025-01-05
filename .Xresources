@@ -4,10 +4,10 @@
 !
 /*st.font:         JetBrainsMono Nerd Font:style:Regular:pixelsize=18*/
 
-/*st.font:         JetBrainsMono:style:Regular:pixelsize=19*/
+st.font:         JetBrainsMono:style:Regular:pixelsize=19
 /*st.font:        UbuntuMono:style:Bront:pixelsize=19*/
 /*st.font:         UbuntuMono:style:Bront:pixelsize=20*/
-st.font:         UbuntuMono:style:Bront:pixelsize=25
+/*st.font:         UbuntuMono:style:Bront:pixelsize=25*/
 
 ! st.font:         AgaveRegular:style:medium:pixelsize=17
 /*st.font:         Monoid:style:Retina:pixelsize=15*/
