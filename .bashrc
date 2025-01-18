@@ -17,9 +17,14 @@ export DEFAULT_RECIPIENT="ondasycircuitos@gmail.com"
 alias rel="xrdb merge ~/.Xresources && kill -USR1 $(pidof st)"
 . "/home/ming/.deno/env"
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=~/bin:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/ming/gcloud/google-cloud-sdk/path.bash.inc' ]; then . '/home/ming/gcloud/google-cloud-sdk/path.bash.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/ming/gcloud/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ming/gcloud/google-cloud-sdk/completion.bash.inc'; fi
+
+if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+  source ~/.config/exercism/exercism_completion.bash
+fi

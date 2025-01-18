@@ -1,5 +1,6 @@
 exec_always xrdb merge $HOME/.Xresources
-exec_always $HOME/start.sh
+exec_always xmodmap ~/.Xmodmap
+#exec_always $HOME/start.sh
 exec_always nm-applet
 exec_always blueman-applet
 exec_always dunst
@@ -64,8 +65,8 @@ floating_modifier $mod
 # bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec xst
-#bindsym $mod+Return exec st
-bindsym $mod+Return exec ghostty
+bindsym $mod+Return exec st
+# bindsym $mod+Return exec ghostty
 bindsym $mod+Left exec playerctl previous
 bindsym $mod+Right exec playerctl next
 bindsym $mod+Up exec playerctl play-pause

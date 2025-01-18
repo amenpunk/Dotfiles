@@ -1,7 +1,7 @@
 
 # The syntax is "key = value". The whitespace around the
 # equals doesn't matter.
-#background = 1e1e1e
+# background = 1e1e1e
 # foreground = ffffff
 
 # Comments start with a `#` and are only valid on their own line.
@@ -10,29 +10,34 @@
 keybind = ctrl+z=close_surface
 #keybind = ctrl+d=new_split:right
 
-# Empty values reset the configuration to the default value
-theme = catppuccin-mocha
-# flat, raised, raised-border
-gtk-titlebar = false
-font-family =
-macos-titlebar-style = hidden
+ # Empty values reset the configuration to the default value
+ theme = catppuccin-mocha
+ # flat, raised, raised-border
+ gtk-titlebar = true
+ font-family =
+ macos-titlebar-style = hidden
 
-cursor-style = bar
-cursor-style-blink = true
-adjust-cursor-thickness = 1
+ cursor-style = bar
+ cursor-style-blink = true
+ #adjust-cursor-thickness = 1
 
-# light , dark, system, auto, ghostty
-window-theme = dark
-window-padding-x = 0
-window-padding-y = 0
-window-padding-balance = true
-#window-padding-color = extend-always
-window-padding-color = background
-window-inherit-working-directory = true
-window-inherit-font-size = true
-window-decoration = false
+ resize-overlay = never
+     copy-on-select = false
+     confirm-close-surface = false
+     mouse-hide-while-typing = true
 
-gtk-titlebar = true
-gtk-single-instance = true
-gtk-tabs-location = bottom
-gtk-wide-tabs = false
+ # light , dark, system, auto, ghostty
+ window-theme = ghostty
+     window-padding-x = 0
+     window-padding-y = 0
+     window-padding-balance = true
+     window-padding-color = background
+     window-inherit-working-directory = true
+     window-inherit-font-size = true
+     window-decoration = false
+
+
+     gtk-titlebar = false
+     gtk-single-instance = true
+     gtk-tabs-location = bottom
+     gtk-wide-tabs = false
