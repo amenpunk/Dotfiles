@@ -1,0 +1,13 @@
+[Unit]
+Description=Configuración personalizada de autorandr y otras herramientas
+After=graphical-session.target
+Requires=graphical-session.target
+
+[Service]
+ExecStart=/home/ming/start.sh
+Restart=on-failure
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target

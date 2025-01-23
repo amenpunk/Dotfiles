@@ -63,7 +63,8 @@ st.alpha: 0.9
 /**.color15:      #c5c8c6*/
 
 
-*background: #1e1e2e
+!*background: #1e1e2e
+*background: #1e1e1e
 *foreground: #cdd6f4
 *cursorColor: #f5e0dc
 

@@ -20,3 +20,6 @@ Some configurations  for:
  $ stow .
 ```
 
+## keyboard config
+
+mv 90-custom-kbd.conf /etc/X11/xorg.conf.d/

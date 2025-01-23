@@ -1,9 +1,9 @@
 exec_always xrdb merge $HOME/.Xresources
-exec_always xmodmap ~/.Xmodmap
-#exec_always $HOME/start.sh
 exec_always nm-applet
 exec_always blueman-applet
 exec_always dunst
+exec_always warpd
+exec_always nitrogen --restore
 exec_always --no-startup-id flashfocus
 
 focus_follows_mouse no

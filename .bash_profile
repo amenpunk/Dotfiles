@@ -1,5 +1,3 @@
-xmodmap ~/.Xmodmap
-
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
   neofetch
   #curl -L http://git.io/ryucolor
