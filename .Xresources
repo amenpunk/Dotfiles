@@ -6,7 +6,10 @@
 
 /*st.font:         JetBrainsMono:style:Regular:pixelsize=19*/
 !st.font:        UbuntuMono:style:Bront:pixelsize=19
-st.font:        FiraCodeNerdFont:style:Medium:pixelsize=19
+!st.font:        FiraCodeNerdFont:style:Medium:pixelsize=19
+!st.font:        HackNerdFont:style:Medium:pixelsize=19
+st.font:        BlexMonoNerdFontPropo:style:Medium:pixelsize=19
+!st.font:        M+CodeLat50NerdFont:style:Regular:pixelsize=25
 /*st.font:         UbuntuMono:style:Bront:pixelsize=20*/
 /*st.font:         UbuntuMono:style:Bront:pixelsize=25*/
 

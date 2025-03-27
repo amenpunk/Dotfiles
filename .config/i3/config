@@ -39,7 +39,8 @@ client.background       $bg
 set $mod Mod4
 
 # font pango:Fira Code 10
-font pango:Hack Nerd Font 9
+#font pango:Hack Nerd Font 9
+font pango:BlexMonoNerdFontMedium 9
 
 ##### i3-gaps ##############
 for_window [class=".*"] border pixel 0 #*

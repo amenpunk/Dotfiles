@@ -2,4 +2,4 @@ configuration {
      font: "JetBrainsMono Bold 10";
 
 }
-@theme "/home/ming/Dotfiles/default.rasi"
+@theme "/home/ecc/Dotfiles/default.rasi"
