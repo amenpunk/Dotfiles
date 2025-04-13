@@ -12,7 +12,6 @@ set -o vi
 export EDITOR=vim
 export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio.sh
 export ANDROID_HOME=$HOME/android-sdk
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export DEFAULT_RECIPIENT="ondasycircuitos@gmail.com"
 alias rel="xrdb merge ~/.Xresources && kill -USR1 $(pidof st)"
 #. "/home/ming/.deno/env"

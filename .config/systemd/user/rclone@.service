@@ -1,14 +1,16 @@
 # /etc/systemd/system/rclone.service
 [Unit]
-Description=Google Drive (rclone ming)
-AssertPathIsDirectory=/home/ming/Drive
-After=plexdrive.service
+Description=Rclone for %i
+#AssertPathIsDirectory=%h/%i
+After=network-online.target
+Wants=network-online.target 
 
 [Service]
 Type=simple
+ExecStartPre=-/usr/bin/mkdir -p %h/%i
 ExecStart=/usr/bin/rclone mount \
-        --config=/home/ming/.config/rclone/rclone.conf Drive:/ /home/ming/Drive/
-ExecStop=/bin/fusermount -u /home/ming/Drive
+        --config=%h/.config/rclone/rclone.conf %i: %h/%i
+ExecStop=/bin/fusermount -u %h/%i
 Restart=always
 RestartSec=10
 
