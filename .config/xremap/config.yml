@@ -1,0 +1,7 @@
+modmap:
+  - name: command x alt
+    device:
+      only: ["Bluetoot Keyboard", "AT Raw Set 2 keyboard","/dev/input/event14","/dev/input/event4"]
+    remap:
+      LEFTMETA: LEFTALT
+      LEFTALT: LEFTMETA

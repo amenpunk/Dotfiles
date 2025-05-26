@@ -8,5 +8,6 @@ pkgs.mkShell {
     pkgs.rofi
     pkgs.flashfocus
     pkgs.wmfocus
+    pkgs.dysk
   ];
 }
