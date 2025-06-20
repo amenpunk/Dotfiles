@@ -13,7 +13,7 @@ export EDITOR=vim
 export CAPACITOR_ANDROID_STUDIO_PATH=/opt/android-studio/bin/studio.sh
 export ANDROID_HOME=$HOME/android-sdk
 export DEFAULT_RECIPIENT="ondasycircuitos@gmail.com"
-export JAVA_HOME="/usr/lib/jvm/java-17-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 export GCLOUD_CLIENTID=$(pass show cloud.google.com/client_id)
 export GCLOUD_SECRET=$(pass show cloud.google.com/client_secret)
 

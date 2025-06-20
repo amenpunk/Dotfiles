@@ -57,6 +57,7 @@ gaps outer 1
 #bindsym $mod+shift+i exec scrot
 bindsym $mod+space exec wmfocus --textcolor blue
 bindsym $mod+p exec passmenu
+bindsym $mod+o exec passmenu-otp
 #bindsym $mod+space exec $HOME/i3-easyfocus/i3-easyfocus --all -k alpha --color-focused-bg 22d6c4 --color-focused-fg 1e1e1e --color-unfocused-bg 1e1e1e --color-unfocused-fg ffffff
 
 # Use Mouse+$mod to drag floating windows to their wanted position
