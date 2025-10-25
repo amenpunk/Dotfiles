@@ -1,70 +1,175 @@
-# /etc/nixos/configuration.nix
-# Archivo de configuración principal para un sistema NixOS con i3.
+# Edit this configuration file to define what should be installed on
+# your system. Help is available in the configuration.nix(5) man page, on
+# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+let
+  home-manager = builtins.fetchTarball https://github.com/nix-community/home-manager/archive/release-25.05.tar.gz;
+in
 
 {
   imports =
-    [ 
-      # Importa la configuración de Home Manager para el usuario 'ecc'
-      <home-manager/nixos> 
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      (import "${home-manager}/nixos")
     ];
 
-  # Gestor de arranque (Bootloader).
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda"; # ¡¡IMPORTANTE!! Cambia esto a tu disco principal (ej. /dev/nvme0n1)
 
-  # Configuración de red.
-  networking.hostName = "nixos-i3"; # Define el nombre de tu máquina
-  networking.networkmanager.enable = true;
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
+  home-manager.backupFileExtension = "backup";
+  home-manager.users.doom = import ./home.nix;
 
-  # Zona horaria y localización.
-  time.timeZone = "Europe/Madrid"; # Cambia a tu zona horaria
-  i18n.defaultLocale = "en_US.UTF-8";
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  # Entorno gráfico (X11).
-  services.xserver.enable = true;
-  services.xserver.layout = "es"; # Configuración del teclado
-  services.xserver.xkbOptions = "eurosign:e";
+  networking.hostName = "thinkpad"; # Define your hostname.
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  # Habilitar i3 como gestor de ventanas.
-  services.xserver.windowManager.i3.enable = true;
-  
-  # Habilitar compositor (picom/compton) para transparencias y efectos.
-  services.picom.enable = true;
-
-  # Configurar usuario principal.
-  users.users.ecc = {
-    isNormalUser = true;
-    description = "ecc";
-    extraGroups = [ "networkmanager" "wheel" "docker" ]; # 'wheel' para sudo, 'docker' para usar Docker
-    shell = pkgs.zsh;
+  # Set your time zone.
+  time.timeZone = "America/Guatemala";
+  services.picom = {
+	  enable = true;
+	  backend = "glx";
+	  fade = true;
   };
 
-  # Instalar paquetes a nivel de sistema.
-  # Es mejor instalar la mayoría de paquetes con Home Manager,
-  # pero algunos (como Docker o fuentes) van mejor aquí.
-  environment.systemPackages = with pkgs; [
-    git
-    docker
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; }) # Fuentes populares con íconos
-    st # Terminal st
-  ];
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Permitir paquetes no libres (si es necesario).
-  nixpkgs.config.allowUnfree = true;
+  # Select internationalisation properties.
+  # i18n.defaultLocale = "en_US.UTF-8";
+  # console = {
+  #   font = "Lat2-Terminus16";
+  #   keyMap = "us";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
 
-  # --- Servicios ---
-
-  # Habilitar el servicio de Docker.
-  virtualisation.docker.enable = true;
-
-  # --- Home Manager ---
-  # Configuración para que NixOS sepa cómo gestionar tu usuario 'ecc'.
-  home-manager.users.ecc = {
-    imports = [ ./home.nix ]; # Apunta al archivo que crearemos en tu carpeta de Dotfiles
+  # Enable the X11 windowing system.
+# services.xserver.enable = true;
+  services.xserver = {
+	  enable = true;
+	  windowManager.i3.enable = true;
+	  displayManager.sessionCommands = ''
+		  xwallpaper --zoom ~/Pictures/wall.png
+		  xset r rate 200 35 &
+		  '';
   };
 
-  # Versión del sistema.
-  system.stateVersion = "23.11"; # No cambies esto una vez establecido.
+  programs.light.enable = false;
+
+  # Configure keymap in X11
+  # services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+  services.xserver.xkb.options = "caps:escape";
+
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
+
+  # Enable sound.
+  # services.pulseaudio.enable = true;
+  # OR
+  services.pipewire = {
+	  enable = true;
+	  pulse.enable = true;
+  };
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.libinput.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+   users.users.doom = {
+     isNormalUser = true;
+     description = "edgar";
+     extraGroups = [ "wheel" "docker" "networkmanager" ]; # Enable ‘sudo’ for the user.
+     packages = with pkgs; [
+       tree
+     ];
+   };
+
+services.openssh = {
+    enable = true;
+    ports = [ 22];
+    settings = {
+      PasswordAuthentication = true;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ "doom" ];
+    };
+  };
+  # programs.firefox.enable = true;
+
+  # List packages installed in system profile.
+  # You can use https://search.nixos.org/ to find more packages (and options).
+   environment.systemPackages = with pkgs; [
+     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+     wget
+     st
+     btop
+qutebrowser
+git
+tmux
+warpd
+dunst
+rofi
+wmfocus
+neofetch
+xwallpaper
+flameshot
+flashfocus
+   ];
+
+   fonts.packages = with pkgs; [
+	   jetbrains-mono
+   ];
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # Copy the NixOS configuration file and link it from the resulting system
+  # (/run/current-system/configuration.nix). This is useful in case you
+  # accidentally delete configuration.nix.
+  # system.copySystemConfiguration = true;
+
+  # This option defines the first version of NixOS you have installed on this particular machine,
+  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
+  #
+  # Most users should NEVER change this value after the initial install, for any reason,
+  # even if you've upgraded your system to a new NixOS release.
+  #
+  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
+  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
+  # to actually do that.
+  #
+  # This value being lower than the current NixOS release does NOT mean your system is
+  # out of date, out of support, or vulnerable.
+  #
+  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
+  # and migrated your data accordingly.
+  #
+  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  system.stateVersion = "25.05"; # Did you read the comment?
+
 }
+

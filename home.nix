@@ -5,68 +5,67 @@
 
 {
   # Información del usuario.
-  home.username = "ecc";
-  home.homeDirectory = "/home/ecc";
+  home.username = "doom";
+  home.homeDirectory = "/home/doom";
+  home.stateVersion = "25.05";
 
-  # Lista de paquetes a instalar para tu usuario.
   home.packages = with pkgs; [
-    # Terminal & Shell
+    bat
     ranger
     neovim
-    
-    # UI & Utilidades
     rofi
     dunst
     i3status
     flashfocus
     warpd
     qutebrowser
-    
-    # Seguridad y Contraseñas
     pass
     gnupg
   ];
 
   # --- Configuraciones de Programas ---
-
-  # Git
   programs.git = {
     enable = true;
     userName = "ecc";
-    userEmail = "your-email@example.com"; # ¡Cambia esto!
+    userEmail = "ondasycircuitos@gmail.com"; # ¡Cambia esto!
   };
 
   # Zsh como shell principal
-  programs.zsh = {
+  programs.bash = {
     enable = true;
-    # Puedes enlazar tu .zshrc existente si lo prefieres:
-    # initExtra = builtins.readFile ./.zshrc;
+	shellAliases = {
+		nrs = "sudo nixos-rebuild switch";
+		cat = "bat";
+	};
   };
+  
+  #programs.tmux = {
+  # enable = true;
+  #}
 
-  # GPG Agent para 'pass'
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
   };
 
+  home.file.".config/i3".source = /home/doom/Dotfiles/.config/i3;
+
   # --- Enlazar tus Dotfiles existentes ---
   # Home Manager creará enlaces simbólicos desde las rutas de configuración estándar
   # hacia los archivos en tu repositorio de Dotfiles.
 
-  xdg.configFile = {
-    "i3/config".source = ./config/i3/config;
-    "i3status/config".source = ./config/i3status/config;
-    "rofi/config.rasi".source = ./config/rofi/config.rasi;
-    "dunst/dunstrc".source = ./config/dunst/dunstrc;
-    "ranger/rc.conf".source = ./config/ranger/rc.conf;
-    "qutebrowser/config.py".source = ./config/qutebrowser/config.py;
-    "warpd/config".source = ./config/warpd/config;
-    "flashfocus/flashfocus.yml".source = ./config/flashfocus/flashfocus.yml;
-    "picom/picom.conf".source = ./config/compton/compton.conf; # Asumiendo que es la config de picom
-    "alacritty/alacritty.yml".source = ./config/alacritty/alacritty.yml;
-  };
+  #xdg.configFile = {
+  #  "i3/config".source = ./config/i3/config;
+  #  "i3status/config".source = ./config/i3status/config;
+  #  "rofi/config.rasi".source = ./config/rofi/config.rasi;
+  #  "dunst/dunstrc".source = ./config/dunst/dunstrc;
+  #  "ranger/rc.conf".source = ./config/ranger/rc.conf;
+  #  "qutebrowser/config.py".source = ./config/qutebrowser/config.py;
+  #  "warpd/config".source = ./config/warpd/config;
+  #  "flashfocus/flashfocus.yml".source = /home/doom/config/flashfocus/flashfocus.yml;
+  #  #"alacritty/alacritty.yml".source = ./config/alacritty/alacritty.yml;
+  #};
 
   # Versión de estado de Home Manager.
-  home.stateVersion = "23.11";
   programs.home-manager.enable = true;
 }
