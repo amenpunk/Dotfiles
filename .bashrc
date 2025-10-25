@@ -16,6 +16,7 @@ export DEFAULT_RECIPIENT="ondasycircuitos@gmail.com"
 export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 export GCLOUD_CLIENTID=$(pass show cloud.google.com/client_id)
 export GCLOUD_SECRET=$(pass show cloud.google.com/client_secret)
+export GLITCHICON=$HOME/stop.png
 
 alias rel="xrdb merge ~/.Xresources && kill -USR1 $(pidof st)"
 #. "/home/ming/.deno/env"
@@ -32,3 +33,15 @@ if [ -f '/home/ming/gcloud/google-cloud-sdk/completion.bash.inc' ]; then . '/hom
 if [ -f ~/.config/exercism/exercism_completion.bash ]; then
   source ~/.config/exercism/exercism_completion.bash
 fi
+
+# pnpm
+export PNPM_HOME="/home/ecc/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

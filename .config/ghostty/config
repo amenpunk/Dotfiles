@@ -9,35 +9,49 @@
 
 keybind = ctrl+z=close_surface
 #keybind = ctrl+d=new_split:right
+font-family = 0xProto Nerd Font Mono
+font-size = 16
+font-thicken = true
 
- # Empty values reset the configuration to the default value
- theme = catppuccin-mocha
- # flat, raised, raised-border
- gtk-titlebar = true
- font-family =
- macos-titlebar-style = hidden
+# new window panes
+keybind = ctrl+s>l=new_split:right
+keybind = ctrl+s>h=new_split:left
+keybind = ctrl+s>k=new_split:up
+keybind = ctrl+s>j=new_split:down
 
- cursor-style = bar
- cursor-style-blink = true
- #adjust-cursor-thickness = 1
+# moving between panes
+keybind = ctrl+s>p=goto_split:previous
+keybind = ctrl+s>n=goto_split:next
 
- resize-overlay = never
-     copy-on-select = false
-     confirm-close-surface = false
-     mouse-hide-while-typing = true
+# closing surfaces
+keybind = ctrl+s>d=close_window
+# Empty values reset the configuration to the default value
+theme = catppuccin-mocha
+# flat, raised, raised-border
+gtk-titlebar = true
+macos-titlebar-style = hidden
 
- # light , dark, system, auto, ghostty
- window-theme = ghostty
-     window-padding-x = 0
-     window-padding-y = 0
-     window-padding-balance = true
-     window-padding-color = background
-     window-inherit-working-directory = true
-     window-inherit-font-size = true
-     window-decoration = false
+cursor-style = bar
+cursor-style-blink = true
+#adjust-cursor-thickness = 1
+
+resize-overlay = never
+copy-on-select = false
+confirm-close-surface = false
+mouse-hide-while-typing = true
+
+# light , dark, system, auto, ghostty
+window-theme = ghostty
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true
+window-padding-color = background
+window-inherit-working-directory = true
+window-inherit-font-size = true
+window-decoration = false
 
 
-     gtk-titlebar = false
-     gtk-single-instance = true
-     gtk-tabs-location = bottom
-     gtk-wide-tabs = false
+gtk-titlebar = false
+gtk-single-instance = true
+gtk-tabs-location = bottom
+gtk-wide-tabs = false

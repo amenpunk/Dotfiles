@@ -2,15 +2,16 @@
 !j!URxvt*font: xft:Fira Code Retina:pixelsize=27;hinting=True;antialias=Tru
 ! special
 !
-! *st.font:         JetBrainsMono Nerd Font:style:Regular:pixelsize=18*/*/
+st.font:         JetBrainsMono Nerd Font:style:Regular:pixelsize=16
 
 /*st.font:         JetBrainsMono:style:Regular:pixelsize=19*/
 ! st.font:        UbuntuMono:style:Bront:pixelsize=19
+!st.font:        UbuntuMonoNerdFont:style:Mono:pixelsize=19
 !st.font:        FiraCodeNerdFont:style:Medium:pixelsize=19
 !st.font:        HackNerdFont:style:Medium:pixelsize=19
 
 ! st.font:        Mononoki:style:Regular:pixelsize=20
-st.font:        BlexMonoNerdFontPropo:style:Medium:pixelsize=17
+!st.font:        BlexMonoNerdFontPropo:style:Medium:pixelsize=17
 
 !st.font:        M+CodeLat50NerdFont:style:Regular:pixelsize=25
 /*st.font:         UbuntuMono:style:Bront:pixelsize=20*/
@@ -32,76 +33,41 @@ st.borderpx: 0
 !- 0.1 to 0.9 = transparency
 st.alpha: 0.9
 
-/**/
-/**.foreground:   #ffffff*/
-/**.background:   #1e1e1e*/
-/**.cursorColor:  #ffffff*/
-/**/
-/**.color0:       #282a2e*/
-/**.color8:       #373b41*/
-/**/
-/*! red*/
-/**.color1:       #a54242*/
-/**.color9:       #cc6666*/
-/**/
-/*! green*/
-/**.color2:       #8c9440*/
-/**.color10:      #b5bd68*/
-/**/
-/*! yellow*/
-/**.color3:       #de935f*/
-/**.color11:      #f0c674*/
-/**/
-/*! blue*/
-/**.color4:       #5f819d*/
-/**.color12:      #81a2be*/
-/**/
-/*! magenta*/
-/**.color5:       #85678f*/
-/**.color13:      #b294bb*/
-/**/
-/*! cyan*/
-/**.color6:       #5e8d87*/
-/**.color14:      #8abeb7*/
-/**/
-/*! white*/
-/**.color7:       #707880*/
-/**.color15:      #c5c8c6*/
-
-
-!*background: #1e1e2e
-*background: #1e1e1e
-*foreground: #cdd6f4
-*cursorColor: #f5e0dc
+! special
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
 
 ! black
-*color0: #45475a
-*color8: #585b70
+*.color0:       #282a2e
+*.color8:       #373b41
 
 ! red
-*color1: #f38ba8
-*color9: #f38ba8
+*.color1:       #a54242
+*.color9:       #cc6666
 
 ! green
-*color2: #a6e3a1
-*color10: #a6e3a1
+*.color2:       #8c9440
+*.color10:      #b5bd68
 
 ! yellow
-*color3: #f9e2af
-*color11: #f9e2af
+*.color3:       #de935f
+*.color11:      #f0c674
 
 ! blue
-*color4: #89b4fa
-*color12: #89b4fa
+*.color4:       #5f819d
+*.color12:      #81a2be
 
 ! magenta
-*color5: #f5c2e7
-*color13: #f5c2e7
+*.color5:       #85678f
+*.color13:      #b294bb
 
 ! cyan
-*color6: #94e2d5
-*color14: #94e2d5
+*.color6:       #5e8d87
+*.color14:      #8abeb7
 
 ! white
-*color7: #bac2de
-*color15: #a6adc8
+*.color7:       #707880
+*.color15:      #c5c8c6
+
+
