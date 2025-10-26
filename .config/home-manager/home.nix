@@ -21,13 +21,20 @@
     qutebrowser
     pass
     gnupg
-    helix
+lua
+nodejs
+python3
+fd
+ripgrep
+gcc
+clang
+cmake
   ];
 
   # --- Configuraciones de Programas ---
   programs.git = {
     enable = true;
-    userName = "amenpunk";
+    userName = "ecc";
     userEmail = "ondasycircuitos@gmail.com"; # ¡Cambia esto!
   };
 
@@ -38,7 +45,6 @@
 		build = "sudo nixos-rebuild switch";
 		cat = "bat";
 		str = "xrdb merge /home/doom/.Xresources && kill -USR1 $(pidof st)";
-		hx = "helix";
 	};
   };
   
@@ -60,29 +66,6 @@
     };
   };
 
-  programs.helix = {
-	  enable = true;
-	  settings = {
-		  theme = "autumn_night_transparent";
-		  editor.cursor-shape = {
-			  normal = "block";
-			  insert = "bar";
-			  select = "underline";
-		  };
-	  };
-	  languages.language = [{
-		  name = "nix";
-		  auto-format = true;
-		  formatter.command = "${pkgs.nixfmt}/bin/nixfmt";
-	  }];
-	  themes = {
-		  autumn_night_transparent = {
-			  "inherits" = "autumn_night";
-			  "ui.background" = { };
-		  };
-	  };
-  };
-
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
@@ -96,7 +79,7 @@
   home.file.".config/rofi".source = /home/doom/Dotfiles/.config/rofi;
   home.file.".config/qutebrowser".source = /home/doom/Dotfiles/.config/qutebrowser;
   home.file.".config/warpd".source = /home/doom/Dotfiles/.config/warpd;
-  ## home.file.".config/nvim".source = /home/doom/vimrc;
+  home.file.".config/nvim".source = /home/doom/vimrc;
 
   # Versión de estado de Home Manager.
   programs.home-manager.enable = true;

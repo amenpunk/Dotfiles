@@ -123,6 +123,14 @@ neofetch
 xwallpaper
 flameshot
 flashfocus
+lua
+nodejs
+python3
+fd
+ripgrep
+gcc
+cmake
+helix
    ];
 
 fonts.packages = with pkgs; [

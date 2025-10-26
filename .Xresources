@@ -5,7 +5,7 @@ Xft.hintstyle:	hintslight
 Xft.rgba:	rgb
 Xft.lcdfilter:	lcddefault
 
-st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=17
+st.font:         JetBrainsMono Nerd Font:style:medium:pixelsize=25
 
 ! window padding
 st.borderpx: 20
