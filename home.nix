@@ -34,8 +34,9 @@
   programs.bash = {
     enable = true;
 	shellAliases = {
-		nrs = "sudo nixos-rebuild switch";
+		build = "sudo nixos-rebuild switch";
 		cat = "bat";
+		str = "xrdb merge /home/doom/.Xresources && kill -USR1 $(pidof st)";
 	};
   };
   
@@ -49,6 +50,9 @@
   };
 
   home.file.".config/i3".source = /home/doom/Dotfiles/.config/i3;
+  home.file.".tmux.conf".source = /home/doom/Dotfiles/.tmux.conf;
+  home.file.".Xresources".source = /home/doom/Dotfiles/.Xresources;
+
 
   # --- Enlazar tus Dotfiles existentes ---
   # Home Manager creará enlaces simbólicos desde las rutas de configuración estándar

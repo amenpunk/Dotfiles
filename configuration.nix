@@ -109,8 +109,9 @@ services.openssh = {
    environment.systemPackages = with pkgs; [
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
-     st
+     st-snazzy
      btop
+unzip
 qutebrowser
 git
 tmux
@@ -124,10 +125,14 @@ flameshot
 flashfocus
    ];
 
-   fonts.packages = with pkgs; [
-	   jetbrains-mono
-   ];
+fonts.packages = with pkgs; [
+  nerd-fonts.jetbrains-mono
+  nerd-fonts.droid-sans-mono
+  nerd-fonts.fira-code
+];
 
+   #programs.st.url="github:siduck/st";
+   #input.st.packages."${system}".st-snazzy;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
