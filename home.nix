@@ -50,25 +50,12 @@
   };
 
   home.file.".config/i3".source = /home/doom/Dotfiles/.config/i3;
+  home.file.".config/i3status".source = /home/doom/Dotfiles/.config/i3status;
   home.file.".tmux.conf".source = /home/doom/Dotfiles/.tmux.conf;
   home.file.".Xresources".source = /home/doom/Dotfiles/.Xresources;
-
-
-  # --- Enlazar tus Dotfiles existentes ---
-  # Home Manager creará enlaces simbólicos desde las rutas de configuración estándar
-  # hacia los archivos en tu repositorio de Dotfiles.
-
-  #xdg.configFile = {
-  #  "i3/config".source = ./config/i3/config;
-  #  "i3status/config".source = ./config/i3status/config;
-  #  "rofi/config.rasi".source = ./config/rofi/config.rasi;
-  #  "dunst/dunstrc".source = ./config/dunst/dunstrc;
-  #  "ranger/rc.conf".source = ./config/ranger/rc.conf;
-  #  "qutebrowser/config.py".source = ./config/qutebrowser/config.py;
-  #  "warpd/config".source = ./config/warpd/config;
-  #  "flashfocus/flashfocus.yml".source = /home/doom/config/flashfocus/flashfocus.yml;
-  #  #"alacritty/alacritty.yml".source = ./config/alacritty/alacritty.yml;
-  #};
+  home.file.".gitconfig".source = /home/doom/Dotfiles/.gitconfig;
+  home.file.".config/rofi".source = /home/doom/Dotfiles/.config/rofi;
+  home.file.".config/qutebrowser".source = /home/doom/Dotfiles/.config/qutebrowser;
 
   # Versión de estado de Home Manager.
   programs.home-manager.enable = true;
