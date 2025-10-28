@@ -1,0 +1,14 @@
+theme= "fleet_dark"
+
+[editor]
+true-color=true
+line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
