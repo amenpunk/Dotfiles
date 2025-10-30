@@ -39,19 +39,13 @@ client.background       $bg
 set $mod Mod4
 
 # font pango:Fira Code 10
-#font pango:Hack Nerd Font 9
-font pango:BlexMonoNerdFontMedium 9
+font pango:Hack Nerd Font 9
+#font pango:BlexMonoNerdFontMedium 9
 
 ##### i3-gaps ##############
 for_window [class=".*"] border pixel 0 #*
 gaps inner 10
 gaps outer 1
-
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:Hack 7
-#font pango:Droid Sans Regular 8
 
 #bindsym $mod+shift+x exec betterlockscreen -l dim
 #bindsym $mod+shift+i exec scrot
@@ -86,10 +80,6 @@ bindsym $mod+Shift+q kill
 #bindsym $mod+d exec dmenu_run
 bindsym $mod + d exec rofi -show drun -show-icons
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
-#bindsym $mod+Shift+w exec surf https://web.whatsapp.com/
-#bindsym $mod + m exec --no-startup-id ~/.config /i3/rofi
-#bindsym $mod+m exec rofi -dmenu
 
 # change focus
 bindsym $mod+j focus down
@@ -264,12 +254,8 @@ bindsym XF86AudioPrev exec playerctl previous
 #bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle 
 
 # Pulse Audio controls on arch
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-  
-bindsym XF86AudioMute exec --no-startup-id bash -c 'wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 || wpctl set-mute @DEFAULT_AUDIO_SINK@ 1'
-
-
-
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-  
 
 
 bindsym $mod+z			gaps outer current plus 5

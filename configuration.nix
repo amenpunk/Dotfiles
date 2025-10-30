@@ -79,6 +79,7 @@ in
   services.pipewire = {
 	  enable = true;
 	  pulse.enable = true;
+          alsa.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -137,6 +138,8 @@ pavucontrol
 brave
  xorg.xbacklight
 brightnessctl
+wireplumber
+pamixer
    ];
 
 fonts.packages = with pkgs; [
