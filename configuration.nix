@@ -51,17 +51,18 @@ in
   # };
 
   # Enable the X11 windowing system.
-# services.xserver.enable = true;
+  programs.light.enable = true;
+  hardware.acpilight.enable = true;
+
   services.xserver = {
 	  enable = true;
 	  windowManager.i3.enable = true;
+          videoDrivers = [ "modesetting" ];
 	  displayManager.sessionCommands = ''
 		  xwallpaper --zoom ~/Pictures/wall.png
 		  xset r rate 200 35 &
 		  '';
   };
-
-  programs.light.enable = false;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -74,6 +75,7 @@ in
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
+  security.rtkit.enable = true;
   services.pipewire = {
 	  enable = true;
 	  pulse.enable = true;
@@ -92,7 +94,7 @@ in
      ];
    };
 
-services.openssh = {
+  services.openssh = {
     enable = true;
     ports = [ 22];
     settings = {
@@ -131,6 +133,10 @@ ripgrep
 gcc
 cmake
 helix
+pavucontrol
+brave
+ xorg.xbacklight
+brightnessctl
    ];
 
 fonts.packages = with pkgs; [
