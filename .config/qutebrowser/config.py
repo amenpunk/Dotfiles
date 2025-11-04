@@ -1,11 +1,12 @@
 # font = "JetBrainsMono-Regular"
 # font = "JetBrainsMono "
 # font = "JetBrainsMono Nerd Font"
-font = "Hack"
+#font = "Hack"
+font = "JetBrainsMono Nerd Font"
 
 # config.source('qutewal.py')
 # ------------el que siempre uso----------------------------------------------------------------------------------------
-c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
+#c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.128 Safari/537.36"
 # ----------------------------------------------------------------------------------------------------
 # c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99999.0.3578.98 Safari/537.36"
 
@@ -19,7 +20,8 @@ c.url.searchengines = {
     "g": "https://www.google.fi/search?q={}",
     "y": "https://youtube.com/results?search_query={}",
     "d": "https://duckduckgo.com/?q={}",
-    "t": "https://www.deepl.com/es/translator#es/en/{}",
+    "t": "https://www.deepl.com/es/translator#en/es/{}",
+    "n" : "https://search.nixos.org/packages?channel=25.05&query={}"
 }
 # c.window.title_format = "{private}{perc}{title}{title_sep}qutebrowser"
 c.confirm_quit = ["downloads"]
@@ -39,7 +41,7 @@ c.aliases = {
 # c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/sites.css"
 # c.content.user_stylesheets = "/home/cyberpunk/.config/qutebrowser/main.css"
 
-monospace = f"12px '{font}'"
+monospace = f"17px '{font}'"
 ## ---este es el pro
 
 # monospace = "9px 'Fira Code Retina'"
@@ -120,8 +122,8 @@ c.url.default_page = "https://amenpunk.github.io/Bento/"
 c.url.start_pages = "https://amenpunk.github.io/Bento/"
 # c.hints.mode = 'word'
 
-# c.tabs.show = 'switching'
-c.statusbar.show = "never"
+c.tabs.show = 'switching'
+#c.statusbar.show = "never"
 c.tabs.show = "multiple"
 
 # c.tabs.title.alignment = 'right'
@@ -132,7 +134,7 @@ c.content.autoplay = True
 
 # c.tabs.indicator.width = 0
 
-c.tabs.show_switching_delay = 10000
+c.tabs.show_switching_delay = 1000
 c.statusbar.position = "bottom"
 # c.statusbar.position = 'top'
 # c.statusbar.hide = False
@@ -147,7 +149,7 @@ c.tabs.wrap = True
 # c.tabs.pinned.shrink = True
 c.tabs.position = "top"
 # c.tabs.position = 'top'
-c.tabs.width = 29
+c.tabs.width = 50
 # c.tabs.max_width = 160
 
 ## max min normal with

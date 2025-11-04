@@ -133,7 +133,6 @@ fd
 ripgrep
 gcc
 cmake
-helix
 pavucontrol
 brave
  xorg.xbacklight

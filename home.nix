@@ -22,13 +22,19 @@
     pass
     gnupg
     helix
+    xclip
+    cargo
+    python3
+    luarocks
+    python3Packages.pip
+    python3Packages.virtualenv
   ];
 
   # --- Configuraciones de Programas ---
   programs.git = {
     enable = true;
     userName = "amenpunk";
-    userEmail = "ondasycircuitos@gmail.com"; # ¡Cambia esto!
+    userEmail = "ondasycircuitos@gmail.com";
   };
 
   # Zsh como shell principal
@@ -77,6 +83,11 @@
   home.file.".config/rofi".source = /home/doom/Dotfiles/.config/rofi;
   home.file.".config/qutebrowser".source = /home/doom/Dotfiles/.config/qutebrowser;
   home.file.".config/warpd".source = /home/doom/Dotfiles/.config/warpd;
+
+  home.file.".config/flashfocus" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Dotfiles/.config/flashfocus";
+    recursive = true;
+  };
   ## home.file.".config/nvim".source = /home/doom/vimrc;
 
   # Versión de estado de Home Manager.
