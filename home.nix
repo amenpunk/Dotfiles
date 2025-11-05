@@ -19,7 +19,8 @@
     flashfocus
     warpd
     qutebrowser
-    pass
+    pass 
+    passExtensions.pass-otp
     gnupg
     helix
     xclip

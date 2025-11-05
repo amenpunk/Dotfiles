@@ -39,7 +39,7 @@ client.background       $bg
 set $mod Mod4
 
 # font pango:Fira Code 10
-font pango:JetBrainsMono Nerd Font 10
+font pango:JetBrainsMono Nerd Font 12
 #font pango:BlexMonoNerdFontMedium 9
 
 ##### i3-gaps ##############
