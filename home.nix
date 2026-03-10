@@ -21,8 +21,26 @@
     flashfocus
     warpd
     qutebrowser
-    pass 
-    passExtensions.pass-otp
+    (pass.withExtensions (exts: [ exts.pass-otp ]))
+    xdotool
+    (stdenv.mkDerivation {
+      pname = "passmenu-otp";
+      version = "master";
+      src = fetchFromGitHub {
+        owner = "petrmanek";
+        repo = "passmenu-otp";
+        rev = "master"; 
+        # Usamos el "Fake Hash Trick" de Nix. Deja este hash falso por ahora:
+        hash = "sha256-2EGomeK/p3uVfgho5xGR11ovJQ2q3cPZoFG+z88DyxA="; 
+      };
+      installPhase = ''
+        mkdir -p $out/bin
+        cp passmenu-otp $out/bin/
+        # Parcheamos el script para que use rofi de forma nativa
+        sed -i 's/dmenu "$@"/rofi -dmenu -i "$@"/g' $out/bin/passmenu-otp
+        chmod +x $out/bin/passmenu-otp
+      '';
+    })
     gnupg
     helix
     xclip
