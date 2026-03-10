@@ -109,11 +109,14 @@ in
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
+  nixpkgs.config.allowUnfree = true;
+
    environment.systemPackages = with pkgs; [
      vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
      wget
      st-snazzy
      btop
+spotify
 unzip
 qutebrowser
 git
@@ -139,7 +142,9 @@ brave
 brightnessctl
 wireplumber
 pamixer
+    passExtensions.pass-otp
    ];
+
 
 fonts.packages = with pkgs; [
   nerd-fonts.jetbrains-mono

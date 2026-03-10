@@ -10,9 +10,11 @@
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
+    networkmanagerapplet
     bat
     ranger
     neovim
+    arandr
     rofi
     dunst
     i3status
