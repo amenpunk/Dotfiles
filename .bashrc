@@ -6,6 +6,24 @@
 [[ $- != *i* ]] && return
 
 alias ls='lsd --color=auto'
+alias k='kubectl'
+
+# Habilitar bash-completion si la shell no está en modo POSIX
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  elif [ -f /run/current-system/sw/share/bash-completion/bash_completion ]; then
+    # Ruta estándar en NixOS
+    . /run/current-system/sw/share/bash-completion/bash_completion
+  elif type brew &>/dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+    # Ruta en macOS con Homebrew (requiere Bash 4.2+)
+    . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+  fi
+fi
+
+complete -o default -F __start_kubectl k
 # PS1='[\u@\h \W]\$ '
 eval "$(starship init bash)"
 set -o vi

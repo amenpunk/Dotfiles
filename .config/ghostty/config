@@ -2,6 +2,7 @@
 # The syntax is "key = value". The whitespace around the
 # equals doesn't matter.
 background = 1e1e1e
+background-opacity = 0.85
 # foreground = ffffff
 
 # Comments start with a `#` and are only valid on their own line.
