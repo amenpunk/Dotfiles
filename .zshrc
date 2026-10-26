@@ -134,3 +134,7 @@ plugins=(archlinux git)
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 bindkey -v
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ecc/.local/bin:$PATH"

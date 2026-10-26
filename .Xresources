@@ -2,7 +2,8 @@
 !j!URxvt*font: xft:Fira Code Retina:pixelsize=27;hinting=True;antialias=Tru
 ! special
 !
-! *st.font:         JetBrainsMono Nerd Font:style:Regular:pixelsize=18*/*/
+st.font:         JetBrainsMono Nerd Font:style:Regular:pixelsize=18*/*/
+! st.font:         Berkeley Mono Trial:style:Regular:pixelsize=22
 
 /*st.font:         JetBrainsMono:style:Regular:pixelsize=19*/
 ! st.font:        UbuntuMono:style:Bront:pixelsize=19
@@ -10,7 +11,7 @@
 !st.font:        HackNerdFont:style:Medium:pixelsize=19
 
 ! st.font:        Mononoki:style:Regular:pixelsize=20
-st.font:        BlexMonoNerdFontPropo:style:Medium:pixelsize=17
+! st.font:        BlexMonoNerdFontPropo:style:Medium:pixelsize=17
 
 !st.font:        M+CodeLat50NerdFont:style:Regular:pixelsize=25
 /*st.font:         UbuntuMono:style:Bront:pixelsize=20*/

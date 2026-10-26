@@ -6,3 +6,7 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
 # setxkbmap -option 'grp:alt_shift_toggle'
 fi
 #. "/home/ming/.deno/env"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ecc/.local/bin:$PATH"
